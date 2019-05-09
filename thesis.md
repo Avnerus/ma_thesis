@@ -163,6 +163,10 @@ The following chart blah
 |               |               |                 |             |             |
 +---------------+---------------+-----------------+-------------+-------------+
 
+# Caveats
+
+## Technological bias
+
 # HITODAMA - Design
 
 ## Related works
