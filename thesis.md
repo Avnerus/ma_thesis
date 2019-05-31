@@ -174,13 +174,18 @@ In Keating's study of the engineers group, she found that they adapted to the la
 As the power of language in mediated situations is now stated, we could examine the current modalities of language and voice that are enabled by contemporary technology. In regards to speech, there are three main scenarios in which a synthesized speech could be beneficial in a dyadic conversation where no autonomous artificial intelligence entities are involved: a) As previously mentioned, voice alteration technologies allow us to alter our embodied imagery, such as having a gender-neutral voice or an alternative avatar from a fantasy world, b) Speech synthesis allows a person to be able to speak even in cases when a certain physical impairment hinders their natural voice, or c) Real time translation technology allows us to speak in languages that we never acquired. In cases (b) and (c) where we might opt for maintaining the original characteristics of our voice but augment it with certain capabilities, technology has the capacity to learn and mimic a personalized voice using recording data [@mills_towards_2014]. In case(a) we might opt for a completely new and fresh voice, and in that field companies are now competing on creating the most expressive and natural sounding artificial voice [@xue_comparison_2018]. Most of the contemporary technologies for speech synthesis now use deep neural networks in one way or another, a technology that is growing rapidly, accelerating the development of speech synthesis to unimaginable levels. 
 
 ### Emojis
-A more recent modality that is associated with language is the use of _Emojis_. Emojis are a set of icons for the use of text based communication, standardized by the unicode consortium [@noauthor_unicode_2019].  They allow us to express certain emotions or situations in text, adapting over the aforementioned gaps in mediated expression. Emojis were found to correlate with human sentiment [@novak_sentiment_2015], are studied by psychologists to analyze human behavior [@kaye_emojis:_2017] and are even suggested to be used in scientific literature to add additional expressiveness to academic texts [@oreilly-shah_is_2018] 😲.
+A more recent modality that is associated with language is the use of _Emojis_. Emojis are a set of icons for the use of text based communication, standardized by the unicode consortium [@noauthor_unicode_2019].  They allow us to express certain emotions or situations in text, adapting over the aforementioned gaps in mediated expression. Emojis were found to correlate with human sentiment [@novak_sentiment_2015], are studied by psychologists to analyze human behavior [@kaye_emojis:_2017] and are even suggested to be used in scientific literature to add additional expressiveness to academic texts [@oreilly-shah_is_2018] 😲. The use of emojis is an accessible and open method for expressing elaborate meanings just by using text messaging; the medium could then translate the emoji to other modalities, whether by just displaying it on a screen, or by appropriating sound, movement and other physical elements. 
 
 ## Body Langauge
+An emphatically meaningful, yet highly elusive element of intercorporeality comes from our body language: Meaningful because despite Merleau-Ponty's claim that speech and even ideation are acts of the body, the directness of bodily gestures provide a clear connection between social identity and the flesh that envelopes them, elusive because a large number of these acts are picked up only by our subconscious and because the line between the authentic and the uncanny is sometimes invisibly thin.
 
-TODO: Keating face to face focus on the lower part, and more highlights about body/gaze.
- 
+One area where body language and its affects on our psychology has been studied extensively is dance choreography, in particularly that of modern dance. Dance appears as an attempt to extract elements of bodily interaction from our daily social lives, and present them in an accentuated, distilled form. Sevdalis and Keller summarize a range of research papers articulating the connections between modern dance movements and our social cognition [-@sevdalis_captured_2011].
 
+
+
+TODO: Keating face to face focus on the lower part, and more highlights about body/gaze
+
+ody/gaze.
 
 TODO: From the end of Dolezal
 TODO: Recap Meyer / Keating
@@ -188,6 +193,7 @@ TODO: Dialogism?
 TODO: Laban style
 TODO: Hapticl sociality
 TODO: Ruth Feldman
+
 
 
 
