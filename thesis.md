@@ -179,6 +179,8 @@ A more recent modality that is associated with language is the use of _Emojis_. 
 ## Body Langauge
 An emphatically meaningful, yet highly elusive element of intercorporeality comes from our body language: Meaningful because despite Merleau-Ponty's claim that speech and even ideation are acts of the body, the directness of bodily gestures provide a clear connection between social identity and the flesh that envelopes them, elusive because a large number of these acts are picked up only by our subconscious and because the line between the authentic and the uncanny is sometimes invisibly thin.
 
+Interestingly [as cited in @keating_challenges_2017], blah
+
 One area where body language and its affects on our psychology has been studied extensively is dance choreography, in particularly that of modern dance. Dance appears as an attempt to extract elements of bodily interaction from our daily social lives, and present them in an accentuated, distilled form. Sevdalis and Keller summarize a range of research papers articulating the connections between modern dance movements and our social cognition [-@sevdalis_captured_2011].
 
 
