@@ -1,11 +1,11 @@
-\usepackage{newunicodechar}
 \usepackage{amsmath}
+\usepackage{newunicodechar}
 
-\providecommand{\xelatexemojipath}[1]{images/#1}
+\providecommand{\xelatexemojipath}[1]{emojis/#1}
 
 \newcommand{\xelatexemoji}[1]{%
     \raisebox{-0.15em}{%
-      \includegraphics[height=1em]{\xelatexemojipath{#1}}%
+      \protect\includegraphics[height=1em]{\xelatexemojipath{#1}}%
     }%
 }
 

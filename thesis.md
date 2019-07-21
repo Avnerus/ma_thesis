@@ -4,10 +4,12 @@ author: Avner Peled.
 date: 08/2019
 abstract: This thesis is a post-phenomenological investigation into the use of soft robots as mediating bodies between humans that could unfetishise their imaginative figure of the stranger, in an event I call incarnation. Through my own encounters with Palestinians for the purpose of conflict resoluton and through readings of phenomenological and sociological studies, I determine the importance of the physical body, its fleshiness, nonlinearity and organic qualities for the construction of a meaningful and transformative dialog that can free us from stranger fetishism. Furthermore, I investigate the potential of nonhumanoid robotic avatars to liberate the interlocutors from prejudice and identity constraints. I propose the use of soft robots as a medium of reembodidemnt that could factilitate massive scale physical incarnations, creating physical encounters between people who are unable to otherwise meet in person. As a proof-of-concet, a novel method for the production of soft robotic avatars is introduced, capable of bodily haptics, language translation and animalistic emotional expression, accompanied by a web based software platform for an easy development of applications. Using this method, _Hitodama_, a first prototype for a soft robotic avatar is produced. I perform an intial evaluation of the robot in an encounter between people of different cultures, using an example app in which they examine their bias and prejudice of one another. I analyze the results by conducting interviews with the participans, following the principles of interperative phenomenological analysis. Finally the broad potential of artistic craftsmanship to assist in political transformation is debated, reaching the conclusion that a scientific perspective could be applied not only to the creation of the piece, but also to the estimation of its societal effect.
 indent: true
+lang: en
 csl: apa.csl
 header-includes: |
     \usepackage{xelatexemoji}
 ...
+---
 
 \maketitle
 \tableofcontents
@@ -93,7 +95,7 @@ of measuring and being measured" [@hoel_merleau-ponty_2018, p.21]. Thus, this go
 
 Let us take a step back from the expanded conclusion regarding measuring bodies and focus on our scenario of mediated encounters between people. Clearly, not all mediations are one and the same and not all technological tools are utilized in a similar fashion. We are looking for a solution to a re-embodiment of the fetishized stranger; an incarnation that could carry the fleshy nature of the subject's body, along with its own mediating measures, and facilitate a relief from prejudice through communication. It would be worthwhile to return to Merleau-Ponty's analysis of painting in _Eye and Mind_, since this would be his most highly regarded example of mediated corporeality. Merleau-Ponty refers to an epitomizing discussion with French artist Auguste Rodin [@auguste_rodin_rodin_2012, p.34], analyzing the movement of a galloping horse in a painting by Théodore Géricault (see Figure 1).
 
-!["The 1821 Derby at Epsom" by Théodore Géricault, 1982. Retreived from Wikipedia (https://en.wikipedia.org/wiki/The_1821_Derby_at_Epsom). In the public domain.](gericault_epsom_derby.jpg)
+!["The 1821 Derby at Epsom" by Théodore Géricault, 1982. Retreived from Wikipedia (https://en.wikipedia.org/wiki/The_1821_Derby_at_Epsom). In the public domain.](images/gericault_epsom_derby.jpg)
 
 Merleau-Ponty asks the following question: "When a horse is photographed at that
 instant when he is completely off the ground, with his legs almost folded under him—an instant, therefore, when he must be moving—why does he look as if he were leaping in place? Then why do Géricault's horses really run on canvas, in a posture impossible for a real horse at the gallop?" [@merleau-ponty_primacy_1964, p.185]. The answer if provided by Rodin: "It is the artist who is truthful, while the photograph is mendacious; for, in reality, time never stops cold". Even though the horse is painted in a position that is illogical, the movement is well transmitted from the artist's expression into the painting. Not only the movement, but the also the intention of the artist; Merleau-Ponty concludes: "Painting searches not for the outside of movement but for
@@ -228,6 +230,14 @@ The following chart blah
 ## Technological bias
 
 # HITODAMA - Design
+
+The word "Hitodama" is Japanese for "Human spirit". HITODAMA is a post-humanoid avatar designed to contain a remotely controlling human consciousness and re-embody it in a non-human form that still maintains several anthropomorphic features that allow the controllers to express themselves in a humanly readable manner.
+
+The design of HITODAMA has undergone several iterations and modifications before reaching its final form (See Figure 2). The goal was to create a soft telerobot that can put the outlined philosophical theory to the test, while using a software and hardware framework that is both modular and flexible. Working with limited resources, a modular approach ensures that as much knowledge and products could be reused later for future iterations and ensuing research. This chapter outlines the primary decisions and inspirations that lead to the design, starting from an overview of the features and aesthetic choices behind the robot's form and followed by a more detailed view of the anatomy.
+
+## Model overview
+
+![HITODAMA - Concept model](images/hitodama-model.png){width=80%}
 
 TODO: Harraway talks about salamanders
 
