@@ -237,7 +237,9 @@ The following chart blah
 
 The word "Hitodama" is Japanese for "Human spirit". HITODAMA is a post-humanoid avatar designed to contain a remotely controlling human consciousness and re-embody it in a non-human form that still maintains several anthropomorphic features that allow the controllers to express themselves in a humanly readable manner.
 
-The design of HITODAMA has undergone several iterations and modifications before reaching its final form (See Figure 2). The goal was to create a soft telerobot that can put the outlined philosophical theory to the test, while using a software and hardware framework that is both modular and flexible. Working with limited resources, a modular approach ensures that as much knowledge and products could be reused later for future iterations and ensuing research. This chapter outlines the primary decisions and inspirations that lead to the design, starting from the aesthetic  choices made and followed by an overview of the main features divided into different subsystems.
+The design of HITODAMA has undergone several iterations and modifications before reaching its final form (See Figure 2). The goal was to create a soft telerobot that can put the outlined philosophical theory to the test, while using a software and hardware framework that is both modular and flexible. Working with limited resources, a modular approach ensures that as much knowledge and products could be reused later for future iterations and ensuing research. This chapter outlines the primary decisions and inspirations that lead to the design, starting from the aesthetic choices made and followed by an overview of the main features divided into different subsystems.
+
+It is important to note that although HITODAMA's design includes a moving and sensing tail, it was **not implemented** for this Master's thesis due to time and resource limitation. The tail is nevertheless shown here on the design specification in order to visualized the complete form of the conceived prototype.
 
 ![HITODAMA - Concept model](images/hitodama-form.png){width=50%}
 
@@ -272,7 +274,7 @@ An interesting characteristic of Kodama is the blend between the human, the natu
 The axolotl is a Salamander, native only to the freshwater lakes of Chalco and Xochimilco in Mexico and is considered an endangered species. It lives inside water, not above, and is characterized by short limbs, a somewhat anthropomorphic face and a unique set of fiery red-orange gills on its head (See Figure 7). The axolotl is extensively studied by scientists due to its rare and exceptional biology: According to research the axolotl lives "perpetually in the embryonic state, a phenomenon called neoteny. It remains in the larval form even as it becomes a sexually mature adult. For this reason, it consists of embryonic cells that are capable of regenerating a foot, a limb, and even parts of its brain or
 spine. It does this without the production of scar tissue" [@tate_axolotl_2010].
 
-!["An axolotl in captivity" from user th1098. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Axolotl). In the public domain.](images/AxolotlBE.jpg)
+!["An axolotl in captivity" from user th1098. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Axolotl). In the public domain.](images/AxolotlBE.jpg){width=80%}
 
 The axolotl is also a part of Aztec mythology in stories about the god Xolotl: the canine twin of Quetzalcoatl, the serpent god of wind and air [@tate_axolotl_2010, p.518]. Aptly, the story of the axolotl involves Xolotl's failed attempt to escape death. After it was decided that Xolotl and other gods would have to sacrifice themselves to bestow movement upon the sun, Xolotl tried to escape by transforming himself into different entities: First into types of canes and plants and finally into an axolotl, but all of the attempts failed and Xolotl died. It is unclear what information the Aztec had on the axolotl, but it is likely that they knew about its special regenerative abilities. It is also possible that the Aztec falsely believed the axolotl transforms itself into a tiger salamander because of their similar features, or because they were actually able to artificially induce the transformation as an extreme stress reaction (otherwise it does not happen) [@tate_axolotl_2010, p.514].
 
@@ -284,19 +286,19 @@ TODO: Ishiguro's telenoids are embryos?
 
 ## Subsystems
 
-HITODAMA's features can be divided into three separate subsystems: 1) Motor subsystem. 2) Sensor subsystem. 3) Digital I/O. 
+HITODAMA's features can be divided into three separate subsystems: 1) Motor subsystem. 2) Sensor subsystem. 3) Digital I/O subsystem. 
 
 ### Motor subsystem
-HITODAMA is pneumatic soft robot based on inflation of silicone actuators. The following table provides an overview of the different actuators and their function. A more detailed specification of the actuation will be specified in dedicated sections for each body part. 
+HITODAMA is pneumatic soft robot based on inflation of silicone actuators. The following table provides an overview of the different actuators and their function, accompanied by a visual mapping of the actuators (see Figure 7). A more detailed specification of each actuation will be specified in dedicated sections.
 
 +-----------+--------------------------------------+----------------------------+
 | Body part | Type of actuator                     | Function                   |
 +===========+======================================+============================+
-| Neck      | Fiber reinforced - Linear extending  | Head yaw to the right      |
+| Neck      | Fiber reinforced : linear extending  | Head yaw to the right      |
 +-----------+--------------------------------------+----------------------------+
-| Neck      | Fiber reinforced - Linear extending  | Head yaw to the left       | 
+| Neck      | Fiber reinforced : linear extending  | Head yaw to the left       | 
 +-----------+--------------------------------------+----------------------------+
-| Neck      | Fiber reinforced - Linear extending  | Head pitch upwards         | 
+| Neck      | Fiber reinforced : linear extending  | Head pitch upwards         | 
 +-----------+--------------------------------------+----------------------------+
 | Eyes      | Mounted air chamber X 2 **           | Face inflation above eyes  |
 +-----------+--------------------------------------+----------------------------+
@@ -304,24 +306,52 @@ HITODAMA is pneumatic soft robot based on inflation of silicone actuators. The f
 +-----------+--------------------------------------+----------------------------+
 | Mouth     | Mounted air chamber                  | Face inflation in mouth    |
 +-----------+--------------------------------------+----------------------------+
-| Left arm  | Fiber reinforced - bending           | Arm bicep bend upwards     |
+| Left arm  | Fiber reinforced : bending           | Arm bicep bend upwards     |
 +-----------+--------------------------------------+----------------------------+
-| Right arm | Fiber reinforced - bending           | Arm bicep bend upwads      |
+| Right arm | Fiber reinforced : bending           | Arm bicep bend upwads      |
 +-----------+-------------------------------------------------------------------+
-| Tail*     | Fiber reinforced - Bending           | Tail curve upwards         |
+| Tail*     | Fiber reinforced : bending           | Tail curve upwards         |
 +-----------+-------------------------------------------------------------------+
 
+\* The tail was not fully implemented and was not incorporated into the final prototype.
+
+\** Two separate chambers are joined by a single air tube.
+\
+
+![HITODAMA: Motor subsystem](images/hitodama-motor.png){width=30%}
+
+### Sensor subsystem
+HITODAMA uses pressure sensing embedded into the silicone body on three different locations (see Figure 8): .
+
+1. Left palm.
+2. Right palm. 
+3. Tip of the tail*
+
+\* The tail actuator was not fully implemented and was not incorporated into the final prototype.
+\
+
+The sensor are able to detect when the body is being squeezed, as well as the amount of pressure exerted.
+
+![HITODAMA: Sensor subsystem](images/hitodama-sensor.png){width=30%}
+
+### Digital I/O subsystem
+HITODAMA employs web based digital i/o components that provide additional interaction functionality (see Figure 9). They include:
+
+1. Camera: vision input.
+2. Touch display*: visual output.
+3. Microphone: audio input.
+4. Speaker: audio output.
+
+\* The touch functionally of the display was not used in the final prototype.
+\
+
+![HITODAMA: Digital I/O subsystem](images/hitodama-digital-io.png){width=30%}
 
 
-![HITODAMA - Motor subsystem](images/hitodama-motor.png){width=50%}
 
 ## Related works
 
 ## Previous attempts
-
-## References
-### Axolotl
-### Kodama
 
 ## Design
 
