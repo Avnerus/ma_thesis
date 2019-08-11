@@ -96,9 +96,9 @@ to emphasize the “in-each-otherness” (Ineinander) of the material and ideati
 How do tools and technologies participate in this fleshy circuit? Hoel and Carusi refer us to Merleau-Ponty's discussion on 'technical objects' in _Eye and Mind_ [@hoel_merleau-ponty_2018, p.20]. While Merleau-Ponty's discussion focuses on the mediating and reflexive properties of paintings, he mentions them to be at the same category of tools and other techniques of the body that "outline and amplify the metaphysical structure of our flesh" [@merleau-ponty_primacy_1964, p.168]. For Merleau-Ponty, a painting is unlike a thing of all things that is observed passively by a viewer. A painting contains the embedded carnality of the painter and is constantly enacting the private experience of its creator in a dialog with the viewer. Nevertheless, we cannot overlook the fact the creator's body is seen as a point of origin, albeit being an ever-changing body schema that is in dialog with its environment, it is still recognized is the agency of the painting. It is there where Sissel and Carusi wish to take it further: "We further develop his idea of the body as a ‘measure’ of things by granting symbolisms and tools the status of ‘measures’ in their own right, that is, as ‘agencies’ with their own relative autonomy" [@hoel_merleau-ponty_2018, p.23]. Technology is seen as a "generative mediator" operating within and producing its own contingent dimensions: "For each modification new dimensions of the world open up, new ranges of possible modes
 of measuring and being measured" [@hoel_merleau-ponty_2018, p.21]. Thus, this goes beyond the decentralization of agency and into the decentralization of observation; the tools and technologies we create  manipulate a shared space of perception. Sissel and Carusi recognize this approach resonates with contemporary posthumanist and new materialist approaches such as those of Karen Barad [-@barad_meeting_2007] and Rosi Braidotti [-@braidotti_posthuman_2017]. Such approaches open up the possibility of a mediated flesh, insofar as they recognize the interconnectedness of bodies and thoughts and the capacity for corporeality, and thus also intercorporeality, to be manifested remotely. However, they also risk the flattening of any experience to one variation in flesh, losing the meaning of a difference in form and function. We require a deeper investigation into mediation to determine its nature in social interactions.
 
-Let us take a step back from the expanded conclusion regarding measuring bodies and focus on our scenario of mediated encounters between people. Clearly, not all mediations are one and the same and not all technological tools are utilized in a similar fashion. We are looking for a solution to a re-embodiment of the fetishized stranger; an incarnation that could carry the fleshy nature of the subject's body, along with its own mediating measures, and facilitate a relief from prejudice through communication. It would be worthwhile to return to Merleau-Ponty's analysis of painting in _Eye and Mind_, since this would be his most highly regarded example of mediated corporeality. Merleau-Ponty refers to an epitomizing discussion with French artist Auguste Rodin [@auguste_rodin_rodin_2012, p.34], analyzing the movement of a galloping horse in a painting by Théodore Géricault (see Figure 1).
+Let us take a step back from the expanded conclusion regarding measuring bodies and focus on our scenario of mediated encounters between people. Clearly, not all mediations are one and the same and not all technological tools are utilized in a similar fashion. We are looking for a solution to a re-embodiment of the fetishized stranger; an incarnation that could carry the fleshy nature of the subject's body, along with its own mediating measures, and facilitate a relief from prejudice through communication. It would be worthwhile to return to Merleau-Ponty's analysis of painting in _Eye and Mind_, since this would be his most highly regarded example of mediated corporeality. Merleau-Ponty refers to an epitomizing discussion with French artist Auguste Rodin [@auguste_rodin_rodin_2012, p.34], analyzing the movement of a galloping horse in a painting by Théodore Géricault (see [@fig:derby]).
 
-!["The 1821 Derby at Epsom" by Théodore Géricault, 1982. Retreived from Wikipedia (https://en.wikipedia.org/wiki/The_1821_Derby_at_Epsom). In the public domain.](images/gericault_epsom_derby.jpg)
+!["The 1821 Derby at Epsom" by Théodore Géricault, 1982. Retreived from Wikipedia (https://en.wikipedia.org/wiki/The_1821_Derby_at_Epsom). In the public domain.](images/gericault_epsom_derby.jpg){#fig:derby}
 
 Merleau-Ponty asks the following question: "When a horse is photographed at that
 instant when he is completely off the ground, with his legs almost folded under him—an instant, therefore, when he must be moving—why does he look as if he were leaping in place? Then why do Géricault's horses really run on canvas, in a posture impossible for a real horse at the gallop?" [@merleau-ponty_primacy_1964, p.185]. The answer if provided by Rodin: "It is the artist who is truthful, while the photograph is mendacious; for, in reality, time never stops cold". Even though the horse is painted in a position that is illogical, the movement is well transmitted from the artist's expression into the painting. Not only the movement, but the also the intention of the artist; Merleau-Ponty concludes: "Painting searches not for the outside of movement but for
@@ -239,13 +239,13 @@ The following chart blah
 
 The word "Hitodama" is Japanese for "Human spirit". HITODAMA is a post-humanoid, soft robotic avatar designed to contain a remotely controlling human consciousness and re-embody it in a non-human form while still maintaining some anthropomorphic features. The main use case for HITODAMA is mediation between distant and/or conflicted cultures that normally do not encounter one another, such as the idiosyncratic case of Israel and Palestine.
 
-The design of HITODAMA has undergone several iterations and modifications before reaching its final form (See Figure 2). The goal was to create a soft telerobot that can put the outlined philosophical theory to the test, providing an intercorporeal experience and enabling multiple modalities, all while using a modular and flexible software and hardware platform. Working with limited resources, a modular approach ensures that as much knowledge and products could be reused later for future iterations and ensuing research. This chapter outlines the primary inspirations and aesthetic references for the design as well as an analysis of related work, followed by an overview of the main features: its physical properties and logical subsystems.
+The design of HITODAMA has undergone several iterations and modifications before reaching its final form (see [@fig:form;@fig:final]). The goal was to create a soft telerobot that can put the outlined philosophical theory to the test, providing an intercorporeal experience and enabling multiple modalities, all while using a modular and flexible software and hardware platform. Working with limited resources, a modular approach ensures that as much knowledge and products could be reused later for future iterations and ensuing research. This chapter outlines the primary inspirations and aesthetic references for the design as well as an analysis of related work, followed by an overview of the main features: its physical properties and logical subsystems.
 
 It is important to note that although HITODAMA's design includes a moving and sensing tail, it was **not implemented** for this Master's thesis due to time and resource limitation. The tail is nevertheless shown here on the design specification in order to visualized the complete form of the conceived prototype.
 
-![HITODAMA : Concept model.](images/hitodama-form.png){width=50%}
+![HITODAMA : Concept model.](images/hitodama-form.png){#fig:form width=50%}
 
-![HITODAMA : Final prototype exhibition.](images/hitodama-final.jpg){width=100%}
+![HITODAMA : Final prototype exhibition.](images/hitodama-final.jpg){#fig:final width=100%}
 
 ## Related works
 
@@ -254,33 +254,34 @@ It is important to note that although HITODAMA's design includes a moving and se
 ### Shape - Hitodama - 人魂
 The Kanji combination of the word hitodama is comprised of 1) 人 - Human and 2) 魂 - Soul or spirit. The term comes from ancient Japanese folk as part of Japan's vast folk culture of supernatural spirits and demons, also dubbed Yōkai (妖怪) [@goodman_ideology_1992, p.83]. The hitodama is the soul of a human as it leaves the body, much like re-embodiment could be seen as an act in which the human soul departs from its body and is then resituated in a new, robotic vessel.
 
-The image of hitodama frequently appears in Japanese culture, ranging from 18th century art in Toriyama Seiken's book of demons: _Konjaku Gazu Zoku Hyakki_ to the Nintendo game series _Yo-kai Watch_ that features fighter cats equipped with supernatural powers and bearing hitodama symbols (see Figure 3). The hitodama shape resembles a cloud-like fire and is accompanied by a swirling tail. It is believed that the source for this form could have come from observations of shooting stars or of gas clouds that emerge out of human corpses. The swirling, fluid shape of hitodama spirits suits the curling and nonlinear nature of soft robotics, thus HITODAMA's shape is also inspired by this entity. A free vector icon of Hitodama by TopeconHeroes[-@topeconheroes_fire_2019] was chosen as the logo of the project (see Figure 4).
+The image of hitodama frequently appears in Japanese culture, ranging from 18th century art in Toriyama Seiken's book of demons: _Konjaku Gazu Zoku Hyakki_ to the Nintendo game series _Yo-kai Watch_ that features fighter cats equipped with supernatural powers and bearing hitodama symbols (see [@fig:hitodama-folk]). The hitodama shape resembles a cloud-like fire and is accompanied by a swirling tail. It is believed that the source for this form could have come from observations of shooting stars or of gas clouds that emerge out of human corpses. The swirling, fluid shape of hitodama spirits suits the curling and nonlinear nature of soft robotics, thus HITODAMA's shape is also inspired by this entity. A free vector icon of Hitodama by TopeconHeroes[-@topeconheroes_fire_2019] was chosen as the logo of the project (see [@fig:hitodama-icon]).
 \
 \
 
-![On the left: Hitodama from the Konjaku Gazu Zoku Hyakki by Toriyama Sekien. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Konjaku_Gazu_Zoku_Hyakki). In the public domain. On the right: Komasan from Yo-kai Watch. Retreived from Yo-kai watch Wiki (https://yokaiwatch.fandom.com/wiki/Komasan)](images/hitodama-folk.png)
+![On the left: Hitodama from the Konjaku Gazu Zoku Hyakki by Toriyama Sekien. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Konjaku_Gazu_Zoku_Hyakki). In the public domain. On the right: Komasan from Yo-kai Watch. Retreived from Yo-kai watch Wiki (https://yokaiwatch.fandom.com/wiki/Komasan)](images/hitodama-folk.png){#fig:hitodama-folk}
 
-![Hitodama icon. Retreived from http://icooon-mono.com/11150-人魂のアイコン素材](images/hitodama.png){width=40%}
+![Hitodama icon. Retreived from http://icooon-mono.com/11150-人魂のアイコン素材](images/hitodama.png){#fig:hitodama-icon width=40%}
 
 ### Face - Kodama (木魅)
-The Kodama is another form of Yōkai from old Japanese folk, described as a divine spirit that inhabits trees once they become more than a hundred years old [@papp_anime_2010, p.14]. The spirits may reside inside the tree without being seen, but may also present themselves in particular forms when encountered, such as the form of an old man in Toriyama Seiken's book of Yōkai (see Figure 4). In the Japanese classic _Tale of Genji_, the body of the princes Ukifune who attempted to drown herself, magically appears in the forest and is likened to a Kodama by the prelate of Yokawa [@caddeau_tree_2004, p.11]. In modern Japan, old trees that are said to contain Kodamas are revered and must not be cut down. A ceremonial rope known as _shimenawa_ is tied around the tree to mark the presence of the spirit [@bigelow_technologies_2009, p.61].  
-!["Kodama" (木魅) from the Gazu Hyakki Yagyō by Toriyama Sekien. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Kodama_(spirit).](images/SekienKodama.jpg){width=100%}
+The Kodama is another form of Yōkai from old Japanese folk, described as a divine spirit that inhabits trees once they become more than a hundred years old [@papp_anime_2010, p.14]. The spirits may reside inside the tree without being seen, but may also present themselves in particular forms when encountered, such as the form of an old man in Toriyama Seiken's book of Yōkai (see [@fig:seiken-kodama]). In the Japanese classic _Tale of Genji_, the body of the princes Ukifune who attempted to drown herself, magically appears in the forest and is likened to a Kodama by the prelate of Yokawa [@caddeau_tree_2004, p.11]. In modern Japan, old trees that are said to contain Kodamas are revered and must not be cut down. A ceremonial rope known as _shimenawa_ is tied around the tree to mark the presence of the spirit [@bigelow_technologies_2009, p.61]. 
+
+!["Kodama" (木魅) from the Gazu Hyakki Yagyō by Toriyama Sekien. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Kodama_(spirit).](images/SekienKodama.jpg){#fig:seiken-kodama width=100%}
+
 \
 \
 
-
-Kodama was popularized, however, by anime director Hayao Miyazaki. In the feature film _Princess Mononoke_ [-@miyazaki_hayao_princess_1997], the protagonists encounter a group of small forest spirits with glowing white skin and grey eyes. The style diverges from the original depictions, but according to Papp "Miyazaki’s Kodama is a derivative of the yōkai Ninmenju (ே人面樹, Face Sap), which is another form of a tree spirit"  (see Figure 5). The Ninmenju (sometimes referred to as jinmenju) "do not talk but they tend to laugh and when they do, they fall off the tree" [-@papp_anime_2010, p. 14]. 
+Kodama was popularized, however, by anime director Hayao Miyazaki. In the feature film _Princess Mononoke_ [-@miyazaki_hayao_princess_1997], the protagonists encounter a group of small forest spirits with glowing white skin and grey eyes. The style diverges from the original depictions, but according to Papp "Miyazaki’s Kodama is a derivative of the yōkai Ninmenju (ே人面樹, Face Sap), which is another form of a tree spirit"  (see [@fig:jinmenju]). The Ninmenju (sometimes referred to as jinmenju) "do not talk but they tend to laugh and when they do, they fall off the tree" [-@papp_anime_2010, p. 14]. 
 
 An interesting characteristic of Kodama is the blend between the human, the natural and the supernatural. Miyazaki's Kodama are abstract nonhuman beings, yet they possess a human-like face, making them more relatable than a completely nonhuman entity. The intertwining of tree, spirit and human is an epitome to the Japanese culture of blending the human life force with nature. In one of the folk tales about Kodama, the tree spirit takes on a human form in order to meet a human it fell in love with [@katsumi_4_1990 p.335, as cited in Wikipedia]. This blend is something to be sought after when designing an avatar. Finding the balance between the posthuman freedom (or the cyborg imagery as Haraway puts it) and Merleau-Ponty's pre-reflective relatedness to another human is the challenge HITODAMA attempts to tackle. Thus, the design of HITODAMA's face is mainly inspired by Miyazaki's kodama.
 
-![On the left: The jinmenju as illustrated by Toriyama Sekien. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Jinmenju). In the public domain. On the right: Still from "The Princess Mononoke".](images/kodama2.png)
+![On the left: The jinmenju as illustrated by Toriyama Sekien. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Jinmenju). In the public domain. On the right: Still from "The Princess Mononoke".](images/kodama2.png){#fig:jinmenju}
 
 ### Axolotl
 
-The axolotl is a Salamander, native only to the freshwater lakes of Chalco and Xochimilco in Mexico and is considered an endangered species. It lives inside water, not above, and is characterized by short limbs, a somewhat anthropomorphic face and a unique set of fiery red-orange gills on its head (See Figure 7). The axolotl is extensively studied by scientists due to its rare and exceptional biology: According to research the axolotl lives "perpetually in the embryonic state, a phenomenon called neoteny. It remains in the larval form even as it becomes a sexually mature adult. For this reason, it consists of embryonic cells that are capable of regenerating a foot, a limb, and even parts of its brain or
+The axolotl is a Salamander, native only to the freshwater lakes of Chalco and Xochimilco in Mexico and is considered an endangered species. It lives inside water, not above, and is characterized by short limbs, a somewhat anthropomorphic face and a unique set of fiery red-orange gills on its head (see [@fig:axolotl]). The axolotl is extensively studied by scientists due to its rare and exceptional biology: According to research the axolotl lives "perpetually in the embryonic state, a phenomenon called neoteny. It remains in the larval form even as it becomes a sexually mature adult. For this reason, it consists of embryonic cells that are capable of regenerating a foot, a limb, and even parts of its brain or
 spine. It does this without the production of scar tissue" [@tate_axolotl_2010].
 
-!["An axolotl in captivity" from user th1098. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Axolotl). In the public domain.](images/AxolotlBE.jpg){width=80%}
+!["An axolotl in captivity" from user th1098. Retreived from Wikipedia (https://en.wikipedia.org/wiki/Axolotl). In the public domain.](images/AxolotlBE.jpg){#fig:axolotl width=80%}
 
 The axolotl is also a part of Aztec mythology in stories about the god Xolotl: the canine twin of Quetzalcoatl, the serpent god of wind and air [@tate_axolotl_2010, p.518]. Aptly, the story of the axolotl involves Xolotl's failed attempt to escape death. After it was decided that Xolotl and other gods would have to sacrifice themselves to bestow movement upon the sun, Xolotl tried to escape by transforming himself into different entities: First into types of canes and plants and finally into an axolotl, but all of the attempts failed and Xolotl died. It is unclear what information the Aztec had on the axolotl, but it is likely that they knew about its special regenerative abilities. It is also possible that the Aztec falsely believed the axolotl transforms itself into a tiger salamander because of their similar features, or because they were actually able to artificially induce the transformation as an extreme stress reaction (otherwise it does not happen) [@tate_axolotl_2010, p.514].
 
@@ -304,7 +305,7 @@ HITODAMA is a soft robot made mostly from silicone. Silicone was chosen as the m
 HITODAMA's features can be divided into three separate subsystems: 1) Motor subsystem. 2) Sensor subsystem. 3) Digital I/O subsystem. 
 
 ### Motor subsystem
-HITODAMA is pneumatic soft robot based on inflation of silicone actuators. The following table provides an overview of the different actuators and their function, accompanied by a visual mapping of the actuators (see Figure 7). A more detailed specification of each actuation will be specified in dedicated sections.
+HITODAMA is pneumatic soft robot based on inflation of silicone actuators. Table [@tbl:actuators] provides an overview of the different actuators and their function, accompanied by a visual mapping of the actuators (see [@fig:hitodama-motor]). A more detailed specification of each actuation will be specified in dedicated sections.
 
 +-----------+--------------------------------------+----------------------------+
 | Body part | Type of actuator                     | Function                   |
@@ -328,15 +329,18 @@ HITODAMA is pneumatic soft robot based on inflation of silicone actuators. The f
 | Tail*     | Fiber reinforced : bending           | Tail curve upwards         |
 +-----------+-------------------------------------------------------------------+
 
+: Actutors in HITODAMA's motor subsystem {#tbl:actuators}
+
+
 \* The tail was not fully implemented and was not incorporated into the final prototype.
 
 \** Two separate chambers are joined by a single air tube.
 \
 
-![HITODAMA: Motor subsystem](images/hitodama-motor.png){width=30%}
+![HITODAMA: Motor subsystem](images/hitodama-motor.png){#fig:hitodama-motor width=30%}
 
 ### Sensor subsystem
-HITODAMA uses pressure sensing embedded into the silicone body on three different locations (see Figure 8): .
+HITODAMA uses pressure sensing embedded into the silicone body on three different locations (see [@fig:hitodama-sensor]): .
 
 1. Left palm.
 2. Right palm. 
@@ -347,10 +351,10 @@ HITODAMA uses pressure sensing embedded into the silicone body on three differen
 
 The sensor are able to detect when the body is being squeezed, as well as the amount of pressure exerted.
 
-![HITODAMA: Sensor subsystem](images/hitodama-sensor.png){width=30%}
+![HITODAMA: Sensor subsystem](images/hitodama-sensor.png){#fig:hitodama-sensor width=30%}
 
 ### Digital I/O subsystem
-HITODAMA employs web based digital i/o components that provide additional interaction functionality (see Figure 9). They include:
+HITODAMA employs web based digital i/o components that provide additional interaction functionality (see [@fig:hitodama-io]). They include:
 
 1. Camera: vision input.
 2. Touch display*: visual output.
@@ -360,7 +364,7 @@ HITODAMA employs web based digital i/o components that provide additional intera
 \* The touch functionally of the display was not used in the final prototype.
 \
 
-![HITODAMA: Digital I/O subsystem](images/hitodama-digital-io.png){width=30%}
+![HITODAMA: Digital I/O subsystem](images/hitodama-digital-io.png){#fig:hitodama-io width=30%}
 
 
 # Face and body
@@ -369,23 +373,28 @@ HITODAMA employs web based digital i/o components that provide additional intera
 
 ### Appearance
 
-Based on the face of Kodama, HITODAMA's head was designed with the help of Anderson Sudario in Kyushu University, Tomimatsu group (see Figure 10).
+Based on the face of Kodama, HITODAMA's head was designed with the help of Anderson Sudario in Kyushu University, Tomimatsu group (see [@fig:face-maya]).
 
-![HITODAMA: Face model, with the help of Anderson Sudario.](images/face-maya.png){width=50%}
+![HITODAMA: Face model, with the help of Anderson Sudario.](images/face-maya.png){#fig:face-maya width=50%}
 
 ### Plastic Backbone
 
-Following the general material principle, the head is supported by a plastic backbone (See figure 10) that houses two types of soft components: 1) Facial skin that stretches along the circumference of the head. 2) Facial expression actuators that are housed inside the expression system. 
+Following the general material principle, the head is supported by a plastic backbone (See [@fig:face-backbone]) that houses two types of soft components: 1) Facial skin that stretches along the circumference of the head. 2) Facial expression actuators that are housed inside the expression system. 
 
 
-![HITODAMA: Face plastic backbone, with the help of Anderson Sudario.](images/face-backbone.png){width=70%}
+![HITODAMA: Face plastic backbone, with the help of Anderson Sudario.](images/face-backbone.png){#fig:face-backbone width=70%}
 
-### Expression system
-For the purpose of 
+### Modular expression system
+For the purpose of researching and testing bio-inspired and organically actuating facial expressions, a novel system is presented. The system consists of a base rigid structure with multiple modular extensions that enclose the soft pneumatic actuators (see [@fig:expression-system]). The enclosures can be freely added, removed and rotated within the upper 180 degree range of the face until the desired expression is achieved. Once inflated, the actuators protrude a part of the facial skin, creating a facial expression (see [@fig:expression-example]). 
 
+Additionally, an enclosure for a mouth actuator is added into the structure. The enclosure is printed using NinjaFlex flexible filament [@ninjatek_ninjatek_2019] to further refine the movement of the mouth.
 
+![HITODAMA: Face modular expression system.](images/expression-system.png){#fig:expression-system width=70%}
+
+![HITODAMA: Face modular expression example.](images/expression-example.png){#fig:expression-example width=70%}
 
 ## Method
+
 
 ## Actuation
 
