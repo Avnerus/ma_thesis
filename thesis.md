@@ -294,11 +294,16 @@ TODO: Ishiguro's telenoids are embryos?
 ## Material principles
 HITODAMA is a soft robot made mostly from silicone. Silicone was chosen as the main soft element due to its robustness in movement, durability, nonlinear actuation and organic feel. However, HITODAMA also contains rigid materials such as a plastic backbone and metal screws. The material choices follow a simple governing principle: Any element of the body that **actuates movement** or **participates in tactile interaction** must be made from **soft materials**; movement and touch are the most critical modalities for an experience of intercorporeality. Other elements that act only as **structural support** are **made of plastic** and are connected either mechanically or with metal screws.
 
+For the process of silicone casting, molds were experimented with a variety of materials: including PLA, polyurethane, metal, metal, acrylic and machineable wax. The molding materials are specified in the detail in the corresponding sections for each component.
+
 ### Soft silicone
  Two types of silicone are used following a simple principle:
 
 1. _Smooth-On Ecoflex 00-30_ [@smooth-on_ecoflex_2019]: This softer material is used as outer skin that feel natural to touch and flexes easily. It is also used for actuation of facial expressions since they are based on simple surface level balloon-like inflation.
 2. _Smooth-On Dragon Skin 30_ [@smooth-on_dragon_2019]: This material is more rigid and offers higher kinetic performance for pneumatic actuation while still maintaining silicone's organic nonlinear style. It is used to create the underlying artificial muscles in HITODAMA's body.
+
+### Plastics
+3D printed components were printed with PLA on consumer grade printers from Ultimaker and Lulzbot. Lasercut components used standard Acrylic glass.
 
 ## Subsystems
 
@@ -367,7 +372,7 @@ HITODAMA employs web based digital i/o components that provide additional intera
 ![HITODAMA: Digital I/O subsystem](images/hitodama-digital-io.png){#fig:hitodama-io width=30%}
 
 
-# Face and body
+# Face and head
 
 ## Design
 
@@ -385,7 +390,7 @@ Following the general material principle, the head is supported by a plastic bac
 ![HITODAMA: Face plastic backbone, with the help of Anderson Sudario.](images/face-backbone.png){#fig:face-backbone width=70%}
 
 ### Modular expression system
-For the purpose of researching and testing bio-inspired and organically actuating facial expressions, a novel system is presented. The system consists of a base rigid structure with multiple modular extensions that enclose the soft pneumatic actuators (see [@fig:expression-system]). The enclosures can be freely added, removed and rotated within the upper 180 degree range of the face until the desired expression is achieved. Once inflated, the actuators protrude a part of the facial skin, creating a facial expression (see [@fig:expression-example]). 
+For the purpose of researching and testing bio-inspired and organically actuating facial expressions, a novel system is presented. The system consists of a base rigid structure with multiple modular extensions that enclose the soft pneumatic actuators (see [@fig:expression-system]). The enclosures can be freely added, removed and rotated within the upper 180 degree range of the face until the desired expression is achieved. Once inflated, the actuators are restricted by the enclosures such that they expand only toward the face and protrude a part of the skin, creating a facial expression (see [@fig:expression-example]). 
 
 Additionally, an enclosure for a mouth actuator is added into the structure. The enclosure is printed using NinjaFlex flexible filament [@ninjatek_ninjatek_2019] to further refine the movement of the mouth.
 
@@ -395,16 +400,39 @@ Additionally, an enclosure for a mouth actuator is added into the structure. The
 
 ## Method
 
+### Face skin
+Casting of the skin was performed by 3D printing a PLA mold consisting of both the negative and positive forms of the face, and pouring Ecoflex 00-30 silicone in between the two parts (see [@fig:face-mold]). The parts were then clamped together, allowing excess silicone to escape through the margins (see [@fig:face-mold-clamp]). Upon releasing the cured silicone, the mold had to be broken, possibly due to insufficient use of release agents during casting.
+
+![HITODAMA: Face mold, with the help of Anderson Sudario.](images/face-mold.png){#fig:face-mold width=70%}
+
+![HITODAMA: Face mold clamping, with the help of Anderson Sudario.](images/face-mold-clamp.jpg){#fig:face-mold-clamp width=100%}
+
+### Face actuators
+Two types of face actuators were developed: 1) Modular actuator: an inflatable shaped that can be freely attached, detached and rotated around the face. 2) Mouth actuator: an actuator that fits distinctively into the mouth area. Molds were printed for both types using PLA (see [fig:face-actuators]). 
+
+The actuators were then attached into the 3d printed head backbone; two actuators above the eyes, two below the eyes and one mouth actuator. The location of the modular actuators was continuously tested and refined to achieve different expressions. 
+
+
+![HITODAMA: Face actuator molds, with the help of Anderson Sudario.](images/face-actuators.jpg){#fig:face-actuators width=100%}
 
 ## Actuation
 
+The face actuators were connected to the pneumatic system while having the two actuators above the eyes sharing an inlet, as well as the two actuators below the eyes. All together three different inlets were used for face actuation in the final prototype, namely "eyes", "cheeks" and "mouth".
+
+# Neck
+
+## Design
+
+### Movement
+The neck is designed to grant four degrees of freedom, pitch and yaw, to HITODAMA's head and was designed with the help of Joaquin Aldunate. The neck also provides structural support for the head, making sure it does not spontaneously tip or tilt over when idle. The movement is carried out by three extending silicone actuators that are positioned in a triangular structure. The actuators are gripped by the rigid backbone support structure, shifting it as they extend.
+
+![HITODAMA: Neck actuators, with the help of Joaquin Aldunate.](images/neck-actuators.png){#fig:neck-actuators width=70%}
 
 
 
 
-## Pneumatic circuits
 
-## PCB
+
 
 
 # HITODAMA - Software Implementation
