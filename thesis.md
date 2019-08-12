@@ -424,13 +424,16 @@ The face actuators were connected to the pneumatic system while having the two a
 ## Design
 
 ### Movement
-The neck is designed to grant four degrees of freedom, pitch and yaw, to HITODAMA's head and was designed with the help of Joaquin Aldunate. The neck also provides structural support for the head, making sure it does not spontaneously tip or tilt over when idle. The movement is carried out by three extending silicone actuators that are positioned in a triangular structure. The actuators are gripped by the rigid backbone support structure, shifting it as they extend.
+The neck is designed to grant four degrees of freedom (pitch and yaw) to HITODAMA's head and was designed with the help of Joaquin Aldunate. The neck also provides structural support for the head, making sure it does not spontaneously tip or tilt over when idle. The movement is carried out by three extending silicone actuators that are positioned in a triangular structure. The actuators are gripped by the rigid backbone support structure, shifting it as they extend (see [@fig:neck-actuators]). When the right actuator extends, the head moves in the bottom-left direction, when the left actuator extends, the head moves in the bottom-right direction and when the bottom actuator extends, the head moves upwards. The combination of these triangular movements is sufficient for obtaining four degrees of freedom.
 
 ![HITODAMA: Neck actuators, with the help of Joaquin Aldunate.](images/neck-actuators.png){#fig:neck-actuators width=70%}
 
+### Plastic backbone
+The neck backbone is made out of four triangular grippers that enclose the silicone actuators. The grippers are loosely connected to one another, allowing them to freely move in all directions, dictated by the extension of the actuators, without tipping over completely. The final gripper contains a handle that is attached to HITODAMA's head (see [@fig:neck-to-head]).
 
 
 
+![HITODAMA: Neck to head connection, with the help of Joaquin Aldunate.](images/neck-to-head.png){#fig:neck-to-head width=70%}
 
 
 
