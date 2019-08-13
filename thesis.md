@@ -302,8 +302,11 @@ For the process of silicone casting, molds were experimented with a variety of m
 1. _Smooth-On Ecoflex 00-30_ [@smooth-on_ecoflex_2019]: This softer material is used as outer skin that feel natural to touch and flexes easily. It is also used for actuation of facial expressions since they are based on simple surface level balloon-like inflation.
 2. _Smooth-On Dragon Skin 30_ [@smooth-on_dragon_2019]: This material is more rigid and offers higher kinetic performance for pneumatic actuation while still maintaining silicone's organic nonlinear style. It is used to create the underlying artificial muscles in HITODAMA's body.
 
+Additionally, the Smooth-On Sil-Poxy silicone glue [@smooth-on_sil-poxy_2019] was used for securing silicone tubes to actuators  
+and fixing occasional wounds.
+
 ### Plastics
-3D printed components were printed with PLA on consumer grade printers from Ultimaker and Lulzbot. Lasercut components used standard Acrylic glass.
+3D printed components were printed with PLA on consumer grade printers from Ultimaker and Lulzbot, while some components were printed with resin on a Formlab printer. Lasercut components used standard Acrylic glass.
 
 ## Subsystems
 
@@ -405,7 +408,7 @@ Casting of the skin was performed by 3D printing a PLA mold consisting of both t
 
 ![HITODAMA: Face mold, with the help of Anderson Sudario.](images/face-mold.png){#fig:face-mold width=70%}
 
-![HITODAMA: Face mold clamping, with the help of Anderson Sudario.](images/face-mold-clamp.jpg){#fig:face-mold-clamp width=100%}
+![HITODAMA: Face mold clamping, with the help of Anderson Sudario.](images/face-mold-clamp.jpg){#fig:face-mold-clamp width=70%}
 
 ### Face actuators
 Two types of face actuators were developed: 1) Modular actuator: an inflatable shaped that can be freely attached, detached and rotated around the face. 2) Mouth actuator: an actuator that fits distinctively into the mouth area. Molds were printed for both types using PLA (see [fig:face-actuators]). 
@@ -413,7 +416,7 @@ Two types of face actuators were developed: 1) Modular actuator: an inflatable s
 The actuators were then attached into the 3d printed head backbone; two actuators above the eyes, two below the eyes and one mouth actuator. The location of the modular actuators was continuously tested and refined to achieve different expressions. 
 
 
-![HITODAMA: Face actuator molds, with the help of Anderson Sudario.](images/face-actuators.jpg){#fig:face-actuators width=100%}
+![HITODAMA: Face actuator molds, with the help of Anderson Sudario.](images/face-actuators.jpg){#fig:face-actuators width=70%}
 
 ## Actuation
 
@@ -423,7 +426,7 @@ The face actuators were connected to the pneumatic system while having the two a
 
 ## Design
 
-### Movement
+### Movemenzat
 The neck is designed to grant four degrees of freedom (pitch and yaw) to HITODAMA's head and was designed with the help of Joaquin Aldunate. The neck also provides structural support for the head, making sure it does not spontaneously tip or tilt over when idle. The movement is carried out by three extending silicone actuators that are positioned in a triangular structure. The actuators are gripped by the rigid backbone support structure, shifting it as they extend (see [@fig:neck-actuators]). When the right actuator extends, the head moves in the bottom-left direction, when the left actuator extends, the head moves in the bottom-right direction and when the bottom actuator extends, the head moves upwards. The combination of these triangular movements is sufficient for obtaining four degrees of freedom.
 
 ![HITODAMA: Neck actuators, with the help of Joaquin Aldunate.](images/neck-actuators.png){#fig:neck-actuators width=70%}
@@ -431,11 +434,44 @@ The neck is designed to grant four degrees of freedom (pitch and yaw) to HITODAM
 ### Plastic backbone
 The neck backbone is made out of four triangular grippers that enclose the silicone actuators. The grippers are loosely connected to one another, allowing them to freely move in all directions, dictated by the extension of the actuators, without tipping over completely. The final gripper contains a handle that is attached to HITODAMA's head (see [@fig:neck-to-head]).
 
-
-
 ![HITODAMA: Neck to head connection, with the help of Joaquin Aldunate.](images/neck-to-head.png){#fig:neck-to-head width=70%}
 
+## Method
 
+### Fiber reinforced actuators
+The extending actuators are largely based on the work of Kevin C. Galloway of the Wyss institute in Harvard university [-@galloway_mechanically_2013], but fiber-reinforced actuators have been around since the early 90s, when they were presented by soft robotics pioneer Koichi Suzumori [-@suzumori_development_1991], now head of the Suzumori-Endo lab at the Tokyo institute of technology. The method was later disseminated by Harvard through the open source online toolkit: "Soft Robotics Toolkit" [@soft_robotics_toolkit_fiber-reinforced_2019], contributing a great deal to the popularity and accessibility of soft robotics. Several changes were made in the neck actuators compared the original method by the Wyss institute, mainly: 1) The shape of actuator has changed to a whole cylinder instead of a half-cylinder to increase the structural stability of the neck. 2) The molds were modified for easier release, as well as designed for an injection casting method instead of pouring, for a minimizing the amount of bubbles.
+
+The casting process follows a standard three primary step procedure:
+
+1. Casting a Dragon Skin 30 muscle actuator tube around a metal cylinder.
+2. Wrapping the cured muscle with expansion restricting fiber and casting an Ecoflex 00-30 soft skin around the muscle.
+3. Removing the metal cylinder, capping the actuator and inserting an air tube reinforced with silicone glue.
+
+A customized mold set was designed and 3d printed for the procedure and a metal cylinder was prepared using a lathe machine. One mold creates a 1mm thick layer of Dragon Skin 30 around the metal cylinder (see [@fig:neck-mold-1]), while the second mold creates a 1mm thick layer of Ecoflex 00-30 around the Dragon Skin 30 tube (see [@fig:neck-mold-2]). The molds were designed with several mechanisms that aid in the release process. First, notches on both ends allow the insertion of a screwdriver to separate the parts. Second, holes for screws at the top enable the use of screws to pull out the top part.
+
+![HITODAMA: Extending neck actuator, first mold, with the help of Joaquin Aldunate.](images/neck-mold-1.png){#fig:neck-mold-1 width=70%}
+
+![HITODAMA: Extending neck actuator, second mold, with the help of Joaquin Aldunate.](images/neck-mold-2.jpeg){#fig:neck-mold-2 width=70%}
+
+For the casting procedure, two more holes were built into the molds, one on each side. The silicone is injected using a syringe, from bottom to top, while the mold is tilted upwards (see [@fig:neck-injection]). This allows the bubbles to escape from the upper hole, leaving the remaining silicone bubble free. For this method it is important to always prepare about two times as much silicone as the mold require, insofar as the excess silicone is used drive the bubbles outside of the mold.
+
+![HITODAMA: Injection technique to the neck actuator.](images/neck-injection.png){#fig:neck-injection width=50%}
+
+Once the second step is done and the outer skin silicone cures, the metal cylinder can be removed. As shown on the soft robotics toolkit [@soft_robotics_toolkit_35_2018], the best method is to have One edge of the cylinder held in a clamp while Isopropyl alcohol is injected between the silicone and the cylinder; then the silicone can be smoothly removed from the rod by pulling it away gently. 
+
+The final step is capping both ends of the actuator by placing the silicone tube inside a cup filled with 20g of Dragon Skin 30. The inserted edge is wrapped around in gaffer tape to prevent excess silicone from sticking to the edge of the tube. Once both ends are capped, one end is punctured using a screwdriver or drill-bit, a silicone tube is inserted and glued with Sil-Poxy silicone.
+
+### Backbone
+The backbone grippers are 3d printed, fit together and then reinforced using zip-ties (see [@fig:neck-zip-ties]). One zip tie goes through the center of all grippers to reinforce the adhesion of one gripper to another, then each gripping handle is fit with zip-tie to grab a hold of the actuator. 
+
+![HITODAMA: Neck backbone ziptie reinforcement.](images/neck-zipties.jpeg){#fig:neck-zip-ties width=70%}
+
+The backbone is then attached to head using the built in connection. The neck does not hold by itself, extended forward without being connected to a body structure that pulls the weight back. The body structure is detailed in the final section.
+
+## Actuation
+The actuators all have separate inlets and are operated individually (see [@fig:neck-test]). The rate and style of turn is controlled using control parameters to the release and inflation of air; this is detailed further in the section regarding the pneumatic system.
+
+![HITODAMA: Neck test, with the help of Joaquin Aldunate](images/neck-test.png){#fig:neck-test width=70%}
 
 
 # HITODAMA - Software Implementation
