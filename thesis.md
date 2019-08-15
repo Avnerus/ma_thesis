@@ -318,11 +318,11 @@ HITODAMA is pneumatic soft robot based on inflation of silicone actuators. Table
 +-----------+--------------------------------------+----------------------------+
 | Body part | Type of actuator                     | Function                   |
 +===========+======================================+============================+
-| Neck      | Fiber reinforced : linear extending  | Head yaw to the right      |
+| Neck      | Fiber reinforced : linearly extending  | Head yaw to the right      |
 +-----------+--------------------------------------+----------------------------+
-| Neck      | Fiber reinforced : linear extending  | Head yaw to the left       | 
+| Neck      | Fiber reinforced : linearly extending  | Head yaw to the left       | 
 +-----------+--------------------------------------+----------------------------+
-| Neck      | Fiber reinforced : linear extending  | Head pitch upwards         | 
+| Neck      | Fiber reinforced : linearly extending  | Head pitch upwards         | 
 +-----------+--------------------------------------+----------------------------+
 | Eyes      | Mounted air chamber X 2 **           | Face inflation above eyes  |
 +-----------+--------------------------------------+----------------------------+
@@ -426,8 +426,8 @@ The face actuators were connected to the pneumatic system while having the two a
 
 ## Design
 
-### Movemenzat
-The neck is designed to grant four degrees of freedom (pitch and yaw) to HITODAMA's head and was designed with the help of Joaquin Aldunate. The neck also provides structural support for the head, making sure it does not spontaneously tip or tilt over when idle. The movement is carried out by three extending silicone actuators that are positioned in a triangular structure. The actuators are gripped by the rigid backbone support structure, shifting it as they extend (see [@fig:neck-actuators]). When the right actuator extends, the head moves in the bottom-left direction, when the left actuator extends, the head moves in the bottom-right direction and when the bottom actuator extends, the head moves upwards. The combination of these triangular movements is sufficient for obtaining four degrees of freedom.
+### Movement
+The neck is designed to grant four degrees of freedom (pitch and yaw) to HITODAMA's head and was designed with the help of Joaquin Aldunate. The neck also provides structural support for the head, making sure it does not spontaneously tip or tilt over when idle. The movement is carried out by three linearly extending silicone actuators that are positioned in a triangular structure. The actuators are gripped by the rigid backbone support structure, shifting it as they extend (see [@fig:neck-actuators]). When the right actuator extends, the head moves in the bottom-left direction, when the left actuator extends, the head moves in the bottom-right direction and when the bottom actuator extends, the head moves upwards. The combination of these triangular movements is sufficient for obtaining four degrees of freedom.
 
 ![HITODAMA: Neck actuators, with the help of Joaquin Aldunate.](images/neck-actuators.png){#fig:neck-actuators width=70%}
 
@@ -439,12 +439,12 @@ The neck backbone is made out of four triangular grippers that enclose the silic
 ## Method
 
 ### Fiber reinforced actuators
-The extending actuators are largely based on the work of Kevin C. Galloway of the Wyss institute in Harvard university [-@galloway_mechanically_2013], but fiber-reinforced actuators have been around since the early 90s, when they were presented by soft robotics pioneer Koichi Suzumori [-@suzumori_development_1991], now head of the Suzumori-Endo lab at the Tokyo institute of technology. The method was later disseminated by Harvard through the open source online toolkit: "Soft Robotics Toolkit" [@soft_robotics_toolkit_fiber-reinforced_2019], contributing a great deal to the popularity and accessibility of soft robotics. Several changes were made in the neck actuators compared the original method by the Wyss institute, mainly: 1) The shape of actuator has changed to a whole cylinder instead of a half-cylinder to increase the structural stability of the neck. 2) The molds were modified for easier release, as well as designed for an injection casting method instead of pouring, for a minimizing the amount of bubbles.
+The linearly extending actuators are largely based on the work of Kevin C. Galloway of the Wyss institute in Harvard university [-@galloway_mechanically_2013], but fiber-reinforced actuators have been around since the early 90s, when they were presented by soft robotics pioneer Koichi Suzumori [-@suzumori_development_1991], now head of the Suzumori-Endo lab at the Tokyo institute of technology. The method was later disseminated by Harvard through the open source online toolkit: "Soft Robotics Toolkit" [@soft_robotics_toolkit_fiber-reinforced_2019], contributing a great deal to the popularity and accessibility of soft robotics. Several changes were made in the neck actuators compared the original method by the Wyss institute, mainly: 1) The shape of actuator has changed to a whole cylinder instead of a half-cylinder to increase the structural stability of the neck. 2) The molds were modified for easier release, as well as designed for an injection casting method instead of pouring, for a minimizing the amount of bubbles.
 
 The casting process follows a standard three primary step procedure:
 
-1. Casting a Dragon Skin 30 muscle actuator tube around a metal cylinder.
-2. Wrapping the cured muscle with expansion restricting fiber and casting an Ecoflex 00-30 soft skin around the muscle.
+1. Casting a Dragon Skin 30 muscle actuator tube around a metal cylinder. The spiral markings on the mold produce guiding notches for wrapping the fiber on the next step. 
+2. Wrapping the cured muscle with expansion restricting kevlar fiber and casting an Ecoflex 00-30 soft skin around the muscle.
 3. Removing the metal cylinder, capping the actuator and inserting an air tube reinforced with silicone glue.
 
 A customized mold set was designed and 3d printed for the procedure and a metal cylinder was prepared using a lathe machine. One mold creates a 1mm thick layer of Dragon Skin 30 around the metal cylinder (see [@fig:neck-mold-1]), while the second mold creates a 1mm thick layer of Ecoflex 00-30 around the Dragon Skin 30 tube (see [@fig:neck-mold-2]). The molds were designed with several mechanisms that aid in the release process. First, notches on both ends allow the insertion of a screwdriver to separate the parts. Second, holes for screws at the top enable the use of screws to pull out the top part.
@@ -469,10 +469,42 @@ The backbone grippers are 3d printed, fit together and then reinforced using zip
 The backbone is then attached to head using the built in connection. The neck does not hold by itself, extended forward without being connected to a body structure that pulls the weight back. The body structure is detailed in the final section.
 
 ## Actuation
-The actuators all have separate inlets and are operated individually (see [@fig:neck-test]). The rate and style of turn is controlled using control parameters to the release and inflation of air; this is detailed further in the section regarding the pneumatic system.
+The actuators all have separate inlets and are operated individually (see [@fig:neck-test]). The rate and style of turn is controlled using control parameters to the release and inflation of air; this is detailed further in the section regarding the pneumatic system. A double spiral wrapping on the actuators with no restriction in the axial expansion direction ensures that the actuators only elongate, without changing their tubular form. 
 
 ![HITODAMA: Neck test, with the help of Joaquin Aldunate](images/neck-test.png){#fig:neck-test width=70%}
 
+# Arms - Standard method for sensing soft body parts.
+
+## Design
+
+### Towards a standard method
+The creation of HITODAMA's arms includes lessons learned from two years of experimenting with soft robotics, and is an attempt to standardize the creation of high performing, durable, cost efficient and environmental friendly soft body parts that are also touch and pressure sensitive. The method was designed with the help of Joaquin Aldunate.
+
+The design builds upon the three step process used for the neck's fiber reinforced linearly extending actuators: 1) Casting of an elastic artificial muscle tube with high performance silicone (Dragon Skin 30), 2) Wrapping the tube with restraining fibers and casting a soft skin around it (Ecoflex 00-30), and 3) Capping the actuator and attaching a silicone tube air inlet. However, the new design offers considerable improvements over the previous line of actuators: Firstly, the molds are now synthesized using subtractive manufacturing with CNC milling rather than 3d printed additive manufacturing. 3d printed molds that are produced layer by layer, however thin the layers may be and whatever coating materials are used, are unable to reach the level of surface smoothness that one may get in subtractive synthesis. A non-smooth mold surface results in a non-smooth product that is difficult to release and vulnerable to injury. Secondly, the skin mold now supports any custom shape, as long as it is not too big to be actuated by the inner muscle. This allows us to design the form of the soft body part independently of the actuating muscle.   Thirdly, the design takes into account the requirement of pressure sensitive sensing built into the actuators and offers a simple method to embed pressure sensors into silicone. Finally, the designs aims for cost efficiency and sustainability by opting for a custom machineable wax material rather than expensive and potentially toxic rigid plastics.
+
+### Movement
+
+HITODAMA's arms act as the main physical control interface between the controller and interlocutor; the signal is sent by squeezing the hands of the arms and can be used on a variety of applications.The soft movement offered by the arms is that of bending, giving the impression that the robot body is opening its arms toward the user or closing them in a way that the control becomes inaccessible (see [@fig:hitodama-arm-bend]). This gives the controllers some power over the interaction, allowing them to decide when the interface can or cannot be touched. 
+
+![HITODAMA: Arm bend.](images/hitodama-arm-bend.png){#fig:hitodama-arm-bend width=50%}
+
+### Sensing
+The sensing is centered on the arm's palm, allowing users to squeeze it to pass a signal (see [@fig:hitodama-arm-press]). Different signals can be passed when both palms are squeezed  simultaneously or individually, and depending on the time pressed. Additionally, the amount of pressure exerted on the palm can be measured, allowing refined control over variable reactions. 
+
+![HITODAMA: Palm squeeze.](images/hitodama-arm-press.png){#fig:hitodama-arm-press width=80%}
+
+## Method
+
+### Machineable wax
+
+### Step 1 mold: Artificial muscle actuator
+The casting of the muscle actuator is the first step of the casting process. The mold for the muscle (see [@fig:arm-steps]) is composed of the following parts:
+
+1. CNC milled mold for  
+
+![Arm steps 1 & 2: Left: Artificial muscle actuator mold, Right: Arm skin mold.](images/arm-steps.png){#fig:arm-steps width=100%}
+
+# 
 
 # HITODAMA - Software Implementation
 
