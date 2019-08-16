@@ -444,7 +444,7 @@ The linearly extending actuators are largely based on the work of Kevin C. Gallo
 The casting process follows a standard three primary step procedure:
 
 1. Casting a Dragon Skin 30 muscle actuator tube around a metal cylinder. The spiral markings on the mold produce guiding notches for wrapping the fiber on the next step. 
-2. Wrapping the cured muscle with expansion restricting kevlar fiber and casting an Ecoflex 00-30 soft skin around the muscle.
+2. Wrapping the cured muscle with expansion restricting kevlar fiber in a double helical form and casting an Ecoflex 00-30 soft skin around the muscle.
 3. Removing the metal cylinder, capping the actuator and inserting an air tube reinforced with silicone glue.
 
 A customized mold set was designed and 3d printed for the procedure and a metal cylinder was prepared using a lathe machine. One mold creates a 1mm thick layer of Dragon Skin 30 around the metal cylinder (see [@fig:neck-mold-1]), while the second mold creates a 1mm thick layer of Ecoflex 00-30 around the Dragon Skin 30 tube (see [@fig:neck-mold-2]). The molds were designed with several mechanisms that aid in the release process. First, notches on both ends allow the insertion of a screwdriver to separate the parts. Second, holes for screws at the top enable the use of screws to pull out the top part.
@@ -486,7 +486,7 @@ The design builds upon the three step process used for the neck's fiber reinforc
 
 HITODAMA's arms act as the main physical control interface between the controller and interlocutor; the signal is sent by squeezing the hands of the arms and can be used on a variety of applications.The soft movement offered by the arms is that of bending, giving the impression that the robot body is opening its arms toward the user or closing them in a way that the control becomes inaccessible (see [@fig:hitodama-arm-bend]). This gives the controllers some power over the interaction, allowing them to decide when the interface can or cannot be touched. 
 
-![HITODAMA: Arm bend.](images/hitodama-arm-bend.png){#fig:hitodama-arm-bend width=50%}
+![HITODAMA: Arm bend.](images/hitodama-arm-bend.png){#fig:hitodama-arm-bend width=40%}
 
 ### Sensing
 The sensing is centered on the arm's palm, allowing users to squeeze it to pass a signal (see [@fig:hitodama-arm-press]). Different signals can be passed when both palms are squeezed  simultaneously or individually, and depending on the time pressed. Additionally, the amount of pressure exerted on the palm can be measured, allowing refined control over variable reactions. 
@@ -500,11 +500,44 @@ The sensing is centered on the arm's palm, allowing users to squeeze it to pass 
 ### Step 1 mold: Artificial muscle actuator
 The casting of the muscle actuator is the first step of the casting process. The mold for the muscle (see [@fig:arm-steps]) is composed of the following parts:
 
-1. CNC milled mold for  
+1. Main mold for producing the muscle tube (CNC milled).
+2. Half-cylindrical metal piece for producing the air chamber (made using lathe).
+3. Modular base piece for securing the metal part (CNC milled).
+4. Bottom piece space filler (3d printed).
+5. Transparent acrylic cover (laser-cut).
 
 ![Arm steps 1 & 2: Left: Artificial muscle actuator mold, Right: Arm skin mold.](images/arm-steps.png){#fig:arm-steps width=100%}
 
-# 
+The CNC parts were milled from machineable wax while prototyping, and from polyurethane after achieving the final form. The mold is put together by inserting the metal piece into the bottom piece along with a small 3d printed filler and attaching the bottom piece to the main piece. A filler is required insofar as the same base pieces are used in both in step 1 and 2 , with the second step requiring extra space on the bottom piece for securing the sensor cable. 
+
+Dragon Skin 30 is injected to the molds using a syringe from bottom the top while the mold are clamped in an upright position and fastened with gaffer tape (see [fig:step1-casting]). By virtue of the transparent acrylic cover, it is possible to see any air bubbles forming during the injection process and follow their path as they departure from the top of the mold into the open air. The mold is designed in such way that a small reservoir pool of silicone remains at the top after injection; this pool maintains that if a small amount of silicone leaks out after injection, it is replaced from the reservoir pool and no material is lost in the final form.
+
+![Arm step 1 : Casting contraption.](images/step1-casting.jpg){#fig:step1-casting width=100%}
+
+### Step 2 mold: Artificial arm 
+
+Once the first step is cured, the result is released from the mold. Before wrapping the kevlar fiber in a double helical form, a restricting layer should be added on one side to induce a bending motion instead of axial expansion. Usually this is done by gluing non stretchable fabric to the flat side of the half cylinder. Fabric bends very easily but does not stretch axially, causing the actuator to bend instead of elongating when inflated. In our case, however, a six-end flat ribbon cable is used as the restrictive layer. The ribbon cable is glued to flat side of the half-cylinder using Sil-Poxy glue; it conducts the sensing signal from the palm of the hand to the other end, while at the same time restricting the axial expansion of the silicone. The kevlar fiber is then wrapped around the actuator, laying on top of the ribbon cable (see [@fig:wrapped-fiber;fig:step2-casting]).Once the mold is ready and situated, Ecoflex 30 silicone is injected, covering the muscle tube and creating the shape of the arm, while the ends of the ribbon cable are protected by the mold so that the sensor and micro controller could be connected later. Overall the second step mold contains the following parts (see [@fig:arm-steps]):
+
+1. Main mold for producing the arm shaped skin (CNC milled).
+2. A sensor box, reserving space for the sensor and protecting one end of the ribbon cable.
+3. Modular base piece for securing the muscle tube and for protecting the other end of the ribbon cable(CNC milled).
+4. Transparent acrylic cover (laser-cut).
+
+As with the first step, the mold is taped and clamped upright and the silicone is injected from bottom to top as the bubbles are monitored through the acrylic glass (see [@fig:step2-casting]). Likewise with the first step mold, the second step also contains a reservoir pool to protect from small leakages.
+
+![Double helical kevlar fiber wrapping. The fiber is wrapped from one end to the other, and then back.](images/wrapped-fiber.jpeg){#fig:wrapped-fiber width=70%}
+
+![Arm step 2 : Casting contraption. The restricting layer formed by the ribbon cable is shown on the flat side of the actuator.](images/step2-casting.jpeg){#fig:step2-casting width=80%}
+
+### Barometric pressure sensor
+The sensing approach in the arm follows the research done by Tenzer, Jentoft & Howe [-@tenzer_feel_2014]. In their search for tactile sensors that could easily be embedded in robotic arms, and specifically organs made out of soft polymers, they found that low cost MEMS based barometric pressure sensors have the highest value. Those kind of sensors are cheap, easy to install and provide much better readings than other low-cost solutions such as Flexi-Force sensors that "often provide limited accuracy and significant hysteresis" [-@tenzer_feel_2014, p.89]. Barometic MEMS sensors also work digitally via SPI or I2C and do not require analog to digital conversions and amplifications. The sensor chosen for the arms was BME280 by Bosch Sensortec [@bosch_bme280_2019]. 
+
+Once the product of the second step is cured, the sensor is installed into the gap in the palm that was left due to the designated box protecting the area from silicone. The sensor is then soldered into the ribbon cable while the other end of the cable is soldered into an extension cable that would be connected to a microcontroller. It is important to note that the SPI protocol works over limited distances and may introduce noise when more than one device is connected over more than one meter.
+
+The arm is then capped with Dragon Skin 30 on both ends, having one end dipped into a cup with 20g of silicone and the other end resting flat while Dragon Skin 30 is poured on top of the sensor (see [@fig:arm-capping]).
+
+
+![Capping the arm and sensor area.](images/arm-capping.jpeg){#fig:arm-capping width=100%}
 
 # HITODAMA - Software Implementation
 
