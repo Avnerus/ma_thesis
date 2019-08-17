@@ -559,6 +559,26 @@ Once attached to the control board and mounted on HITODAMA's body backbone, the 
 
 The ribbon cable that comes out of the arm connects to the control board and sends a numeric signal for the amount of pressure being exerted on the palm. These figures are later manually processed by the software and function as pressure sensitive buttons.
 
+# Body
+
+## Design
+The body backbone of HITODAMA was designed rapidly with the help of Joaquin Aldunate in order to make the tight deadlines required by the prototyping and testing process of this Master's thesis. The backbone is entirely rigid and its sole purpose is to provide structural support for other elements, primarily the head, arms and electronic components (see [@fig:hitodama-body] ). Due to time constraints and a handful of failed attempts, the plan to produce a soft tail as part of HITODAMA's body had to be abandoned, as well as any plan for soft skin that would envelop the rigid body.
+
+![HITODAMA: Body structure design. Visible on the left: a sliding arc that adjusts the angle of the neck connection](images/hitodama-body.png){#fig:hitodama-body width=100%}
+
+The main features of the body include:
+
+1. A slit in which the neck is attached and adjusted into the right angle.
+2. Two ports holding the arms in place.
+3. A window where a 5 inch display is inserted, allocating enough space at the back for a Raspberry Pi and connection cables.
+
+## Method
+The body structure is composed both of laser-cut and 3d printed parts. The parts consisting the primary frame are laser-cut, while the connector pieces are 3d printed. Metal screws are used for fastening the connections. The connection to the neck is supported by a plastic arc that can be moved in order to adjust the angle of the neck (see [@fig:hitodama-body]). Once the desired angle is found, the screws are tightened.
+
+The arms are inserted into the ports, allowing the cables to flow through the back and are then secured by the top frame which is also screwed into place. The 5-inch display screws into the designated window. The plastic frame contains enough holes to be able to pass all of the pneumatic and electronic cables through it; therefore it consolidates all of the that go in and out of the robot (see [@fig:body-assembled]).
+
+![HITODAMA: Assembled body with pneumatic and electronic connections.](images/body-assembled.jpeg){#fig:body-assembled  width=100%}
+
 # HITODAMA - Software Implementation
 
 ## Rust engine
