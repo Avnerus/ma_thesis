@@ -497,6 +497,22 @@ The sensing is centered on the arm's palm, allowing users to squeeze it to pass 
 
 ### Machineable wax
 
+The method for producing machineable wax follows the one posted online by the Leeds hackerspace [@leeds_hackerspace_making_nodate]: paraffin wax is mixed with recycled LDPE plastic pellets in a 1:4 ration; four parts of plastic per one part of wax. The parts are mixed together in a consumer grade deep fryer and wax based crayon color is added for appearance (see [@fig:wax-mixing]). 
+
+![Machineable wax mixing.](images/wax-mixing.jpg){#fig:wax-mixing width=80%}
+
+Once the mixture is uniform, it is poured into a metal pan and left to cool and dry for the day (see [@fig:wax-cooling]). It can then be removed from the mold and used to on the CNC milling machine (see [@fig:wax-ready;@fig:wax-molds]).
+
+![Machineable wax, interesting patterns are formed during the cooling process.](images/wax-cooling.jpg){#fig:wax-cooling width=80%}
+
+![Machineable wax, ready to be milled.](images/wax-ready.jpg){#fig:wax-ready width=80%}
+
+![Molds for HITODAMA's arm made from machineable wax.](images/wax-molds.jpeg){#fig:wax-molds width=60%}
+
+While the machineable wax didn't exhibit top-grade surface finish levels like those of expensive polyurethane compounds, it was certainly smoother than 3d printed parts and was very easy to mill. Machineable wax is more environmentally friendly than polyurethane since it is not only produced from recycled plastics, it can also be recycled on its own: Once the molds are no longer of use, the wax can be melted back and cast into the pan for re-use. If the CNC machine is equipped with a vacuum that sucks off the scrap while cutting the part, close to zero-waste manufacturing can be achieved. 
+
+For making the arm, the first set of molds was milled from machineable wax. After a round of testing and fixes, the final molds were milled from polyurethane to ensure the highest quality product.
+
 ### Step 1 mold: Artificial muscle actuator
 The casting of the muscle actuator is the first step of the casting process. The mold for the muscle (see [@fig:arm-steps]) is composed of the following parts:
 
@@ -536,8 +552,12 @@ Once the product of the second step is cured, the sensor is installed into the g
 
 The arm is then capped with Dragon Skin 30 on both ends, having one end dipped into a cup with 20g of silicone and the other end resting flat while Dragon Skin 30 is poured on top of the sensor (see [@fig:arm-capping]).
 
+![Capping the arm and sensor area.](images/arm-capping.jpeg){#fig:arm-capping width=80%}
 
-![Capping the arm and sensor area.](images/arm-capping.jpeg){#fig:arm-capping width=100%}
+## Actuation and sensing
+Once attached to the control board and mounted on HITODAMA's body backbone, the arms could be individually actuated with separate inlets for a wide range of arm expressions. However, for the final HITODAMA prototype the arms shared a single inlet since they were always operating in sync. An inflation to the arms causes them bend upwards in what appears to be a curling bicep motion.
+
+The ribbon cable that comes out of the arm connects to the control board and sends a numeric signal for the amount of pressure being exerted on the palm. These figures are later manually processed by the software and function as pressure sensitive buttons.
 
 # HITODAMA - Software Implementation
 
