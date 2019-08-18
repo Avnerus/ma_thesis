@@ -330,14 +330,12 @@ HITODAMA is pneumatic soft robot based on inflation of silicone actuators. Table
 +-----------+--------------------------------------+----------------------------+
 | Mouth     | Mounted air chamber                  | Face inflation in mouth    |
 +-----------+--------------------------------------+----------------------------+
-| Left arm  | Fiber reinforced : bending           | Arm bicep bend upwards     |
+| Arms      | Fiber reinforced : bending X 2 **    | Arm bicep bend upwards     |
 +-----------+--------------------------------------+----------------------------+
-| Right arm | Fiber reinforced : bending           | Arm bicep bend upwads      |
-+-----------+-------------------------------------------------------------------+
 | Tail*     | Fiber reinforced : bending           | Tail curve upwards         |
 +-----------+-------------------------------------------------------------------+
 
-: Actutors in HITODAMA's motor subsystem {#tbl:actuators}
+: Actuators in HITODAMA's motor subsystem {#tbl:actuators}
 
 
 \* The tail was not fully implemented and was not incorporated into the final prototype.
@@ -578,6 +576,57 @@ The body structure is composed both of laser-cut and 3d printed parts. The parts
 The arms are inserted into the ports, allowing the cables to flow through the back and are then secured by the top frame which is also screwed into place. The 5-inch display screws into the designated window. The plastic frame contains enough holes to be able to pass all of the pneumatic and electronic cables through it; therefore it consolidates all of the that go in and out of the robot (see [@fig:body-assembled]).
 
 ![HITODAMA: Assembled body with pneumatic and electronic connections.](images/body-assembled.jpeg){#fig:body-assembled  width=100%}
+
+# Pneumatic control board
+
+## Design
+The pneumatic control board drives HITODAMA's motor subsystem. As described in [@tbl:actuators], a total of seven inlet/outlet air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, only one pump motor is used. Using the inlet and outlet valves, the air is routed from the single pump into the desired actuators. A custom modular PCB array was designed for controlling the actuators, consisting of 3 types of boards: 1) Valve / motor board. 2) Intermediate board. 3) Teensy breakout board. The summary of the boards used is described in [@tbl:pcbs].
+
++---------------------+--------------------------------------------------------+-------------------------+
+|PCB type             | Function                                               | Quantity                |
++=====================+========================================================+=========================+
+| Valve / Motor       | Control two valves (inlet & outlet) or pumps.          | 8 (7 inlets + 1 pump)   |
++---------------------+--------------------------------------------------------+-------------------------+
+| Intermediate        | Bridge between the teensy breakout and 3 valve boards  | 3                       | 
++---------------------+--------------------------------------------------------+-------------------------+
+| Controller breakout | Connect the teensy to 3 intermediate boards            | 1                       |    
++---------------------+--------------------------------------------------------+-------------------------+
+
+: PCB boards in the pneumatic control board {#tbl:pcbs}
+
+The main unit that controls an actuator is the valve board, which provisions two main functions: 1) PWM control of two 12V motors / solenoids. 2) Reading air pressure values. Essentially it used to control an inlet valve and an outlet valve for every air chamber that needs to be individually inflated or deflated. Additionally, since the board is able to control any 12v motor, it is also used to control to the single pump that drives the pneumatic system.
+
+The operating principle for using the valve board is described in [@fig:valve-board-diagram] and [@tbl:actuator-states]. As mentioned, two valves are controlled using the board: An inlet valve and an outlet valve. The valves could be open, closed or partially open using low PWM values; this controls the state of the actuator. [@Tbl:actuator-states] lists the different states of the actuator in relation to the state of the valve.
+
++-----------------+---------------------+-------------------------------------------------------+
+|Inlet valve      | Outlet valve        | Actuator state                                        |
++=================+=====================+=======================================================+
+| Closed          | Closed              | Idle. Pressure does not drop or rise.                 |
++-----------------+---------------------+-------------------------------------------------------+
+| Open            | Closed              | Inflating when pump is open, pressure rises.          | 
++-----------------+---------------------+-------------------------------------------------------+
+| Closed          | Open                | Deflating at full speed, pressure drops.              |    
++-----------------+---------------------+-------------------------------------------------------+
+| Closed          | Partially open      | Deflating at a slower speed, depending on PWM value.  |    
++-----------------+---------------------+-------------------------------------------------------+
+| Partially open  | Closed              | Inflating at a slower speed, depnding on PWM value.*  |
++-----------------+---------------------+-------------------------------------------------------+
+
+: Actuator states in relation to valve states {#tbl:actuator-states}
+
+Each valve is a two way linear solenoid, meaning it has an in-port and out-port and it controls the flow of air between them. The in-port of the inlet valve is connected to the pump in a hub like manner, along with all of the other inlet valves of the system. The out-port of the inlet valve is connected to a 4-way splitter leading to: 1) The actuator itself. 2) The outlet valve, 3) the pressure sensor which is housed back at the valve board. The outlet valve is not connected to anything on its out-port, meaning that the air escapes completely when the valve is open.
+
+
+
+\* Was not used in the final prototype.
+
+![Valve board diagram.](images/valve-board-diagram.jpg){#fig:valve-board-diagram width=100%}
+
+![Board connection diagram. Three valve board connect to an intermediate board that connects to the controller breakout board.](images/board-connection-diagram.jpg){#fig:board-connection-diagram width=100%}
+
+The connection between a valve and its control voltage goes through three boards: 1) The valve board. 2) The intermediate board. 3) The controller breakout board. There are several advantages for this separation of concerns: Firstly, having a modular approach allows us to theoretically add as many actuators as needed without changing most of the design. Currently, every intermediate board can host three valve boards and the main controller board hosts three intermediate board, i.e the controller board supports up to nine valve boards. If in the future we would like to support nine more, only the controller board needs to accommodate to the increased amount; the valve boards naturally remain the same and the intermediates have no logic other than forwarding the valve boards to the main controller. Secondly, having intermediate boards allows to easily distribute the physical space between the valve boards without having an overly sized controller board. Insofar as air tubes are going into each valve board, they require some space around them to accommodate the tubes. In this design, the intermediate connects to the controller breakout board by a ribbon cable, while the valve boards ease into the intermediate board using an edge connector mechanism. 
+
+
 
 # HITODAMA - Software Implementation
 
