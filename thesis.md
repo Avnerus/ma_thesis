@@ -580,12 +580,19 @@ The arms are inserted into the ports, allowing the cables to flow through the ba
 # Pneumatic control board
 
 ## Design
-The pneumatic control board drives HITODAMA's motor subsystem. As described in [@tbl:actuators], a total of seven inlet/outlet air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, only one pump motor is used. Using the inlet and outlet valves, the air is routed from the single pump into the desired actuators. A custom modular PCB array was designed for controlling the actuators, consisting of 3 types of boards: 1) Valve / motor board. 2) Intermediate board. 3) Teensy breakout board. The summary of the boards used is described in [@tbl:pcbs].
+The pneumatic control board drives HITODAMA's motor subsystem and was designed with the help of Joaquin Aldunate. As described in [@tbl:actuators], a total of seven inlet/outlet air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, only one pump motor is used. Using the inlet and outlet valves, the air is routed from the single pump into the desired actuators.
+
+The pneumatic system is situated entirely outside of the robot, i.e only air tubes are connected to the robotic parts while full set of valves, the pumps and the connection hub components are externally located (see [@fig:boards-complete]).
+
+![HITODAMA: Pneumatic control board.](images/boards-complete.jpg){#fig:boards-complete width=100%}
+
+A custom modular PCB array was designed for controlling the actuators, consisting of 3 types of boards: 1) Valve / motor board. 2) Intermediate board. 3) Teensy breakout board. The summary of the boards used is described in [@tbl:pcbs].
 
 +---------------------+--------------------------------------------------------+-------------------------+
 |PCB type             | Function                                               | Quantity                |
 +=====================+========================================================+=========================+
-| Valve / Motor       | Control two valves (inlet & outlet) or pumps.          | 8 (7 inlets + 1 pump)   |
+| Valve / Motor       | Control actuation using two valves (inlet & outlet)    |                         |
+|                     | and read pressure sensor values from the actuator.     | 8 (7 inlets + 1 pump)   |
 +---------------------+--------------------------------------------------------+-------------------------+
 | Intermediate        | Bridge between the teensy breakout and 3 valve boards  | 3                       | 
 +---------------------+--------------------------------------------------------+-------------------------+
@@ -594,7 +601,7 @@ The pneumatic control board drives HITODAMA's motor subsystem. As described in [
 
 : PCB boards in the pneumatic control board {#tbl:pcbs}
 
-The main unit that controls an actuator is the valve board, which provisions two main functions: 1) PWM control of two 12V motors / solenoids. 2) Reading air pressure values. Essentially it used to control an inlet valve and an outlet valve for every air chamber that needs to be individually inflated or deflated. Additionally, since the board is able to control any 12v motor, it is also used to control to the single pump that drives the pneumatic system.
+The main unit that controls an actuator is the valve board, which provisions two main functions: 1) PWM control of two 12V motors / solenoids. 2) Reading air pressure values. Essentially it used to control an inlet valve and an outlet valve for every air chamber that needs to be individually inflated or deflated, while providing pressure sensor readings for that air chamber to enable automatic regulation. Additionally, since the board is able to control any 12v motor, it is also used to control to the single pump that drives the pneumatic system.
 
 The operating principle for using the valve board is described in [@fig:valve-board-diagram] and [@tbl:actuator-states]. As mentioned, two valves are controlled using the board: An inlet valve and an outlet valve. The valves could be open, closed or partially open using low PWM values; this controls the state of the actuator. [@Tbl:actuator-states] lists the different states of the actuator in relation to the state of the valve.
 
@@ -625,6 +632,46 @@ Each valve is a two way linear solenoid, meaning it has an in-port and out-port 
 ![Board connection diagram. Three valve board connect to an intermediate board that connects to the controller breakout board.](images/board-connection-diagram.jpg){#fig:board-connection-diagram width=100%}
 
 The connection between a valve and its control voltage goes through three boards: 1) The valve board. 2) The intermediate board. 3) The controller breakout board. There are several advantages for this separation of concerns: Firstly, having a modular approach allows us to theoretically add as many actuators as needed without changing most of the design. Currently, every intermediate board can host three valve boards and the main controller board hosts three intermediate board, i.e the controller board supports up to nine valve boards. If in the future we would like to support nine more, only the controller board needs to accommodate to the increased amount; the valve boards naturally remain the same and the intermediates have no logic other than forwarding the valve boards to the main controller. Secondly, having intermediate boards allows to easily distribute the physical space between the valve boards without having an overly sized controller board. Insofar as air tubes are going into each valve board, they require some space around them to accommodate the tubes. In this design, the intermediate connects to the controller breakout board by a ribbon cable, while the valve boards ease into the intermediate board using an edge connector mechanism. 
+
+## Method
+
+### Pneumatic components BOM
+Aside from the PCB boards, table [@tbl:pneumatic-bom] describes the components used on the system, their connection type, quantity and function.
+
++--------------------------------------+----------+---------------+---------------------------------------+
+| Component                            | Quantity | Connection    | Function                              |
++======================================+==========+===============+=======================================+
+| Mitsumi R-14 A221 Micro air pump     | 1        | 4mm outlet    | Pump air into the system.             |
++--------------------------------------+----------+---------------+---------------------------------------+
+| 2 Way aluminum solenoid valve.       | 14 (7x2) | 1/8" NPT      | Regulate air flow between the seven   |
+| Normally close, 12v DC.              |          | female port   | air chambers.                         |
++--------------------------------------+----------+---------------+---------------------------------------+
+| Mitsumi R-14 A221 Micro air pump     | 1        | 4mm outlet    | Pump air into the system.             |
+
+
+### Valve / motor board
+The valve / motor board was designed with KiCad software (see [@fig:valve-board-kicad]) after the setup was tested on a breadboard. It includes two main features: 1) Motor driver control over two valves / motors. 2) Amplified pressure sensor circuit. 
+
+![Valve / motor boad: KiCad drawing.](images/valve-board-kicad.png){#fig:valve-board-kicad width=70%}
+
+The motor driver circuit uses the **Pololu 713 TB6612FNG dual motor driver carrier**. It provides standard back EMF protection using **1N4001 diodes** and **bypass capacitors of 100u** in parallel to the voltage supply lines. The valves chosen for the pneumatic system are 
+
+For pressure sensing, the **MPS20N0040D Pressure Sensor** was selected for its low cost and high availability. The pressure sensor requires amplification and normalization to the produced analog values. A standard **LM358N Op-Amp** was used; different resistor configurations were tested using an oscilloscope until the desired output was reached. [@Fig:pressure-sensor-circuit] describes the configuration used in the final prototype.  
+
+![MPS20N0040D: Op-Amp circuit. The sensor orientation is determined by the small hole at one side.](images/pressure-sensor-circuit.png){#fig:pressure-sensor-circuit width=100%}
+
+### Valve board to intermediate board
+
+A modular slot-like arrangement was chosen for the connection between the valve boards and the intermediate boards. Three **TE Connectivity 5-5530843-3** edge connectors are soldered on the intermediate board, allowing the valve boards to be slotted in and out easily (see [@fig:slot-mechanism]).
+
+![Valve board to intermediate board slot mechanism](images/slot-mechanism.jpg){#fig:slot-mechnism width=80%}
+
+### Intemediate board to controller breakout
+
+A 20-pin ribbon cable connects the intermediate board to the controller breakout board (see [@fig:boards-ribbon-cable]). The intermediate board forwards all of the necessary pins to the micro-controller, allowing PWM control over three air chambers (six valves) and reading three pressure values.
+
+![Intemediate board to controller breakout ribbon cable](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=80%}
+
 
 
 
