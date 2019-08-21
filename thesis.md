@@ -638,15 +638,18 @@ The connection between a valve and its control voltage goes through three boards
 ### Pneumatic components BOM
 Aside from the PCB boards, table [@tbl:pneumatic-bom] describes the components used on the system, their connection type, quantity and function.
 
-+--------------------------------------+----------+---------------+---------------------------------------+
-| Component                            | Quantity | Connection    | Function                              |
-+======================================+==========+===============+=======================================+
-| Mitsumi R-14 A221 Micro air pump     | 1        | 4mm outlet    | Pump air into the system.             |
-+--------------------------------------+----------+---------------+---------------------------------------+
-| 2 Way aluminum solenoid valve.       | 14 (7x2) | 1/8" NPT      | Regulate air flow between the seven   |
-| Normally close, 12v DC.              |          | female port   | air chambers.                         |
-+--------------------------------------+----------+---------------+---------------------------------------+
-| Mitsumi R-14 A221 Micro air pump     | 1        | 4mm outlet    | Pump air into the system.             |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| Component                            | Quantity       | Connection    | Function                              |
++======================================+================+===============+=======================================+
+| Mitsumi R-14 A221 Micro air pump     | 1              | 4mm outlet    | Pump air into the system.             |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| 2 Way aluminum solenoid valve.       | 14 (7 * 2)     | 1/8" NPT      | Regulate air flow between the seven   |
+| Normally close, 12v DC.              |                | female port   | air chambers.                         |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
+|                                      |                | 1/4" Tube     |                                       |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
 
 
 ### Valve / motor board
