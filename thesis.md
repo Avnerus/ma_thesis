@@ -360,7 +360,7 @@ The sensor are able to detect when the body is being squeezed, as well as the am
 ![HITODAMA: Sensor subsystem](images/hitodama-sensor.png){#fig:hitodama-sensor width=30%}
 
 ### Digital I/O subsystem
-HITODAMA employs web based digital i/o components that provide additional interaction functionality (see [@fig:hitodama-io]). They include:
+HITODAMA employs web based digital I/O components that provide additional interaction functionality (see [@fig:hitodama-io]). They include:
 
 1. Camera: vision input.
 2. Touch display*: visual output.
@@ -526,7 +526,7 @@ The CNC parts were milled from machineable wax while prototyping, and from polyu
 
 Dragon Skin 30 is injected to the molds using a syringe from bottom the top while the mold are clamped in an upright position and fastened with gaffer tape (see [fig:step1-casting]). By virtue of the transparent acrylic cover, it is possible to see any air bubbles forming during the injection process and follow their path as they departure from the top of the mold into the open air. The mold is designed in such way that a small reservoir pool of silicone remains at the top after injection; this pool maintains that if a small amount of silicone leaks out after injection, it is replaced from the reservoir pool and no material is lost in the final form.
 
-![Arm step 1 : Casting contraption.](images/step1-casting.jpg){#fig:step1-casting width=100%}
+![Arm step 1 : Casting apparatus.](images/step1-casting.jpg){#fig:step1-casting width=100%}
 
 ### Step 2 mold: Artificial arm 
 
@@ -541,7 +541,7 @@ As with the first step, the mold is taped and clamped upright and the silicone i
 
 ![Double helical kevlar fiber wrapping. The fiber is wrapped from one end to the other, and then back.](images/wrapped-fiber.jpeg){#fig:wrapped-fiber width=70%}
 
-![Arm step 2 : Casting contraption. The restricting layer formed by the ribbon cable is shown on the flat side of the actuator.](images/step2-casting.jpeg){#fig:step2-casting width=80%}
+![Arm step 2 : Casting apparatus. The restricting layer formed by the ribbon cable is shown on the flat side of the actuator.](images/step2-casting.jpeg){#fig:step2-casting width=80%}
 
 ### Barometric pressure sensor
 The sensing approach in the arm follows the research done by Tenzer, Jentoft & Howe [-@tenzer_feel_2014]. In their search for tactile sensors that could easily be embedded in robotic arms, and specifically organs made out of soft polymers, they found that low cost MEMS based barometric pressure sensors have the highest value. Those kind of sensors are cheap, easy to install and provide much better readings than other low-cost solutions such as Flexi-Force sensors that "often provide limited accuracy and significant hysteresis" [-@tenzer_feel_2014, p.89]. Barometic MEMS sensors also work digitally via SPI or I2C and do not require analog to digital conversions and amplifications. The sensor chosen for the arms was BME280 by Bosch Sensortec [@bosch_bme280_2019]. 
@@ -710,7 +710,7 @@ Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It pro
 2. Within each air chamber, the IN2 pin is shared between the inlet valve and outlet valve, reason being that for every chamber either the inlet valve or outlet valve is open, never both at the same time.
 3. For the same reason, the PWM pin within each air chamber is also shared between the inlet valve and outlet valve.
 
-# Programmable interface
+# Programmable interface to hardware
 
 ## Design
 HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot hardware. The input and output signals travel through several stops before finally being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
@@ -725,6 +725,31 @@ The web API for HITODAMA is powered by a Raspberry Pi 3, connected to the Teensy
 # Digital I/O
 
 ## Design
+HITODAMA's digital I/O subsystem (see [@fig:hitodama-io]) provides audio-visual interaction functionalities that are all accessible through a web-based interface (see [@fig:digital-io]).
+
+![Digital I/O: connection diagram](images/digital-io.jpg){#fig:digital-io width=100%}
+
+An open web based design enables developers to easily build interaction apps for HITODAMA and ensures that anyone with a web browser on a phone or desktop could connect and control the robot. In its most minimal and inclusive form, no other special hardware is required by a controller to interact through the robot; a web capable device with typing ability and a speaker is sufficient, allowing the controller to type utterances while viewing and hearing the robot's surrounding environment. Nonetheless, an application may request additional input from the controller, such as webcam and microphone, location and so forth.
+
+## Method
+
+### Audio/Video streaming
+The subsystem makes use of a WebRTC gateway to stream audio and video from the robot to the controller. There are numerous advantages to using a gateway rather than streaming directly from the robot: 1) This makes is possible to offload the network processing to a stronger server in case multiple clients are consuming the stream. 2) It enables easy recording and storing of videos on a separate server without consuming resources on the robot's Raspberry Pi. The free and open-source Janus gateway was used for this purpose [@janus_janus_2019], along with the open-source GStreamer client library. A standard **Raspberry Pi camera** was used for video streaming, while a **Rusee Lapel  Omnidirectional Microphone** connected to a  **UGREEN External USB Sound Card** was used for audio. The following GStreamer command streams VP8 video with Opus audio at 640x480 resolution to a designated server denounced by the bash argument (All modern browsers are supported): 
+
+~~~~~~~
+gst-launch-1.0 alsasrc ! queue ! opusenc ! rtpopuspay ! udpsink
+host=$1 port=8003 rpicamsrc preview=false ! videoconvert !
+video/x-raw, framerate=30/1, width=640, height=480 ! 
+vp8enc cpu-used=0 threads=1 end-usage=vbr min-quantizer=1
+deadline=1 ! rtpvp8pay ! udpsink host=$1 port=8004 sync=false
+~~~~~~~
+
+The controller's web client then uses the Janus client library to obtain a reference to a standard WebRTC video resource containing the stream.
+
+### Display
+A 5-inch LCD display by Waveshare is connected to the Raspberry Pi via the HDMI port and supports a resolution of up to 800x480. The display runs a full screen web browser (to be detailed in the next section).
+
+# Software platform
 
 
 
