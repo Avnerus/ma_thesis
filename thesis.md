@@ -635,21 +635,49 @@ The connection between a valve and its control voltage goes through three boards
 
 ## Method
 
-### Pneumatic components BOM
-Aside from the PCB boards, table [@tbl:pneumatic-bom] describes the components used on the system, their connection type, quantity and function.
+### Pneumatic components
+[@tbl:pneumatic-components] describes the pneumatic components used on the system, their connection type, quantity and function. Every table entry is associated with an image on [@fig:pneumatic-components].
 
 +--------------------------------------+----------------+---------------+---------------------------------------+
 | Component                            | Quantity       | Connection    | Function                              |
 +======================================+================+===============+=======================================+
-| Mitsumi R-14 A221 Micro air pump     | 1              | 4mm outlet    | Pump air into the system.             |
-+--------------------------------------+----------------+---------------+---------------------------------------+
 | 2 Way aluminum solenoid valve.       | 14 (7 * 2)     | 1/8" NPT      | Regulate air flow between the seven   |
-| Normally close, 12v DC.              |                | female port   | air chambers.                         |
+| Normally close, 12v DC (1)           |                | female port   | air chambers.                         |
 +--------------------------------------+----------------+---------------+---------------------------------------+
-| NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
-|                                      |                | 1/4" Tube     |                                       |
+| NPT to barbed tube connector (2)     | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
+|                                      |                | 1/4" Tube     | Outlet valves require only one        |
+|                                      |                |               | connector while inlet valves require  |
+|                                      |                |               | two.                                  |
 +--------------------------------------+----------------+---------------+---------------------------------------+
-| NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
+| Mitsumi R-14 A221 Micro air pump (3) | 1              | 4mm outlet    | Pump air into the system.             |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| Plastic Y connector (4)              | 3              | 4mm outlets   | Joins two tubes into one, combining   |
+|                                      |                |               | the inlets of two arms, two cheeks and|
+|                                      |                |               | two eyes.                             |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| Plastic Linear connector (5)         | 4              | 4mm outlets   | Acts as an adapater connection to     |
+|                                      |                |               | actuators, so they can be easily      |
+|                                      |                |               | extended with an additional tube.     |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| Plastic X connector (6)              | 10 (7 + 3)     | 4mm outlets   | Every of the seven air chambers uses  |
+|                                      |                |               | an x connector to split the incoming  |
+|                                      |                |               | air between the outlet valve, pressure|
+|                                      |                |               | sensor and actuator. 3 X connectors   |
+|                                      |                |               | are also used to split the air from   |
+|                                      |                |               | the pump into the 7 inlet valves.     |
++--------------------------------------+----------------+---------------+---------------------------------------+
+| Silicone tube (7)                    | ~40            | 3mm inner /   | 3mm tubes are attached to actuators,  |
+|                                      |                | 5mm outer +   | as it is easier to insert smaller     |
+|                                      |                | 6mm inner /   | tubes, and to pressure sensors as to  |
+|                                      |                | 8mm outer.    | maintain a tight connection. 6mm tubes|
+|                                      |                |               | run between the valves and the air hub|
+|                                      |                |               | from the pump (both diameters work    |
+|                                      |                |               | well with 4mm connectors)             |
++--------------------------------------+----------------+---------------+---------------------------------------+
+
+: Pneumatic components BOM {#tbl:pneumatic-components}
+
+![Pneumatic components asscociated with table entries.](images/pneumatic-components.png){#fig:pneumatic-components width=100%}
 
 
 ### Valve / motor board
@@ -674,6 +702,29 @@ A modular slot-like arrangement was chosen for the connection between the valve 
 A 20-pin ribbon cable connects the intermediate board to the controller breakout board (see [@fig:boards-ribbon-cable]). The intermediate board forwards all of the necessary pins to the micro-controller, allowing PWM control over three air chambers (six valves) and reading three pressure values.
 
 ![Intemediate board to controller breakout ribbon cable](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=80%}
+
+### Microcontroller breakout
+Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It provides an Arduino compatible interface with an exceptionally high performance and a large number of analog, digital and PWM enabled pins. Nevertheless, due to the high number of pneumatic components, several concessions had to be made to save pins:
+
+1. All motor drivers share one "standby" pin which is indefinitely set to HIGH, i.e keeping the motors always connected to power. Instead, the IN1 and IN2 pins are used to turn off the pump or valves (when both IN1 and IN2 are set to HIGH, the motor does not power).
+2. Within each air chamber, the IN2 pin is shared between the inlet valve and outlet valve, reason being that for every chamber either the inlet valve or outlet valve is open, never both at the same time.
+3. For the same reason, the PWM pin within each air chamber is also shared between the inlet valve and outlet valve.
+
+# Programmable interface
+
+## Design
+HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot hardware. The input and output signals travel through several stops before finally being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
+
+![Programmable interface: singal flow](images/programmable-interface.jpg){#fig:programmable-interface width=100%}
+
+## Method
+As described in the previous section, the pneumatic system sends and receives signals from the main Teensy controller breakout board. In addition to pneumatic control, the microcontroller can receive SPI input from up to 5 different sensors. In the final HITODAMA prototype, only two SPI connections are used to detect tactile pressure on the palms.
+
+The web API for HITODAMA is powered by a Raspberry Pi 3, connected to the Teensy via a USB serial cable. At the core of the Raspberry PI, a Rust based web socket server mediates between a javascript programmable interface and the microcontroller. Detailed software architecture is described in the following section.
+
+# Digital I/O
+
+## Design
 
 
 
