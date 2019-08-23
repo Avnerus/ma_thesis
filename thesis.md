@@ -644,10 +644,11 @@ The connection between a valve and its control voltage goes through three boards
 | 2 Way aluminum solenoid valve.       | 14 (7 * 2)     | 1/8" NPT      | Regulate air flow between the seven   |
 | Normally close, 12v DC (1)           |                | female port   | air chambers.                         |
 +--------------------------------------+----------------+---------------+---------------------------------------+
-| NPT to barbed tube connector (2)     | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
-|                                      |                | 1/4" Tube     | Outlet valves require only one        |
+| NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
+| enforced with PTFE tape.             |                | 1/4" Tube     | Outlet valves require only one        |
 |                                      |                |               | connector while inlet valves require  |
-|                                      |                |               | two.                                  |
+|                                      |                |               | two. PTFE tape is required to prevent |
+|                                      |                |               | leaks.                                |
 +--------------------------------------+----------------+---------------+---------------------------------------+
 | Mitsumi R-14 A221 Micro air pump (3) | 1              | 4mm outlet    | Pump air into the system.             |
 +--------------------------------------+----------------+---------------+---------------------------------------+
@@ -710,17 +711,17 @@ Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It pro
 2. Within each air chamber, the IN2 pin is shared between the inlet valve and outlet valve, reason being that for every chamber either the inlet valve or outlet valve is open, never both at the same time.
 3. For the same reason, the PWM pin within each air chamber is also shared between the inlet valve and outlet valve.
 
-# Programmable interface to hardware
+# Software to hardware interface
 
 ## Design
-HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot hardware. The input and output signals travel through several stops before finally being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
+HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot's hardware. The input and output signals travel through several stops before finally being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
 
 ![Programmable interface: singal flow](images/programmable-interface.jpg){#fig:programmable-interface width=100%}
 
 ## Method
 As described in the previous section, the pneumatic system sends and receives signals from the main Teensy controller breakout board. In addition to pneumatic control, the microcontroller can receive SPI input from up to 5 different sensors. In the final HITODAMA prototype, only two SPI connections are used to detect tactile pressure on the palms.
 
-The web API for HITODAMA is powered by a Raspberry Pi 3, connected to the Teensy via a USB serial cable. At the core of the Raspberry PI, a Rust based web socket server mediates between a javascript programmable interface and the microcontroller. Detailed software architecture is described in the following section.
+The web API for HITODAMA is powered by a Raspberry Pi 3, connected to the Teensy via a USB serial cable. At the core of the Raspberry PI, a Rust based web socket server mediates between a javascript programmable interface and the microcontroller. Detailed software architecture is described in the dedicated section.
 
 # Digital I/O
 
@@ -749,16 +750,27 @@ The controller's web client then uses the Janus client library to obtain a refer
 ### Display
 A 5-inch LCD display by Waveshare is connected to the Raspberry Pi via the HDMI port and supports a resolution of up to 800x480. The display runs a full screen web browser (to be detailed in the next section).
 
-# Software platform
+# Systems and software architecture
 
+## Overview
 
+[@Fig:architecture] describes the overall systems architecture offered by HITODAMA, separated across three different physical locations: 1) The controller's whereabouts. 2) The robot's location. 3) An external gateway server operating online. At the front, two web applications are operating the experience: One control application running on the controller's device (phone or desktop) and one web application running on the robot and displayed on the HDMI screen. At the backend, several different components are integrated. The following sections describe each of them in detail.
 
+![Architecture overview, dividided by physical hardware and main software components](images/architecture.jpg){#fig:architecture width=100%}
 
-# HITODAMA - Software Implementation
+## Buildroot & WPE
+A web infrastructure is suited for interaction app development due to its openness and accessibility. However, there are still many challenges in running web applications on small and cheap embedded hardware such as the Raspberry Pi. Several projects are tackling those challenges with web platforms that are designed with embedded devices in mind, such as the Chromium project ^[https://www.chromium.org/Home] and Mozilla Servo ^[https://servo.org/]. One project that stands out above the rest is WPE: Webkit for embedded ^[https://webkit.org/wpe/]. WPE is built on the foundation of WebKit: an open source web framework started by Apple that serves as the basis for a variety of web browsers and frameworks, including Google's Blink engine; particularly, WPE is based on WebKitGTK, a web framework for the Linux-Gnome ecosystem. According to its stated mission, the WPE project is "designed from the ground-up with performance, small footprint, accelerated content rendering, and simplicity of deployment in mind" [@wpe_wpe_2019].
 
-## Rust engine
-## Arduino controller
-## WPE Webkit platform
+The Raspberry Pi is indeed one of WPE's target reference boards and in order to run it natively one must cross-compile the release to the Pi's architecture. This is most easily achieved by using a custom modular linux OS platform that is cross-complied from any desktop machine. The two most common platforms for embedded hardware are the Yocto project ^[https://www.yoctoproject.org/] and Buildroot ^[https://buildroot.org/]. While Yocto shines in its ability to install and remove packages after image generation, Buildroot is more lightweight and simple to use and was recommended by one of the WPE developers on the #webkit IRC channel; therefore the chosen solution for running web applications on the Raspberry Pi is WPE on Buildroot. The configuration used for generating the Buildroot image is published on Github ^[https://github.com/Avnerus/softbot-buildroot/blob/softbot/configs/raspberrypi3_softbot_defconfig]. In addition to WPE, Buildroot was compiled with support for the Rust language, GStreamer multimedia and Nginx server. Several scripts were added for quick activation of the robot's facilities; the main WPE browser is started with the following code, enabling media extensions, mouse support and a remote debugging facility:
+
+~~~~~~~
+#!/bin/sh
+export WEBKIT_INSPECTOR_SERVER=0.0.0.0:1234
+export WPE_BCMRPI_CURSOR=1
+cog --set-permissions=all --enable-webaudio=true --enable-mediasource=true 
+--enable-media-stream=true --media-playback-allows-inline=true --enable-media-capabilities=true
+https://hitodama.online/avatar
+~~~~~~~
 
 # Production reflections
 
