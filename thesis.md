@@ -324,11 +324,11 @@ HITODAMA is pneumatic soft robot based on inflation of silicone actuators. Table
 +-----------+--------------------------------------+----------------------------+
 | Neck      | Fiber reinforced : linearly extending  | Head pitch upwards         | 
 +-----------+--------------------------------------+----------------------------+
-| Eyes      | Mounted air chamber X 2 **           | Face inflation above eyes  |
+| Eyes      | Mounted inflatable actuator X 2 **   | Face inflation above eyes  |
 +-----------+--------------------------------------+----------------------------+
-| Cheeks    | Mounted air chamber X 2 **           | Face inflation below eyes  |
+| Cheeks    | Mounted inflatable actuator X 2 **)  | Face inflation below eyes  |
 +-----------+--------------------------------------+----------------------------+
-| Mouth     | Mounted air chamber                  | Face inflation in mouth    |
+| Mouth     | Mounted inflatable actuator          | Face inflation in mouth    |
 +-----------+--------------------------------------+----------------------------+
 | Arms      | Fiber reinforced : bending X 2 **    | Arm bicep bend upwards     |
 +-----------+--------------------------------------+----------------------------+
@@ -340,8 +340,10 @@ HITODAMA is pneumatic soft robot based on inflation of silicone actuators. Table
 
 \* The tail was not fully implemented and was not incorporated into the final prototype.
 
-\** Two separate chambers are joined by a single air tube.
+\** Two separate actuators are joined as a single air chamber connected by a single splitting air tube.
 \
+
+Terminology wise, the term _Chamber_ is used to described a pneumatic cell guarded by one inlet valve and one outlet valve. Different _actuators_ could be joined using pneumatic splitters into one _chamber_.
 
 ![HITODAMA: Motor subsystem](images/hitodama-motor.png){#fig:hitodama-motor width=30%}
 
@@ -515,7 +517,7 @@ For making the arm, the first set of molds was milled from machineable wax. Afte
 The casting of the muscle actuator is the first step of the casting process. The mold for the muscle (see [@fig:arm-steps]) is composed of the following parts:
 
 1. Main mold for producing the muscle tube (CNC milled).
-2. Half-cylindrical metal piece for producing the air chamber (made using lathe).
+2. Half-cylindrical metal piece for producing the air compartment (made using lathe).
 3. Modular base piece for securing the metal part (CNC milled).
 4. Bottom piece space filler (3d printed).
 5. Transparent acrylic cover (laser-cut).
@@ -580,7 +582,7 @@ The arms are inserted into the ports, allowing the cables to flow through the ba
 # Pneumatic control board
 
 ## Design
-The pneumatic control board drives HITODAMA's motor subsystem and was designed with the help of Joaquin Aldunate. As described in [@tbl:actuators], a total of seven inlet/outlet air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, only one pump motor is used. Using the inlet and outlet valves, the air is routed from the single pump into the desired actuators.
+The pneumatic control board drives HITODAMA's motor subsystem and was designed with the help of Joaquin Aldunate. As described in [@tbl:actuators], a total of seven air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, only one pump motor is used. Using the inlet and outlet valves, the air is routed from the single pump into the desired actuators.
 
 The pneumatic system is situated entirely outside of the robot, i.e only air tubes are connected to the robotic parts while full set of valves, the pumps and the connection hub components are externally located (see [@fig:boards-complete]).
 
@@ -737,7 +739,7 @@ An open web based design enables developers to easily build interaction apps for
 ### Audio/Video streaming
 The subsystem makes use of a WebRTC gateway to stream audio and video from the robot to the controller. There are numerous advantages to using a gateway rather than streaming directly from the robot: 1) This makes is possible to offload the network processing to a stronger server in case multiple clients are consuming the stream. 2) It enables easy recording and storing of videos on a separate server without consuming resources on the robot's Raspberry Pi. The free and open-source Janus gateway was used for this purpose [@janus_janus_2019], along with the open-source GStreamer client library. A standard **Raspberry Pi camera** was used for video streaming, while a **Rusee Lapel  Omnidirectional Microphone** connected to a  **UGREEN External USB Sound Card** was used for audio. The following GStreamer command streams VP8 video with Opus audio at 640x480 resolution to a designated server denounced by the bash argument (All modern browsers are supported): 
 
-~~~~~~~
+~~~~~~~ 
 gst-launch-1.0 alsasrc ! queue ! opusenc ! rtpopuspay ! udpsink
 host=$1 port=8003 rpicamsrc preview=false ! videoconvert !
 video/x-raw, framerate=30/1, width=640, height=480 ! 
@@ -756,29 +758,385 @@ A 5-inch LCD display by Waveshare is connected to the Raspberry Pi via the HDMI 
 
 [@Fig:architecture] describes the overall systems architecture offered by HITODAMA, separated across three different physical locations: 1) The controller's whereabouts. 2) The robot's location. 3) An external gateway server operating online. At the front, two web applications are operating the experience: One control application running on the controller's device (phone or desktop) and one web application running on the robot and displayed on the HDMI screen. At the backend, several different components are integrated. The following sections describe each of them in detail.
 
-![Architecture overview, dividided by physical hardware and main software components](images/architecture.jpg){#fig:architecture width=100%}
+![Architecture overview, divided by physical hardware and main software components](images/architecture.jpg){#fig:architecture width=80%}
 
 ## Buildroot & WPE
 A web infrastructure is suited for interaction app development due to its openness and accessibility. However, there are still many challenges in running web applications on small and cheap embedded hardware such as the Raspberry Pi. Several projects are tackling those challenges with web platforms that are designed with embedded devices in mind, such as the Chromium project ^[https://www.chromium.org/Home] and Mozilla Servo ^[https://servo.org/]. One project that stands out above the rest is WPE: Webkit for embedded ^[https://webkit.org/wpe/]. WPE is built on the foundation of WebKit: an open source web framework started by Apple that serves as the basis for a variety of web browsers and frameworks, including Google's Blink engine; particularly, WPE is based on WebKitGTK, a web framework for the Linux-Gnome ecosystem. According to its stated mission, the WPE project is "designed from the ground-up with performance, small footprint, accelerated content rendering, and simplicity of deployment in mind" [@wpe_wpe_2019].
 
-The Raspberry Pi is indeed one of WPE's target reference boards and in order to run it natively one must cross-compile the release to the Pi's architecture. This is most easily achieved by using a custom modular linux OS platform that is cross-complied from any desktop machine. The two most common platforms for embedded hardware are the Yocto project ^[https://www.yoctoproject.org/] and Buildroot ^[https://buildroot.org/]. While Yocto shines in its ability to install and remove packages after image generation, Buildroot is more lightweight and simple to use and was recommended by one of the WPE developers on the #webkit IRC channel; therefore the chosen solution for running web applications on the Raspberry Pi is WPE on Buildroot. The configuration used for generating the Buildroot image is published on Github ^[https://github.com/Avnerus/softbot-buildroot/blob/softbot/configs/raspberrypi3_softbot_defconfig]. In addition to WPE, Buildroot was compiled with support for the Rust language, GStreamer multimedia and Nginx server. Several scripts were added for quick activation of the robot's facilities; the main WPE browser is started with the following code, enabling media extensions, mouse support and a remote debugging facility:
+The Raspberry Pi is indeed one of WPE's target reference boards and in order to run it natively one must cross-compile the release to the Pi's architecture. This is most easily achieved by using a custom modular linux OS platform that is cross-complied from any desktop machine. The two most common platforms for embedded hardware are the Yocto project ^[https://www.yoctoproject.org/] and Buildroot ^[https://buildroot.org/]. While Yocto shines in its ability to install and remove packages after image generation, Buildroot is more lightweight and simple to use and was recommended by one of the WPE developers on the #webkit IRC channel; therefore the chosen solution for running web applications on the Raspberry Pi is WPE on Buildroot. The configuration used for generating the Buildroot image is published on Github ^[https://github.com/Avnerus/softbot-buildroot/blob/softbot/configs/raspberrypi3_softbot_defconfig]. In addition to WPE, Buildroot was compiled with support for the Rust language, GStreamer multimedia and Nginx server. Several scripts were added for quick activation of the robot's facilities; the main WPE browser is started with the following code, enabling media extensions, mouse support and a remote debugging facility. The chosen web page is then loaded and displayed in full screen on the robot's display:
 
-~~~~~~~
+~~~~~~~ {.bash}
 #!/bin/sh
 export WEBKIT_INSPECTOR_SERVER=0.0.0.0:1234
 export WPE_BCMRPI_CURSOR=1
 cog --set-permissions=all --enable-webaudio=true --enable-mediasource=true 
---enable-media-stream=true --media-playback-allows-inline=true --enable-media-capabilities=true
-https://hitodama.online/avatar
+--enable-media-stream=true --media-playback-allows-inline=true
+--enable-media-capabilities=true $1
 ~~~~~~~
 
-# Production reflections
+## Rust web socket server
+Rust is a relatively new yet highly mature programming language with a rapidly growing community. It was started at Mozilla research ^[https://www.rust-lang.org/] as part of an effort to build faster and safer internet browser foundations and has since then been adopted by the community with at least 9 dedicated conferences in 2019 ^[https://blog.rust-lang.org/2019/05/20/The-2019-Rust-Event-Lineup.html]. Rust focuses on memory safety and concurrency without a performance overhead as well as on interoperability and portability, making it a prefect candidate for embedded hardware applications ^[https://www.rust-lang.org/what/embedded]. 
 
-# User test
-## Test application
-## Participants
-## Results
-## Discussion
+### Thread overview
+
+In HITODAMA, the Rust web server is at the center, mediating between the hardware, software and the network. [@Fig:rust-threads] displays an overview of the simultaneous threads running on the server core. In rust, the threads communicate safely and asynchronously through _channels_, passing data messages from one thread to another rather than sharing a piece of memory which could pose issues such as race conditions and dereferenced variables. However, data of the web socket client state is still shared between threads, using Rust's builtin mutex locks that force the developer to work safely with shared data. In the future, the shared state could be removed and replaced by an immutable state that passes between threads.
+
+![Rust server: thread overview. The rust server simultaneously listens to connections through web socket and to data coming from the serial port that is the bridge to the hardware interface.](images/rust-threads.jpg){#fig:rust-threads width=100%}
+
+### Binary protocol
+A simple binary protocol was implemented for passing messages between the controller, robot and hardware. [@Tbl:rust-protocol] describes the message types, formats and functionality. When communicating through the serial port, the special characters '>' and '<' are used to signal the start and end of transmissions, this is due to the serial protocol's lacking reliability in comparison to web socket messages. It is worth noting that authentication and authorization security has not yet been implemented on the protocol, and would be required feature for further development. Nevertheless the web socket server supports end to end encryption by making sure all messages are channeled through NGINX^[https://www.nginx.com/] proxy's SSL module. In addition to message passing, the server also sends a JSON formatted state object to all clients when changes in the server state occur, such as client registration and disconnection.
+
++---------------------------+--------------------------------+---------------------------------------+
+| Source                    | Format                         | Function                              |
++===========================+================================+=======================================+             
+| Any client                | R{Role ID}                     |  Register as one of three client      |           
+|                           |                                |  roles: controller, avatar (robot)    |           
+|                           |                                |  or admin console.                    |           
++---------------------------+--------------------------------+---------------------------------------+
+| Avatar or controller      | C{JSON string}                 |  Pass a communication JSON message    |           
+|                           |                                |  between the controller to the avatar |           
+|                           |                                |  or vise-versa.                       |           
++---------------------------+--------------------------------+---------------------------------------+
+| Controller                | \>{Binary data}<               |  Motor control command, fowarded to   |           
+|                           |                                |  microcontoller via serial port.      |           
++---------------------------+--------------------------------+---------------------------------------+
+| Serial port               | \>SA{ID}{P/R}<                 |  Arm sensor message including arm ID  |           
+|                           |                                |  and _pushed_ or _released_ state.    |           
+|                           |                                |  Forward message to controller and    |           
+|                           |                                |  avatar clients.                      |           
++---------------------------+--------------------------------+---------------------------------------+
+| Serial port               | \>SP{Name}{Pressure read}      |  Pressure sensor monitor message      |           
+|                           |                                |  including the name of the chamber and|           
+|                           |                                |  the reading. Forward the message to  |           
+|                           |                                |  the admin console.                   |           
++---------------------------+--------------------------------+---------------------------------------+
+| Serial port               | \>D{Message string}            |  Debug message from the               |           
+|                           |                                |  microcontroller. Forwarded to the    |           
+|                           |                                |  admin client.                        |           
++---------------------------+--------------------------------+---------------------------------------+
+| Server                    | I{Message string}              |  Server system message, can be sent   |           
+|                           |                                |  to any client.                       |           
++---------------------------+--------------------------------+---------------------------------------+
+| Server                    | E{Message string}              |  Server error message, can be sent    |           
+|                           |                                |  to any client.                       |           
++---------------------------+--------------------------------+---------------------------------------+
+
+: Rust server: binary protocol messages {#tbl:rust-protocol}
+
+## Microcontroller platform
+
+### Class diagram
+
+The microcontroller platform controls the pneumatic components and sensors; it runs on the Teensy microcontroller and connected through the custom made PCB boards. The code is available on Github ^[https://github.com/Avnerus/softbot/tree/master/softcontrol/circuit] and free for use under the MIT license. An object oriented approach was chosen for the development of platform. [@Fig:arduino-classes] describes the classes developed, their functionalities and connections.
+
+![Microcontroller platform: class diagram](images/arduino-classes.jpg){#fig:arduino-classes width=100%}
+
+### API
+
+The _Chamber_ class represents one of the seven air chambers that are connected to the pneumatic system. Each chamber object contains the following components:
+
+* Entry (inlet) valve.
+* Release (outlet) valve.
+* Associated pump.
+* Dedicated pressure sensor.
+* Minimum and maximum pressure value.
+
+A Chamber is calibrated using minimum and maximum absolute pressure values. Once calibrated, a chamber would always maintain the minimum pressure by inflating itself and avoid surpassing the maximum pressure. It is then possible to direct the chamber to reach a certain pressure by providing a figure between 0.0 and 1.0, having 0.0 represent the minimum pressure and 1.0 represent the maximum pressure. One could control the deflation speed of the chamber by passing a speed argument between 0.0 and 1.0, which would then be translated to PWM values. Additionally, it is possible to have the chamber oscillate between a certain minimum and maximum pressure level to create a variety of expressive movements.
+
+Although a typical pneumatic circuit contains only one pump, it is still advised to inform a chamber about the pump it is using; the chambers would then use the pump's _grab()_ method when they're being inflated and _release()_ when they're done. This, in fact, allows the pump to turn itself off when it is not being used by any chamber and start again only when it is needed.
+
+An _Arm_ is calibrated using threshold values for pressure readings to determine when the arm is being pushed and when it is being released. These values, however, are relative to a running average that is continuously updated by the Arm during the main loop. This is due to the fact that barometric pressure measurements are liable to change with external fluctuations of the surrounding environment. Typically the push threshold would be around 20, while the release threshold around -10, assuming that the mean average is updated again when the arm is being pushed.
+
+### Binary protocol
+[@Tbl:teensy-protocol] describes the other side of the communication between the microcontroller and the rust server. Messages that were passed from the web clients to the rust server and then forwarded to the motor thread to be sent on the serial port are received on the microcontroller side and activate the appropriate module function. Accordingly, information messages that originate from the hardware modules are sent on the serial port to be picked up by the rust server and then sent to the web clients.
+
++---------------------------+--------------------------------+---------------------------------------+
+| Source                    | Format                         | Function                              |
++===========================+================================+=======================================+             
+| Arm module                | \>SA{ID}{P/R}<                 |  Arm sensor message including arm ID  |            s
+|                           |                                |  and _pushed_ or _released_ state.    |           
+|                           |                                |  Sent to serial port.                 |           
++---------------------------+--------------------------------+---------------------------------------+
+| Chamber module            | \>SP{Name}{Pressure read}      |  Pressure sensor monitor message      |           
+|                           |                                |  including the name of the chamber and|           
+|                           |                                |  the reading. Sent to serial port.    |           
++---------------------------+--------------------------------+---------------------------------------+
+| Logger module             | \>D{Message string}<           |  Debug message,  sent to the serial   |           
+|                           |                                |  port.                                |           
++---------------------------+--------------------------------+---------------------------------------+
+| Serial port               | \>P{Speed}<                    |  Set pump speed, activates            |           
+|                           |                                |  pump->setSpeed()                     |           
++---------------------------+--------------------------------+---------------------------------------+
+| Serial port               | \>H{Index}{State}<             |  Sets chamber state by index in a     |           
+|                           |                                |  pre-defined list. Either inflates to |           
+|                           |                                |  max pressure, deflates to min        |           
+|                           |                                |  pressure or stops.                   |           
++---------------------------+--------------------------------+---------------------------------------+
+| Serial port               | \>C{Index}{Pressure}<          |  Sets chamber pressure by index in a  |           
+|                           |                                |  pre-defined list. 255 translates to  |           
+|                           |                                |  max pressure, 0 to min pressure.     |           
++---------------------------+--------------------------------+---------------------------------------+
+
+: Microcontroller platform: binary protocol messages {#tbl:teensy-protocol}
+
+## Web client platform
+
+To ease the development of apps for HITODAMA, utility libraries and components were developed and can be used both on the controller side and the robot side. The web platform is available on Github ^[https://github.com/Avnerus/softbot/tree/master/client] and the usage of the most pertinent components is listed below.
+
+### Socket controller
+The socket controller manages the connection and interaction with the rust server. It is initialized by providing the address of the robot with the following code :
+
+~~~~~~~ {.javascript}
+const socketController = new SocketController('wss://incarnation.hitodama.online',
+    () => console.log("Connection callback")
+);
+socketController.init();
+~~~~~~~
+
+
++---------------------------+--------------------------------+---------------------------------------+
+| Function                  | Arguments                      | Usage                                 |
++===========================+================================+=======================================+             
+| subscribeToPrefix         | Message prefix (such as 'E' or | Add a callback function to when a     |
+|                           | 'S')                           | message with the specified prefix     |
+|                           |                                | arrives. Refer to                     |
+|                           |                                | [@tbl:rust-protocol] for possible     |
+|                           |                                | prefixes.                             |
++---------------------------+--------------------------------+---------------------------------------+
+| on                        | Command name as it appears in  | Add a callback function to when a     |
+|                           | the communications JSON's      | JSON message with the spcified        |
+|                           | {command: } property.          | command arrives.                      |
++---------------------------+--------------------------------+---------------------------------------+
+| sendSerialCommand         | Prefix, list of 1 byte values. | Sends a command to the motor subsystem|
+|                           |                                | via the serial port connection to the |
+|                           |                                | microcontroller.                      |
++---------------------------+--------------------------------+---------------------------------------+
+| sendJSONCommand           | Object, should have a          | Sends a communoication command JSON to|
+|                           | {command: } property specifying| the other side (controller to avatar  |
+|                           | the command name.              | or vise-versa).                       |
++---------------------------+--------------------------------+---------------------------------------+
+
+: Socket controler Javascript API {#tbl:socket-controller}
+
+The JSON commands are used by various application components for specific functionalities to be described in the web components section. One base JSON message is sent by the server with the command _softbot-state_ every time the state of the interaction has changed. For example the following JSON states that both the controller and avatar are now connected, and the controller whose name is Avner is currently typing:
+
+~~~~~ {.json}
+{
+    "command": "softbot-state",
+    "CONTROL": 1,
+    "AVATAR": 1,
+    "softControllerName": "Avner",
+    "softControllerTyping": true
+}
+~~~~~
+
+### Redux state
+Redux^[https://redux.js.org/] is a functional, immutable state container for javascript, with great debugging tools and flexibility. While not all of HITODAMA's functionality relies on it, the majority of components were migrated to make use of Redux. HITODAMA's state container also contains definitions for commonly used objects such as air chambers and role definitions. In order to use the state for application development, one only has to initialize it with the socket controller and identity once connected to the robot:
+
+~~~~~ {.javascript}
+import store, {setSocketController, setIdentity, ROLES} from '../common/state'
+
+const socketController = new SocketController(
+    'wss://incarnation.hitodama.online',() => {
+        store.dispatch(setSocketController(socketController, true))
+        store.dispatch(setIdentity(ROLES.CONTROLLER));
+    }
+);
+socketController.init();
+~~~~~
+
+In Redux, manipulation of the state works through pre-defined _actions_. Different web components make use of different actions and are described in detail in the web components section.
+
+### Pneumatic utility library
+A small utility library makes use of the socket controller and the state definitions to invoke the motor subsystem. The library is based on javascript Promises, making it easy to chain together different actions with a timed delay. For example, the following code inflates HITODAMA's cheeks to 90% of the maximum pressure and then deflates them after 4.5 seconds:
+
+~~~~~ {.javascript}
+import {CHAMBERS} from '../common/state'
+import * as Hitodama from '../common/hitodama'
+
+Hitodama.inflateTo(
+    socketController,
+    CHAMBERS.CHEEKS,
+    0.9,
+    4500
+)
+.then(() => {
+    Hitodama.deflate(
+        host.socketController,
+        CHAMBERS.CHEEKS
+    )
+});
+~~~~~
+
+### Web components
+Web components ^[https://www.webcomponents.org/introduction] are an emerging standard for creating reusable, encapsulated components that anyone could embed in their web application without worrying about conflicting code and styling. Granted, creating reusable web components has been an emblem of modern web development in the last couple of years, but components tend to be framework specific, such as Vue.js^[https://vuejs.org/] components or React^[https://reactjs.org/] components. Web components, on the contrary, are framework agnostic and rely on open standards of the W3C^[https://www.w3.org/] and WHATWG^[https://whatwg.org/] organisations. Specifically, web components build upon the following specifications: 
+
+1. **Custom Elements** : enabling the use of custom HTML tags such as <hitodama-vision> rather than just using the standard ones such as <div> and <table>.
+2. **Shadow DOM** : allowing he styling and naming of elements independently of the enclosing document, as if they were on their on page.
+3. **HTML Templates**: allowing a developer to define a fragment of HTML than can be moved from place to place.
+
+Web components are now supported by all modern browsers, including mobile browsers for iOS and Android, with only some bugs remaining in Apple's Safari as of summer 2019^[https://caniuse.com/#search=web%20components]. In most cases, the lack of support could also be compensated by the use polyfills: external libraries that patch the browser in places where functionalities are missing.
+
+As much as web components simplify the world of reusable components, their direct use is not entirely simple and introduces some development overhead for rather mundane tasks. For this reason, several helper libraries have emerged, simplifying the use of web components. The library Hybrids JS^[https://hybrids.js.org/] stands out as an extraordinarily simple, functional and elegant companion for creating web components, therefore it as chosen for the development of HITODAMA components. Most of the web components were used in the controller client rather than the avatar, but in the future the avatar (the robot's display), but in the future the avatar would be migrated to only use web components as well. [@Tbl:web-components] lists available components and their function:
+
++---------------------------+--------------------------------+---------------------------------------+
+| Component                 | Target client                  | Function                              |
++===========================+================================+=======================================+             
+| \<hitodama-video\>          | Controller                     | Displays a video stream from          |
+|                           |                                | HITODAMA's camera and microphone      |
+|                           |                                | through the Janus gateway.            |
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-control\>        | Controller                     | Adds buttons that control HITODAMA's  |
+|                           |                                | facial expressions and gaze direction |
+|                           |                                | (right, left, center).                |
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-transcript\>     | Controller                     | Displays a transcript of messages     |
+|                           |                                | in the HITODAMA control session.      |
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-vision-control\> | Controller                     | Adds arrow buttons that manually      |
+|                           |                                | control HITODAMA's neck.              |
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-sense\>          | Controller                     | Shows visual feedback when HITODAMA's |
+|                           |                                | arms are being pressed by flashing the|
+|                           |                                | corrosponding half of the container.  |
++---------------------------+--------------------------------+---------------------------------------+
+| \<langauge-select\>         | Any                            | A language select control allowing to |
+|                           |                                | choose a langauge by selecting the    |
+|                           |                                | matching flag icon.                   |
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-speech\>         | Controller                     | Displays a text box to have HITODAMA  |
+|                           |                                | speak. Uses the \<langauge-select\>     |
+|                           |                                | element and supports typing indicator.|
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-arm-control\>    | Controller                     | Adds buttons that raise or lower      |
+|                           |                                | HITODAMA's arms.                      |
++---------------------------+--------------------------------+---------------------------------------+
+| \<hitodama-avatar\>         | Avatar                         | General avatar layout for HITODAMA's  |
+|                           |                                | display including \<language-select\>   |
+|                           |                                | to select the interlocutor's language.|
++---------------------------+--------------------------------+---------------------------------------+
+
+: List of web components supported by HITODAMA {#tbl:web-components}
+
+All of the components make use of the Redux state and socket controller. They are sized normally using CSS properties. Some of the components require special parameters to be used, below are example for usage:
+
+\noindent
+\
+**\<hitodama-video\>** : Displays the video stream coming from the robot through the Janus gateway. Used on the page as following:
+
+~~~~~ {.html}
+<hitodama-video
+    streamURL="${'https://stream.hitodama.online/janus'}"
+>
+</hitodama-video>
+~~~~~
+
+\
+\noindent
+**\<hitodama-transcript\>**: Displays transcript information of the control session. It is embedded as such:
+
+~~~~~ {.html}
+<hitodama-transcript></hitodama-transcript>
+~~~~~
+
+To add new lines to the transcript, the _addTranscript_ method is used from the Redux state: 
+
+~~~~~ {.javascript}
+import store, {addTranscript} from '../common/state'
+
+store.dispatch(addTranscript({
+    from: "Source",
+    text: "some text"
+}));
+~~~~~
+
+The state automatically adds system and error messages to the transcript.
+
+\noindent
+\
+**\<language-select\>**: Displays a language select button that uses flags as selectors. The component takes a list of supported languages and their flags as follows: 
+
+~~~~~ {.html}
+<language-select languages=${[
+    {value: 'en', title: 'English', flag: 'us'},
+    {value: 'fi', title: 'Finnish', flag: 'fi'},
+    {value: 'ja', title: 'Japanese', flag: 'jp'},
+    {value: 'he', title: 'Hebrew', flag: 'il'},
+    {value: 'ca', title: 'Catalan', flag: 'catalonia'},
+]}>
+</language-select>
+~~~~~
+
+If a flag icon does not exist in the standard database, it can be added as an svg files in the _images_ folder of the project.
+
+## API gateway server
+Some functions for HITODAMA, primarily those involving language and speech, are best implemented using cloud services. While it is possible to have HITODAMA's rust server directly access those cloud services, it was more convenient to manage the access through and external Node JS gateway server that can be accessed easily from the web clients. [@Tbl:api-gateway] describes the language services provided by the current server implementation^[https://github.com/Avnerus/softbot/tree/master/server]. Application specific functionalities could be added to the same gateway.
+
++---------------------------+--------------------------------+---------------------------------------+
+| Route path                | Arguments                      | Function                              |
++===========================+================================+=======================================+             
+| /api/ms-speak             | **Target**: target langauge to | Returns an audio stream of the text   |
+|                           | be spoken.                     | generated by Microsoft's Cognitive    |
+|                           | **Text**: text to be uttered.  | speech services. If the source text   |
+|                           |                                | is not in the target langauge, it is  |
+|                           |                                | **translated** using Google's cloud   |
+|                           |                                | translate services.                   |
++---------------------------+--------------------------------+---------------------------------------+
+| /api/transcribe           | **Model**: Source langauge of  | Transcribes an audio buffer that came |
+|                           | the audio.                     | from a WebRTC stream, using Google's  |
+|                           | **Translate**: Language to     | speech to text services according to  |
+|                           | translate to.                  | the specified model. If the translate |
+|                           |                                | argument is specified, the text is    |
+|                           |                                | also **translated** using Google's    |
+|                           |                                | cloud translate services.             |
++---------------------------+--------------------------------+---------------------------------------+
+
+: API Gateway server: language functions {#tbl:api-gateway}
+
+# Admin web client
+An admin web client was developed for testing and management of HITODAMA's functions. At the time of development, web components were not at the front of the research and therefore it was created only with simple Javascript objects and JQuery UI manipulation. [@Tbl:admin-client] describers the admin client's features, numbered and shown on [@fig:admin-client].  
+
+![Admin web client panels.](images/admin-client.png){#fig:admin-client width=100%}
+
++--------------------------------------+------------------------------------------------------------------------+
+| Panel                                | Function                                                               |
++======================================+========================================================================+
+| Video stream output (1).             | Outputs video and audio from the robot through the Janus gateway.      |
++--------------------------------------+------------------------------------------------------------------------+
+| Transcript log (2).                  | Transcript including conversation, server system messages and debug    |
+|                                      | messages from the microcontroller.                                     |
++--------------------------------------+------------------------------------------------------------------------+
+| Neck joystick control (3),           | Manual movement of the neck using a virtual joystick.                  |
++--------------------------------------+------------------------------------------------------------------------+
+| Stream recording controls (4).       | Buttons to start and stop the stream recording on the Janus server.    |
++--------------------------------------+------------------------------------------------------------------------+
+| Speech control (5).                  | Activate HITODAMA's speech with a text and option for translation.     |
++--------------------------------------+------------------------------------------------------------------------+
+| Speech recognition control (6).      | Activate speech transcription with an option for translation.          |
++--------------------------------------+------------------------------------------------------------------------+
+| Youtube control (7).                 | Play a youtube video on the robot's screen, with pausing and volume    |
+|                                      | control.                                                               |
++--------------------------------------+------------------------------------------------------------------------+
+| Arbitrary serial command (8).        | Send a serial command with a prefix specified in the "Command" fields  |
+|                                      | and up to two numeric values.                                          |
++--------------------------------------+------------------------------------------------------------------------+
+| Pump control (9).                    | A dedicated checkbox to start or stop the pump; speed could be adjusted|
+|                                      | using the "P" command.                                                 |
++--------------------------------------+------------------------------------------------------------------------+
+| Face and arm control with pose       | Manually control the pressure of the face and arm actuators; a slider  |
+| presets (10).                        | between 0 and 1 maneuvers between minimum and maximum pressure.        |
++--------------------------------------+------------------------------------------------------------------------+
+| Pressure readings (11).              | Pressure readings sent periodically from the microcontroller for all   |
+|                                      | air chambers.                                                          |
++--------------------------------------+------------------------------------------------------------------------+
+| Individual chamber control (12).     | Buttons to start inflation, deflation or stop (close the valves) for   |
+|                                      | every air chamber individually.                                        |
++--------------------------------------+------------------------------------------------------------------------+
+
+: Admin web client panels and their functions {#tbl:admin-client}
+
+# Experiment
+
 
 # Orthogonal Aesthetics
 
