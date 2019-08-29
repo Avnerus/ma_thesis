@@ -640,43 +640,43 @@ The connection between a valve and its control voltage goes through three boards
 ### Pneumatic components
 [@tbl:pneumatic-components] describes the pneumatic components used on the system, their connection type, quantity and function. Every table entry is associated with an image on [@fig:pneumatic-components].
 
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| Component                            | Quantity       | Connection    | Function                              |
-+======================================+================+===============+=======================================+
-| 2 Way aluminum solenoid valve.       | 14 (7 * 2)     | 1/8" NPT      | Regulate air flow between the seven   |
-| Normally close, 12v DC (1)           |                | female port   | air chambers.                         |
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
-| enforced with PTFE tape.             |                | 1/4" Tube     | Outlet valves require only one        |
-|                                      |                |               | connector while inlet valves require  |
-|                                      |                |               | two. PTFE tape is required to prevent |
-|                                      |                |               | leaks.                                |
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| Mitsumi R-14 A221 Micro air pump (3) | 1              | 4mm outlet    | Pump air into the system.             |
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| Plastic Y connector (4)              | 3              | 4mm outlets   | Joins two tubes into one, combining   |
-|                                      |                |               | the inlets of two arms, two cheeks and|
-|                                      |                |               | two eyes.                             |
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| Plastic Linear connector (5)         | 4              | 4mm outlets   | Acts as an adapater connection to     |
-|                                      |                |               | actuators, so they can be easily      |
-|                                      |                |               | extended with an additional tube.     |
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| Plastic X connector (6)              | 10 (7 + 3)     | 4mm outlets   | Every of the seven air chambers uses  |
-|                                      |                |               | an x connector to split the incoming  |
-|                                      |                |               | air between the outlet valve, pressure|
-|                                      |                |               | sensor and actuator. 3 X connectors   |
-|                                      |                |               | are also used to split the air from   |
-|                                      |                |               | the pump into the 7 inlet valves.     |
-+--------------------------------------+----------------+---------------+---------------------------------------+
-| Silicone tube (7)                    | ~40            | 3mm inner /   | 3mm tubes are attached to actuators,  |
-|                                      |                | 5mm outer +   | as it is easier to insert smaller     |
-|                                      |                | 6mm inner /   | tubes, and to pressure sensors as to  |
-|                                      |                | 8mm outer.    | maintain a tight connection. 6mm tubes|
-|                                      |                |               | run between the valves and the air hub|
-|                                      |                |               | from the pump (both diameters work    |
-|                                      |                |               | well with 4mm connectors)             |
-+--------------------------------------+----------------+---------------+---------------------------------------+
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| No.  | Component                            | Quantity       | Connection    | Function                              |
++======+======================================+================+===============+=======================================+
+| 1    | 2-Way aluminum solenoid valve.       | 14 (7 * 2)     | 1/8" NPT      | Regulate air flow between the seven   |
+|      | Normally close, 12v DC.              |                | female port   | air chambers.                         |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| 2    | NPT to barbed tube connector         | 21 (7 * 2 + 7) | 1/8" NPT to   | Connect a valve to a silicone tube.   |
+|      | enforced with PTFE tape.             |                | 1/4" Tube     | Outlet valves require only one        |
+|      |                                      |                |               | connector while inlet valves require  |
+|      |                                      |                |               | two. PTFE tape is required to prevent |
+|      |                                      |                |               | leaks.                                |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| 3    | Mitsumi R-14 A221 Micro air pump.    | 1              | 4mm outlet    | Pump air into the system.             |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| 4    | Plastic Y connector.                 | 3              | 4mm outlets   | Joins two tubes into one, combining   |
+|      |                                      |                |               | the inlets of two arms, two cheeks and|
+|      |                                      |                |               | two eyes.                             |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| 5    | Plastic Linear connector.            | 4              | 4mm outlets   | Acts as an adapater connection to     |
+|      |                                      |                |               | actuators, so they can be easily      |
+|      |                                      |                |               | extended with an additional tube.     |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| 6    | Plastic X connector.                 | 10 (7 + 3)     | 4mm outlets   | Every of the seven air chambers uses  |
+|      |                                      |                |               | an x connector to split the incoming  |
+|      |                                      |                |               | air between the outlet valve, pressure|
+|      |                                      |                |               | sensor and actuator. 3 X connectors   |
+|      |                                      |                |               | are also used to split the air from   |
+|      |                                      |                |               | the pump into the 7 inlet valves.     |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
+| 7    | Silicone tube.                       | ~40            | 3mm inner /   | 3mm tubes are attached to actuators,  |
+|      |                                      |                | 5mm outer +   | as it is easier to insert smaller     |
+|      |                                      |                | 6mm inner /   | tubes, and to pressure sensors as to  |
+|      |                                      |                | 8mm outer.    | maintain a tight connection. 6mm tubes|
+|      |                                      |                |               | run between the valves and the air hub|
+|      |                                      |                |               | from the pump (both diameters work    |
+|      |                                      |                |               | well with 4mm connectors)             |
++------+--------------------------------------+----------------+---------------+---------------------------------------+
 
 : Pneumatic components BOM {#tbl:pneumatic-components}
 
@@ -1098,44 +1098,231 @@ An admin web client was developed for testing and management of HITODAMA's funct
 
 ![Admin web client panels.](images/admin-client.png){#fig:admin-client width=100%}
 
-+--------------------------------------+------------------------------------------------------------------------+
-| Panel                                | Function                                                               |
-+======================================+========================================================================+
-| Video stream output (1).             | Outputs video and audio from the robot through the Janus gateway.      |
-+--------------------------------------+------------------------------------------------------------------------+
-| Transcript log (2).                  | Transcript including conversation, server system messages and debug    |
-|                                      | messages from the microcontroller.                                     |
-+--------------------------------------+------------------------------------------------------------------------+
-| Neck joystick control (3),           | Manual movement of the neck using a virtual joystick.                  |
-+--------------------------------------+------------------------------------------------------------------------+
-| Stream recording controls (4).       | Buttons to start and stop the stream recording on the Janus server.    |
-+--------------------------------------+------------------------------------------------------------------------+
-| Speech control (5).                  | Activate HITODAMA's speech with a text and option for translation.     |
-+--------------------------------------+------------------------------------------------------------------------+
-| Speech recognition control (6).      | Activate speech transcription with an option for translation.          |
-+--------------------------------------+------------------------------------------------------------------------+
-| Youtube control (7).                 | Play a youtube video on the robot's screen, with pausing and volume    |
-|                                      | control.                                                               |
-+--------------------------------------+------------------------------------------------------------------------+
-| Arbitrary serial command (8).        | Send a serial command with a prefix specified in the "Command" fields  |
-|                                      | and up to two numeric values.                                          |
-+--------------------------------------+------------------------------------------------------------------------+
-| Pump control (9).                    | A dedicated checkbox to start or stop the pump; speed could be adjusted|
-|                                      | using the "P" command.                                                 |
-+--------------------------------------+------------------------------------------------------------------------+
-| Face and arm control with pose       | Manually control the pressure of the face and arm actuators; a slider  |
-| presets (10).                        | between 0 and 1 maneuvers between minimum and maximum pressure.        |
-+--------------------------------------+------------------------------------------------------------------------+
-| Pressure readings (11).              | Pressure readings sent periodically from the microcontroller for all   |
-|                                      | air chambers.                                                          |
-+--------------------------------------+------------------------------------------------------------------------+
-| Individual chamber control (12).     | Buttons to start inflation, deflation or stop (close the valves) for   |
-|                                      | every air chamber individually.                                        |
-+--------------------------------------+------------------------------------------------------------------------+
++-------+--------------------------------------+------------------------------------------------------------------------+
+| No.   | Panel                                | Function                                                               |
++=======+======================================+========================================================================+
+| 1     | Video stream output.                 | Outputs video and audio from the robot through the Janus gateway.      |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 2     | Transcript log.                      | Transcript including conversation, server system messages and debug    |
+|       |                                      | messages from the microcontroller.                                     |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 3     | Neck joystick control.               | Manual movement of the neck using a virtual joystick.                  |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 4     | Stream recording controls.           | Buttons to start and stop the stream recording on the Janus server.    |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 5     | Speech control.                      | Activate HITODAMA's speech with a text and option for translation.     |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 6     | Speech recognition control.          | Activate speech transcription with an option for translation.          |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 7     | Youtube control.                     | Play a youtube video on the robot's screen, with pausing and volume    |
+|       |                                      | control.                                                               |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 8     | Arbitrary serial command.            | Send a serial command with a prefix specified in the "Command" fields  |
+|       |                                      | and up to two numeric values.                                          |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 9     | Pump control.                        | A dedicated checkbox to start or stop the pump; speed could be adjusted|
+|       |                                      | using the "P" command.                                                 |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 10    | Face and arm control with pose       | Manually control the pressure of the face and arm actuators; a slider  |
+|       | presets.                             | between 0 and 1 maneuvers between minimum and maximum pressure.        |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 11    | Pressure readings.                   | Pressure readings sent periodically from the microcontroller for all   |
+|       |                                      | air chambers.                                                          |
++-------+--------------------------------------+------------------------------------------------------------------------+
+| 12    | Individual chamber control.          | Buttons to start inflation, deflation or stop (close the valves) for   |
+|       |                                      | every air chamber individually.                                        |
++-------+--------------------------------------+------------------------------------------------------------------------+
 
 : Admin web client panels and their functions {#tbl:admin-client}
 
 # Experiment
+
+## Design
+
+### Goals
+The HITODAMA experiment was designed to evaluate the first prototype of HITODAMA under the framework of intercorporeality and incarnation. The following primary goals were defined:
+
+1. Evaluate mediated telerobotic intercorporeality: As mentioned in the theoretical review, mediated intercorporeality opens several gaps and shortcomings in communication and understanding and at the same time offers new bridges and paths of communication. One of the main purposes of the experiment was to test different features of HITODAMA and how they mold the experience of the controller and interlocutor. 
+2. Evaluate the contribution of soft materials to intercorporeality: As mentioned in the theoretical review, the hypothesis asserts that the organic and non-linear properties of soft materials would ease and deepen the interaction and understanding in mediated communication. 
+3. Examine the possibilities of knowing a stranger through mediated communication, especially in light of existing prejudices and biases.
+
+### Picture game
+Pictures have a decisive role in determining and facilitating our perception and cognition. According to Cutting and Massironi [-@cutting_pictures_1998], while the act of perceiving and interacting with a picture is differentiated from our perception of the world, it is clear that "the ability to understand pictures is deeply embedded in the human mind" [-@cutting_pictures_1998,p. 138]. Merleau-Ponty discusses pictures mostly in relation to paintings, our perception of them and the corporeality that is mediated by them. In _Phenomenology of Perception_ discusses Van Gogh: "Van Gogh’s paintings have their place in me for all time, a step is taken from which I cannot retreat, and, even though I retain no clear recollection of the pictures which I have seen, my whole subsequent aesthetic experience will be that of someone who has become acquainted with the painting of Van Gogh" [-@merleau-ponty_phenomenology_2013, p.457].
+
+Perhaps as much as pictures shape our perception, they can also be a gateway to our cognition and for self-expression. Therefore, We have chosen to use pictures as facilitators of intercorporeal interaction in the HITODAMA experiment. The flow is a very simple: 
+
+1. Each round, the controller and interlocutor are presented with a similar pair of pictures. 
+2. Both parties must choose their favorite picture out of the two, or the one that catches their eye the most.
+3. When both parties chose their picture, it is revealed whether they both chose the same picture.
+4. They must then explain to each other why the chose their picture.
+5. Once both have finished explaining, the round ends and a new one can begin.
+
+Through pictures, we hope to generate meaningful exchanges between the participants, allowing them to briefly get to know each other, express their opinions and perhaps juxtapose their image of the stranger against the present conversation partner.
+
+
+### Controller interface
+A dedicated controller UI was developed for the purpose of the experiment, opting to simplify the experience, making it as language independent as possible and encouraging actions that we wished to evaluate. Due to time constraints and insofar as it was possible to sit privately with the participants and explain the interface, the development and design process was rapid and a number of UX gaps definitely remained at the time of the launch. The controller interface is based on a newer web components architecture and several web components were developed especially for this experiment. [@Fig:control-client] outlines the basic view of the interface and [@tbl:control-client] describes the numbered sections by web component and their functionalities.
+
+![HITODAMA experiment: contorl client](images/control-client.png){#fig:control-client width=100%}
+
++--------+--------------------------------------+---------------------------------------------------------------------+
+| No.    | Web component                        | Function                                                            |
++========+======================================+=====================================================================+
+| 1      | \<hitodama-video\>                   | Outputs video and audio from the robot through the Janus gateway.   |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 2      | \<hitodama-transcript\>              | Transcript including conversation, server system messages and debug |
+|        |                                      | messages from the microcontroller.                                  |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 3      | \<hitodama-vision-control\>          | Manual movement of the neck up and down.                            |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 4      | \<hitodama-arm-control\>             | Buttons to raise or lower HITODAMA's arms.                          |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 5      | \<hitodama-control\>                 | Buttons to direct HITODAMA's gaze (left, center, right).            |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 6      | \<hitodama-control\>                 | Buttons that activate HITODAMA's facial expressions.                |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 7      | \<hitodama-pics-control\>            | An interface that controls the different stages of the picture game.|
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 8      | \<hitodama-youtube\>                 | Interface for playing a YouTube video on HITODAMA's display,        |   
+|        |                                      | including volume control and a checkbox for showing video or just   |   
+|        |                                      | audio.                                                              |    
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 9      | \<hitodama-speech\>                  | Interface for activating HITODAMA's speech with supported language  |
+|        |                                      | translation (type in any langauge and it would get translated).     |
++--------+--------------------------------------+---------------------------------------------------------------------+
+
+: Experiment control client: web components and their functions {#tbl:control-client}
+
+The control interface also supports mobile devices, resizing and re-organizing the layout to a mobile-friendly formation (see [@fig:control-mobile]).
+
+![HITODAMA experiment: contorl client on mobile devices](images/control-mobile.png){#fig:control-mobile width=30%}
+
+### Avatar interface
+The avatar interface is shown on HITODAMA's built in 800x480 5-inch display; it is kept simple due to the low resolution and screen size. [@Fig:avatar-client] outlines the basic view of the interface and [@tbl:avatar-client] describes the numbered sections by web component and their functionalities.
+
+![HITODAMA experiment: built-in avatar client](images/avatar-client.png){#fig:avatar-client width=100%}
+
++--------+--------------------------------------+---------------------------------------------------------------------+
+| No.    | Web component                        | Function                                                            |
++========+======================================+=====================================================================+
+| 1      | \<hitodama-pics-control\>            | An interface that controls the different stages of the picture game.|
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 2      | \<hitodama-pics\>                    | In this component the pictures are shown, asking the users to select|   
+|        |                                      | their favorite ones.                                                |   
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 3      | \<language-select\>                  | A language select component that determines the language in which   |
+|        |                                      | the interlocutors speaks, so they could be correctly transcribed    |
+|        |                                      | and translated back to the controller.                              |
++--------+--------------------------------------+---------------------------------------------------------------------+
+| 4      | \<hitodama-avatar\>                  | This compoment displays the current status of the controller,       |
+|        |                                      | including information about their name, native tounge and whether   |
+|        |                                      | they are typing. Two debug buttons allow a refresh of the page or   |
+|        |                                      | activation of the transcribe listener.                              |
++--------+--------------------------------------+---------------------------------------------------------------------+
+
+: Experiment avatar client: web components and their functions {#tbl:avatar-client}
+
+### Experiment flow
+
+**Note**: The following screens are for not part of an actual experiment and are for illustrative purposes only. The participants in the screens have signed a consent form for publication of the images. 
+
+Ideally, at least two people would be interacting with the controller through HITODAMA. This allows the controller to make use of the robot's gaze, switching their perceptive focus between one interlocutor and another. At the first step (see [@fig:ex1]) the controller has to sign in with their chosen name and native tongue while the interlocutors wait for a connection. HITODAMA's display shows that it is waiting and it is already possible for the interlocutors to select their language of speech.
+
+![HITODAMA experiment: Initial screens (controller sign-in on top, robot display at the bottom).](images/ex1.png){#fig:ex1 width=60%}
+
+Once the controller is logged in, the interface opens and HITODAMA's display shows that a controller has connected, specifying their name and native tongue. At this point, HITODAMA's arms, which serve as the interface for interaction, are closed and it is not possible to interact by pressing on the palms (see [@fig:ex2-hitodama]).
+
+![HITODAMA experiment: HITODAMA's arms are closed and interfacing is not possible.](images/ex2-hitodama.jpg){#fig:ex2-hitodama width=100%}
+
+The controller already has full control over HITODAMA's functions, including speech, expressions and body movement; to start playing the picture game, the controller must press the check mark button which will open HITODAMA's arms. When that happens, the interlocutors must also signal that they are ready to play by squeezing HITODAMA's right arm (see [@fig:ex3-control;@fig:ex3-hitodama])
+
+![HITODAMA experiment: The controller has pressed the check mark button and is waiting for the interlocutors to start.](images/ex3-control.png){#fig:ex3-control width=90%}
+
+![HITODAMA experiment: The interlocutors squeeze HITODAMA's right palm to start the picture game.](images/ex3-hitodama.jpg){#fig:ex3-hitodama width=100%}
+
+When both sides are ready, the pictures are randomly chosen and appear both on the controller's screen and on HITODAMA's display (see [@fig:ex4-control;@fig:ex4-avatar]). The picture view, implemented by the **\<hitodama-pics\>** component, replaces the camera view for the controller until they choose a picture. The same component is used on the robot's display.
+
+![HITODAMA experiment: Chosing a picture, controller interface.](images/ex4-control.png){#fig:ex4-control width=100%}
+
+![HITODAMA experiment: Chosing a picture, HITODAMA's display.](images/ex4-avatar.png){#fig:ex4-avatar width=80%}
+
+Initially it was intended that the controller would  look at one of the interlocutors and that person would choose the image. Howbeit, it proved simpler to just let the participants decide the on order by themselves. The interlocutors decide on their favorite picture by squeezing either the left or right palm (see [@fig:ex5-hitodama]) while the controller simply clicks on the desired image. The interface then displays to all of the participants whether they chose the same picture or a different one (see [@fig:ex5-control;@fig:ex5-avatar]). They must then explain why they chose that specific picture.
+
+![HITODAMA experiment: step 5. The interlocutors choose their favorite picture.](images/ex5-hitodama.jpg){#fig:ex5-hitodama width=100%}
+
+![HITODAMA experiment: result of the picture selection, controller view.](images/ex5-control.png){#fig:ex5-control width=100%}
+
+![HITODAMA experiment: result of the picture selection, robot display view.](images/ex5-avatar.png){#fig:ex5-avatar width=100%}
+
+From both sides of the interaction, it is possible to explain the selection in the user's native tongue and have it translated to the partner's native tongue. In the case of the controller, one simply has to type the desired sentence and choose the target language for the utterance; HITODAMA would translate and speak the result using the aforementioned cloud services. From the interlocutor side, the participants use the arms as an interface to initiate a recording that would then be translated for the controller. By squeezing both hands simultaneously for two seconds (see [@fig:ex6-hitodama]), a recording pop-up appears (see [@fig:ex6-avatar]).
+
+![HITODAMA experiment: The interlocutor is squeezing both of HITODAMA's hands in order to initiate a transcription/translation procedure.](images/ex6-hitodama.jpg){#fig:ex6-hitodama width=100%}
+
+![HITODAMA experiment: The recording pop-up appears on HITODAMA's display, showing the time left for the recording. A special sound effect accompanies the pop-up.](images/ex6-avatar.png){#fig:ex6-avatar width=70%}
+
+The interlocutor has about 5 seconds to utter a sentence that would be translated to the controller. The sentence appears translated in the controller's transcript view (see [@fig:ex6-control]). Once both parties are done explaining, they signal each other that they are ready and the process can repeat.
+
+![HITODAMA experiment: The interlocutor's sentence appears translated on the controller's interface.](images/ex6-control.png){#fig:ex6-control width=100%}
+
+Despite of the structured flow, the participants were encouraged to make us of available functions freely, such as speech translation, YouTube plays, expressions and movements. Additionally, they were encouraged to develop loose conversation and small-talk that stem from the picture game, without feeling compelled to go over as many pictures as possible.
+
+## Method
+
+### Implementation
+Most of the features required for the experiment are available through HITODAMA's standard web components. On the client side, two dedicated web components were developed:
+
+1. **\<hitodama-pics\>** : A component for showing the random pictures and the selections made by the participants.
+2. **\<hitodama-pics-control\>** : A component for displaying and controlling the current status of picture game (ready, waiting and so forth).
+
+For obtaining the actual picture, the public API from Unsplash was used^[https://unsplash.com/]. For every picture, a random category was selected out of a pre-defined set of categories. The following set was used:
+
+* For the first picture, one category of the following: 
+~~~~~
+"animal", "game", "food", "music", "fun", "pain", "spiritual", "technology"
+~~~~~
+* For the second picture, one category of the following:
+~~~~~
+"toy","culture","robot","family","money","politics","business","nature"
+~~~~~
+
+### Procedure
+Five experiment sessions were organized: One at the iso-omena library in Espoo and five at the Aalto school of arts building. The interlocutors interacting with the robot were always Finnish locals and the robot controllers were foreign nationals. Different age group and genders were selected.
+The experiment was divided into two parts: First, a picture game session approximately 30 minutes long. Second, an interview session lasting as well about 30 minutes. The sessions were recorded and analyzed from the lens oh phenomenological interpretation.
+
+## Results
+
+### Session 1  - iso omena
+
+* Samer from Iraq - 4 years in Finland. Young adult.
+* Juha - 60 years old 
+* Even less afraid of robots after the experiment
+* Eja:  wife
+* Juha Feels the solution is needed. Not all pictures appeared properly light was disturing.
+* Samer: exciting, new thing, fun. Speaking in Arabic and getting Arabic responses. 
+* Ejas: has been talking to Pepper robot, but it couldn't understand Finnish. After figuring out the interface, it was easy to have contact with the robot.
+* Samer: super easy to control the robot. 
+* They could see the face gestures and assumed that they mean something, but weren't sure what.
+* Juha: Felt that the pictures reflected culture, but there wasn't enough time to go sense the differences.
+* Samer: People are anyway different, but only two picture choices were different "This is nice!".
+* Juha: Cultural background affects interpretation of the outside world.
+* Juha: Didn't have any expectations because he didn't know anything about the person. 
+* Eja: All machines have a mind of their own.
+* Juha: Could see just the human behind. Couldn't believe that a machine this simple has a mind.
+* Samer: In the future it will be more and more. Can't judge people but can have an idea about their thoughts. In the future could be more than pictures, maybe music. More ways of expression.
+* Juha: It would tell more if there was more than pictures, such as music. Can skip the pressing with the hands there was too much. 
+* Eja: Touching was OK. Soft. But human touch is different. 
+* Antti (organizer): First experience with soft robots, felt much warmer but not sure why. It wasn't only the touch, the whole thing.
+* Eja & Juha: Would like face gestures to be more human like.
+* Samer: Looks like Mosquito. Funny that you can change your shape and language.
+* Samer: Felt freedom to say what you want. Maybe felt more free than in real life. 
+* Eja & Juha: Wasn't scary!
+* Juha: Would prefer face to face conversation, but it's good as a translation machine.  would like humans to treat him in the elderly home and not robots.
+
+
+
+
+
+
 
 
 # Orthogonal Aesthetics
