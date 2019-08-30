@@ -1291,7 +1291,7 @@ The experiment was divided into two parts: First, a picture game session approxi
 
 ## Results
 
-### Session 1  - iso omena
+### Sessoion 1  - iso omena
 
 * Samer from Iraq - 4 years in Finland. Young adult.
 * Juha - 60 years old 
@@ -1320,8 +1320,66 @@ The experiment was divided into two parts: First, a picture game session approxi
 
 
 
+### Session 2 - Väre
+Roya, Ari, Hari
+
+Roya: First conversation with Finnish. Can be useful when traveling to a place with a language gap. Communication was slow but better than nothing. Funny to be a robot.
+
+Hari: First is confusion but when using it becomes good.
+
+Ari: Tranlsation is useful.
+Hari: Soft robot, first a little bit strange but get used to it.
+Ari: Feels nicer than a normal hardware robot. Softer. Especially if it can represent more emotion in the future. Hard to see emotion.
+Roya: Up & Down arrow were interpreted as nodding. Comfortable with trying - **just laughing emoji**.
+Roya: Missed spelling correction, then it'sh too late - "Something terrible has happened" it was spoken in Finnish.
+Hari: Was hard to say something reasonable. In a "Real" situation it could be better.
+Ari: How to speak so the robot understands, words were dropping or put together. Has to re-invent the way he's speaking. Mis-communications. When speaking together it misses parts.
+Hari: Behind some wall, no idea who is on the other side.
+Merja: Learned that she doesn't like pink or too romantic images.
+Hari: Neutral feeling.
+Ari: Knew who is speaking. Didn't learn much, didn't get deep in the conversation.
+Merja: She likes grass and coffee.
+Merja: The angle is problematic, maybe better to have pillows on the floor.
+Roya: Not thinking about the partner, just making sure to speak right and type right.
+Hari, Ari: Feels that they're talking to a person through the robot.
+Ari: Maybe it can break some prejudices.
+Roya: It was like a video call. 
+Roya: Intuitively thought that they can also see her until I said something.
+Merja: About being used in work?
+Hari: The conversation stays very general considering you don't see the person.
+Ari: To communicate things to show, behavior needs to be more complex, more body language. "Do it like that".
+Roya: Lecturer in other language.  (Stil focusing on language..) Classrooms, learning languages. It was really good that I could hear what I wrote in Persian (active). Waiting for the translation. Somehow felt like it's me "I could hear myself" "It was not me, but can be." You don't know the language, don't feel as much miserable. 
+Ari: Smile of humanoid robots is strange. Animated makes more sense.
+Hari: Interesting experience, completely new to me, (changed anything?) this represents of the future in many ways, the possibilities are unlimited with this kind of system.
 
 
+
+
+
+### Themes
+
+Awe and respect, lots of patience, at least on the outside. Gradually getting used to the interface. 
+Reaction to gaze.
+
+
++--------------+--------------------------------+---------------------------------------------+
+| Agent        | Scenario                       | Themes                                      |
++==============+================================+=============================================+ 
+| Controller   | Session                        |                                             |
++--------------+--------------------------------+---------------------------------------------+
+| Interlocutor | Session                        |                                             |
++--------------+--------------------------------+---------------------------------------------+
+| Controller   | Interview                      |                                             |
++--------------+--------------------------------+---------------------------------------------+
+| Interlocutor | Interview                      |                                             |
++--------------+--------------------------------+---------------------------------------------+
+| Interlocutor | Interview                      |                                             |
++--------------+--------------------------------+---------------------------------------------+
+
+### Theme subsections
+
+quotes,
+pictures
 
 
 
