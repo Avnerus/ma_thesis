@@ -1286,100 +1286,69 @@ For obtaining the actual picture, the public API from Unsplash was used^[https:/
 ~~~~~
 
 ### Procedure
-Five experiment sessions were organized: One at the iso-omena library in Espoo and five at the Aalto school of arts building. The interlocutors interacting with the robot were always Finnish locals and the robot controllers were foreign nationals. Different age group and genders were selected.
+Five experiment sessions were organized: One at the iso-omena library in Espoo and five at the Aalto school of arts building. The interlocutors interacting with the robot were always Finnish locals and the robot controllers were foreign nationals. Different age group and genders were selected, as detailed in [@tbl:participants].
 The experiment was divided into two parts: First, a picture game session approximately 30 minutes long. Second, an interview session lasting as well about 30 minutes. The sessions were recorded and analyzed from the lens oh phenomenological interpretation.
 
-## Results
-
-### Sessoion 1  - iso omena
-
-* Samer from Iraq - 4 years in Finland. Young adult.
-* Juha - 60 years old 
-* Even less afraid of robots after the experiment
-* Eja:  wife
-* Juha Feels the solution is needed. Not all pictures appeared properly light was disturing.
-* Samer: exciting, new thing, fun. Speaking in Arabic and getting Arabic responses. 
-* Ejas: has been talking to Pepper robot, but it couldn't understand Finnish. After figuring out the interface, it was easy to have contact with the robot.
-* Samer: super easy to control the robot. 
-* They could see the face gestures and assumed that they mean something, but weren't sure what.
-* Juha: Felt that the pictures reflected culture, but there wasn't enough time to go sense the differences.
-* Samer: People are anyway different, but only two picture choices were different "This is nice!".
-* Juha: Cultural background affects interpretation of the outside world.
-* Juha: Didn't have any expectations because he didn't know anything about the person. 
-* Eja: All machines have a mind of their own.
-* Juha: Could see just the human behind. Couldn't believe that a machine this simple has a mind.
-* Samer: In the future it will be more and more. Can't judge people but can have an idea about their thoughts. In the future could be more than pictures, maybe music. More ways of expression.
-* Juha: It would tell more if there was more than pictures, such as music. Can skip the pressing with the hands there was too much. 
-* Eja: Touching was OK. Soft. But human touch is different. 
-* Antti (organizer): First experience with soft robots, felt much warmer but not sure why. It wasn't only the touch, the whole thing.
-* Eja & Juha: Would like face gestures to be more human like.
-* Samer: Looks like Mosquito. Funny that you can change your shape and language.
-* Samer: Felt freedom to say what you want. Maybe felt more free than in real life. 
-* Eja & Juha: Wasn't scary!
-* Juha: Would prefer face to face conversation, but it's good as a translation machine.  would like humans to treat him in the elderly home and not robots.
+TODO: Something about the mirror, the youtube in the end, the separate rooms, chair.
+TODO: PCB boards were close to the robot even though they don't have to be.
 
 
-
-### Session 2 - Väre
-Roya, Ari, Hari
-
-Roya: First conversation with Finnish. Can be useful when traveling to a place with a language gap. Communication was slow but better than nothing. Funny to be a robot.
-
-Hari: First is confusion but when using it becomes good.
-
-Ari: Tranlsation is useful.
-Hari: Soft robot, first a little bit strange but get used to it.
-Ari: Feels nicer than a normal hardware robot. Softer. Especially if it can represent more emotion in the future. Hard to see emotion.
-Roya: Up & Down arrow were interpreted as nodding. Comfortable with trying - **just laughing emoji**.
-Roya: Missed spelling correction, then it'sh too late - "Something terrible has happened" it was spoken in Finnish.
-Hari: Was hard to say something reasonable. In a "Real" situation it could be better.
-Ari: How to speak so the robot understands, words were dropping or put together. Has to re-invent the way he's speaking. Mis-communications. When speaking together it misses parts.
-Hari: Behind some wall, no idea who is on the other side.
-Merja: Learned that she doesn't like pink or too romantic images.
-Hari: Neutral feeling.
-Ari: Knew who is speaking. Didn't learn much, didn't get deep in the conversation.
-Merja: She likes grass and coffee.
-Merja: The angle is problematic, maybe better to have pillows on the floor.
-Roya: Not thinking about the partner, just making sure to speak right and type right.
-Hari, Ari: Feels that they're talking to a person through the robot.
-Ari: Maybe it can break some prejudices.
-Roya: It was like a video call. 
-Roya: Intuitively thought that they can also see her until I said something.
-Merja: About being used in work?
-Hari: The conversation stays very general considering you don't see the person.
-Ari: To communicate things to show, behavior needs to be more complex, more body language. "Do it like that".
-Roya: Lecturer in other language.  (Stil focusing on language..) Classrooms, learning languages. It was really good that I could hear what I wrote in Persian (active). Waiting for the translation. Somehow felt like it's me "I could hear myself" "It was not me, but can be." You don't know the language, don't feel as much miserable. 
-Ari: Smile of humanoid robots is strange. Animated makes more sense.
-Hari: Interesting experience, completely new to me, (changed anything?) this represents of the future in many ways, the possibilities are unlimited with this kind of system.
-
-
-
-
-
-### Themes
-
-Awe and respect, lots of patience, at least on the outside. Gradually getting used to the interface. 
-Reaction to gaze.
-
+### Participants:
 
 +--------------+--------------------------------+---------------------------------------------+
-| Agent        | Scenario                       | Themes                                      |
+| Session No.  | Controller                     | Interlocutors                               |
 +==============+================================+=============================================+ 
-| Controller   | Session                        |                                             |
+| 1            | Immigrant from Iraq, young     | Finnish couple, male and female, older      |
+|              | adult male, 4 years in Finland.| adults.                                     |
 +--------------+--------------------------------+---------------------------------------------+
-| Interlocutor | Session                        |                                             |
+| 2            | Young adult female, PhD student| Two Finnish middle adult males, one working |
+|              | from Iran.                     | and one retired.                            |
 +--------------+--------------------------------+---------------------------------------------+
-| Controller   | Interview                      |                                             |
+| 3            | Young adult female from Japan. | Two Finnish young adult males, media lab    |
+|              | Engineer, almost 1 year in     | students and working in the field.          |
+|              | Finland.                       |                                             |
 +--------------+--------------------------------+---------------------------------------------+
-| Interlocutor | Interview                      |                                             |
+| 4            | Young adult female from Turkey.| Finnish young adult male. Graduated media   |
+|              | Doctoral student, short time in| lab student.                                |
+|              | Finland.                       |                                             |
 +--------------+--------------------------------+---------------------------------------------+
-| Interlocutor | Interview                      |                                             |
+| 5            | Immigrant from Iraq, young     | Finnish young adult male, PhD film writing  |
+|              | adult male.                    | stuent and Finnish young adult female, media|
+|              |                                | lab student.                                |
 +--------------+--------------------------------+---------------------------------------------+
 
-### Theme subsections
+: Experiment participants {#tbl:participants}
 
-quotes,
-pictures
+# Results
+
+## Interpretative phenomenological analysis
+The session and interview documentation materials were analyzed qualitatively by loosely following the guidelines of interpretative phenomenological analysis [@smith_interpretative_2009]. Since this research is largely based on phenomenological theory, it appears natural to also take a phenomenological approach for the evaluation of the results. Nonetheless, due to the relatively small scale of the thesis and experiment, some leeway was allotted in following the methodology the analysis does no follow it rigorously. 
+
+The primary focus of the interpretative phenomenological lens for this evaluation is in analyzing the psychological state of the participants, and its fluctuations in response to the experience of interacting through HITODAMA. Not only taking their words literally, but also looking at subtext and hidden meanings behind their sayings and actions. This is done, however, while always keeping in mind that I, the evaluator, am interpreting their state through my own experience, and that all of our experiences should be put in context of the particular session that we were having. The results were categorized into several themes and are detailed in the following sections. 
+
+## Preconception of robots and novelty in soft robots
+
+## Liminality in the perception of HITODAMA, between mediator and agent
+
+Also about the gaze
+
+## Experience of re-embodiment
+
+## The effect of asymmetrical communication
+
+## Reflections on bias and cultural exchange
+
+## Attitude toward soft touch in robots
+
+## Views on HITODAMA's functionality
+
+
+
+
+
+
+
+
 
 
 
