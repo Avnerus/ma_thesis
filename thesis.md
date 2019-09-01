@@ -9,6 +9,8 @@ header-includes: |
     \usepackage{xeCJK}
     \usepackage{xelatexemoji}
     \usepackage{float}
+    \usepackage{fvextra}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breaksymbolleft={\quad},commandchars=\\\{\}}
     \makeatletter
     \def\fps@figure{H}
     \makeatother
@@ -977,7 +979,7 @@ Web components ^[https://www.webcomponents.org/introduction] are an emerging sta
 
 Web components are now supported by all modern browsers, including mobile browsers for iOS and Android, with only some bugs remaining in Apple's Safari as of summer 2019^[https://caniuse.com/#search=web%20components]. In most cases, the lack of support could also be compensated by the use polyfills: external libraries that patch the browser in places where functionalities are missing.
 
-As much as web components simplify the world of reusable components, their direct use is not entirely simple and introduces some development overhead for rather mundane tasks. For this reason, several helper libraries have emerged, simplifying the use of web components. The library Hybrids JS^[https://hybrids.js.org/] stands out as an extraordinarily simple, functional and elegant companion for creating web components, therefore it as chosen for the development of HITODAMA components. Most of the web components were used in the controller client rather than the avatar, but in the future the avatar (the robot's display), but in the future the avatar would be migrated to only use web components as well. [@Tbl:web-components] lists available components and their function:
+As much as web components simplify the world of reusable components, their direct use is not entirely simple and introduces some development overhead for rather mundane tasks. For this reason, several helper libraries have emerged, simplifying the use of web components. The library Hybrids JS^[https://hybrids.js.org/] stands out as an extraordinarily simple, functional and elegant companion for creating web components. It is nominated for a Javascript open source award as "Breakthrough project" for 2019^[https://osawards.com/javascript/] and has been steadily growing in popularity without an increasing bloat. Therefore, it was chosen for the development of HITODAMA's web platform. Most of the web components were used in the controller client rather than the avatar, but in the future the avatar (the robot's display), but in the future the avatar would be migrated to only use web components as well. [@Tbl:web-components] lists available components and their function:
 
 +---------------------------+--------------------------------+---------------------------------------+
 | Component                 | Target client                  | Function                              |
@@ -1230,9 +1232,9 @@ Ideally, at least two people would be interacting with the controller through HI
 
 ![HITODAMA experiment: Initial screens (controller sign-in on top, robot display at the bottom).](images/ex1.png){#fig:ex1 width=60%}
 
-Once the controller is logged in, the interface opens and HITODAMA's display shows that a controller has connected, specifying their name and native tongue. At this point, HITODAMA's arms, which serve as the interface for interaction, are closed and it is not possible to interact by pressing on the palms (see [@fig:ex2-hitodama]).
+Once the controller is logged in, the interface opens and HITODAMA's display shows that a controller has connected, specifying their name and native tongue. At this point, HITODAMA's arms, which serve as the interface for interaction, are lifted and it is not possible to interact by pressing on the palms (see [@fig:ex2-hitodama]).
 
-![HITODAMA experiment: HITODAMA's arms are closed and interfacing is not possible.](images/ex2-hitodama.jpg){#fig:ex2-hitodama width=100%}
+![HITODAMA experiment: HITODAMA's arms are lifted and interfacing is not possible.](images/ex2-hitodama.jpg){#fig:ex2-hitodama width=100%}
 
 The controller already has full control over HITODAMA's functions, including speech, expressions and body movement; to start playing the picture game, the controller must press the check mark button which will open HITODAMA's arms. When that happens, the interlocutors must also signal that they are ready to play by squeezing HITODAMA's right arm (see [@fig:ex3-control;@fig:ex3-hitodama])
 
@@ -1326,19 +1328,82 @@ The session and interview documentation materials were analyzed qualitatively by
 
 The primary focus of the interpretative phenomenological lens for this evaluation is in analyzing the psychological state of the participants, and its fluctuations in response to the experience of interacting through HITODAMA. Not only taking their words literally, but also looking at subtext and hidden meanings behind their sayings and actions. This is done, however, while always keeping in mind that I, the evaluator, am interpreting their state through my own experience, and that all of our experiences should be put in context of the particular session that we were having. The results were categorized into several themes and are detailed in the following sections. 
 
-## Preconception of robots and novelty in soft robots
+## Mix of uncanniness and awe toward soft robotics
+As expected, the overwhelming majority of the participants did not experience something similar to the experiment's scenario, and generally had no prior experience with "social" robots that exhibit deeper interactions with humans, especially as mediators. While everyone have some view or another regarding robots and their future role in society, this experience was generally new to them and spawned mixed feelings of awe and uncertainty. One repeating notion, especially among participants of an older age that were interacting with the robot as interlocutors, was to declare that they were not afraid of the robot, that it was not scary for them, not too strange and so on. Such a statement, being said multiple times unsolicitedly, may point at some underlying pre-conceptions and thoughts about robots. A certain uneasiness on the part of interlocutors was felt by me as they were discussing about the soft nature of the robot, its ability to represent humans and the experience of touch. They were making sure to distinguish between the robot's qualities and the nature of human touch, as translated by the interpreter:
+
+~~~~~ {.numberLines }
+I1b (translated) : It was OK to touch the robot, it was soft, but the touch between humans is different.
+Me: How different?
+*laughter*
+~~~~~
+
+At this point I was perhaps stressing it too much and did not get the response I was hoping for, but one can assume what they meant. Nevertheless, despite the pre-conceptions the participants did express that they were not afraid of HITODAMA, so perhaps its soft aesthetics were soothing in relation to the pre-conceptions. An optimistic outlook was also demonstrated in one remark, by the first session organizer and interpreter, who did not attend the interaction, and perhaps because of that was even more enthusiastic:
+
+~~~~~ {.numberLines} 
+A: This was my first experience with soft robotics and it felt, compared to other solutions, really different and warmer. Much warmer then, you know, all the other robots, but I'm not sure why was it.
+Me: You mean the soft material?"
+A: It may be the whole thing, not only that, touch.
+~~~~~
+
+The fact that A could not pinpoint the exact reason for his experience resonates for me notions of _flesh_ and non-linearity of movement. Affected by my own experience and reading, it does seem that there is some pre-reflective quality of the soft material that causes comfort or relatedness. Perhaps he inability to recognize the exact quality is a testimony for its primal nature.
+
+TODO: About it being the future.
+
+During the closing arguments of the older adult session one of them mentioned that in the future he would like humans to take care of him when he is at the elderly home, and not robots. Perhaps this is a reference to Paro^[http://www.parorobots.com/], the seal-like looking robot that is known for being used with the elderly. Interestingly, this comment was not translated by the on-site interpreter and organizer of the session, perhaps in an attempt to keep the interview lighter, and was picked up only incidentally when I later played back the audio to a Finnish friend. That same participant also noted that he thought the use of HITODAMA's arms as an interface was redundant, and could have been enough to signal a response by voice or clicking. Moreover, he was stressing the role of HITODAMA is a utility, a "translation machine". This leads me to believe that as HITODAMA's interface gets closer to human, organic and life-like, it is also liable to invoke uncanny emotions, even if the aesthetics is hardly human, and that his may also invoke fears of robots replacing humans and human touch. The fluidity in the role of HITODAMA was a repeating theme during the sessions and is elaborated in the next section.
 
 ## Liminality in the perception of HITODAMA, between mediator and agent
+HITODAMA is by nature "in-between", or living in the "liminal space" as first defined by Van Gennep [-@van_gennep_rites_2013] and recently adopted by a wide range of academics and scholars to describe the elusive yet natural state of being between things. This liminality is not only attributed to HITODAMA's simple functional role of mediating between people, or to its post-humanoid aesthetics of part human part animal,  but it rises from the fact that HITODAMA carries its own agency, as an avatar, while at the same time exhibiting properties of a digital communication device such as a phone or computer. It is clear from the reactions of the interlocutors that in its avatar state HITODAMA carries more affective qualities, for better or for worse, as noted by one participant:
 
-Also about the gaze
+~~~~~ {.numberLines} 
+I3b: It was really interesting the moment I stepped here and it started to move (illustrating getting the shivers), and then someone said that there is someone inside, or something like that, you maybe said that? and those things when they came, I was having such a black mirror moment, like there is someone there, really it was like this tickling really eerie thing to think that way, that there is someone inside there (illustrating disgust). But...it was much more peaceful than I maybe expected it to be and it didn't have gestured that much than I was maybe expecting it to be from the first."
+...
+I3b: Still I was basically seeing someone is there behind of that, actually I'm just trying to communicate through this thing, more than this is a person.
+~~~~~
+It is worth noting that it was I who used the phrase "someone inside" when I was introducing the participants to the robot. With that I was probably already tipping the balance in perceiving HITODAMA as a vessel _containing_ a person and not _connected_ to it. It may be advised to refrain from such terms for the data to be more neutral.
+Gradually, however, it became clear that a key element affecting the perception of HITODAMA was the location and use of the in-built display during the session. The display was not only differentiating the experience insofar as it was diverting the perception from material depth to virtual flatness, it was also inconveniently located below HITODAMA's face, forcing the interlocutors to stretch their neck to look at it, losing most of HITODAMA's body parts from their field of vision. As noted by the same participant:
 
-## Experience of re-embodiment
+~~~~~ {.numberLines}
+I3b: I see the hands and I see the face but there is so much stuff...cluttering my vision...It was so much screen based that it wasn't like I'm looking at the eyes that much, like actually looking by the thing through the screen...that it feels more like an interaction device than even as a kind of a robot.
+~~~~~
 
-## The effect of asymmetrical communication
+And also by another participant:
+
+~~~~~ {.numberLines}
+I4: It was difficult to focus on the actual robot as a person because I was constantly having to twist my head to see the sort of status of that stuff.
+...
+I4: Sometimes I was looking at the camera, sometimes I was looking at the eyes, which logically doesn't make any sense...Once in a while when speech would come through I would sort of focus on the face and figure out that this guy is talking.
+~~~~~
+
+Summing up the experience of the interlocutors, it appears that the balance was mostly tilted toward that of the mediating, translating device and less toward agency because the greater part of the interaction involved discussing the pictures that were present on the screen. One moment, however, which was clearly affective and demonstrating agency, was the transition of HITODAMA's gaze toward one of the participants through the soft movement of the neck. The participants exhibited a wide-range of expressive reactions, from look of shock to an amused awkwardness as in [@fig:snap-gaze].
+
+![One participant's reaction to gazing, in the moment HITODAMA turns its head toward them.](images/snap-gaze.png){#fig:snap-gaze width=100%}
+
+Other notable affective moments were: 1) the movement of the arms from the lifted position to the open position and 2) the use of face expressions, albeit they were hard to make sense of. There was a consensus among the interlocutors that most of the facial movements felt as if the robot is expressing something, but they were not sure what it was. One participant, however, noted that he could indeed recognize a smile. This could be seen as an outcome of the attempt to create post-humanoid expressions that are affective yet not uncanny. The result, however, was too ambiguous and virtually all of the participants remarked that they would have loved to have more realistic expressions. In some cases I have encouraged the controllers to make use of the up and down arrows, which in one case was interpreted as nodding. I have also encouraged one controller to use the arrows for dancing while playing a music video, and that was immediately caught by the interlocutors. 
+
+As mentioned in the previous theme, the position of the participant in the liminal space between agent and mediator was also reflected by the interlocutor's attitude toward the touch interface. For some of the participants, the touch interface seemed redundant or interfering with the task of speaking about the pictures and performing translations, as noted by one:
+
+~~~~~ {.numberLines}
+I5a: Basically what I'm doing is press a soft button here and this interface was just something that, sort of, distracted me, because I could have imagined that I have a laptop screen, I have images, I'm chatting...this thing was always a bit of a distraction from this, what I'm used to doing.
+~~~~~
+
+It is clear that in this form the agency of HITODAMA has vanished from the scene and it is nothing but a complex interface for digital communication. One interesting note is that in both of the sessions where the participants were one male and one female, the male has expressed the will to skip the touch interface, after which the female came to its defense. Although this is has no statistical significance, it is worth considering gender differences in relation toward the medium of HITODAMA. Another hypothesis is that the female participants felt empathy toward my own relation to HITODAMA when being criticized, and felt the need to defend it.
+
+
+## Sense of ownership in re-embodiment
+In principal, all of HITODAMA's controllers had an enjoyable experience during the session. The word "funny" was used repeatedly, perhaps hinting at the novelty of the situation that is mixed with some awkwardness. By far the most notable feature for all of the controllers was the ability to change their language. The first person pronoun "I" was also used throughout the interviews, insinuating a sense of ownership. One controller described it as follows:
+
+~~~~~ {.numberLines}
+C2: It was interesting...Maybe I could say that I could hear myself, you know? It was not me, but can be...You don't know the language, but it feels like you know it, so you don't feel that much miserable.
+~~~~~
+
+
+
+
+
+## The effects of asymmetrical communication
 
 ## Reflections on bias and cultural exchange
 
-## Attitude toward soft touch in robots
 
 ## Views on HITODAMA's functionality
 
