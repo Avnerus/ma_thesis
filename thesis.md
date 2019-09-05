@@ -186,25 +186,25 @@ A more recent modality that is associated with language is the use of _Emojis_. 
 
 
 ## Body Language
-A profoundly meaningful, yet highly elusive element of intercorporeality comes from our body language: Meaningful because despite Merleau-Ponty's claim that speech and even ideation are acts of the body, the directness of bodily gestures provide a clear connection between social identity and the flesh that envelopes them, elusive because a large number of these acts are picked up only by our subconscious and because the line between the authentic and the uncanny is sometimes invisibly thin
+A profoundly meaningful, yet highly elusive element of intercorporeality comes from our body language: Meaningful because despite Merleau-Ponty's claim that speech and even ideation are acts of the body, the directness of bodily gestures provide a clear connection between social identity and the flesh that envelopes them, elusive because a large number of these acts are picked up only by our subconscious and because the line between the authentic and the uncanny is sometimes invisibly thin.
 
-Due to its nonverbal nature, aside from modalities of sign language, body language is associated with emotional expression rather than structured, logical content. Its research dates back at least to the 19th century, when Charles Darwin published his work _The Expression of the Emotions in Man and Animals_ [-@darwin_expression_1998]. Darwin followed the path of evolution and attempted to find reasons and common origins for behaviors representing certain emotions. Those findings maybe of interest to mediated intercorporeality insofar as finding new forms of expressions that are not solely human, yet belong to a common ancestor and are recognized by humans, one may find paths around the uncanny valley. For example, Darwin sites the trembling behavior in response to stress and fear, that "is common to man and to many, or most, of the lower animals" [-@darwin_expression_1998, p. 70]
+Due to its nonverbal nature, aside from modalities of sign language, body language is associated with emotional expression rather than structured, logical content. Its research dates back at least to the 19th century, when Charles Darwin published his work _The Expression of the Emotions in Man and Animals_ [-@darwin_expression_1998]. Darwin followed the path of evolution and attempted to find reasons and common origins for behaviors representing certain emotions. Those findings could be of interest to mediated intercorporeality insofar as finding new forms of expressions that are not solely human, yet belong to a common ancestor and are recognized by humans, could help finding paths around the uncanny valley. For example, Darwin sites the trembling behavior in response to stress and fear, that "is common to man and to many, or most, of the lower animals" [-@darwin_expression_1998, p. 70]
 
-Darwin's research may also inspire unique uses of materials for expression. In the case of soft robotics that are based on pneumatics, inflation of the outer skin is a natural movement. Such action could also be inspired by certain animals, as darwin notes: "Chameleons and some other lizards inflate themselves when angry...Several kinds of snakes likewise inflate themselves when irritated. The puff-adder {Glotlio arietans) is remarkable in this respect" [@darwin_expression_1998, p.111]. Darwin follows this observation with his hypothesis that "they do not act thus for the sake of increasing their apparent bulk, but simply for inhaling a large supply of air, so as to produce their surprisingly loud, harsh, and prolonged hissing sound." Nevertheless, it is hard to argue against the fact that the inflation motion is affective when observed. TODO: Erection/goosebumps
+Darwin's research may also inspire unique uses of materials for expression. In the case of soft robotics that are based on pneumatics, inflation of the outer skin is a natural movement. Such action could also be inspired by certain animals, as Darwin notes: "Chameleons and some other lizards inflate themselves when angry...Several kinds of snakes likewise inflate themselves when irritated. The puff-adder {Glotlio arietans) is remarkable in this respect" [@darwin_expression_1998, p.111]. Darwin follows this observation with his hypothesis that "they do not act thus for the sake of increasing their apparent bulk, but simply for inhaling a large supply of air, so as to produce their surprisingly loud, harsh, and prolonged hissing sound". Current research suggests that animals use inflation mechanisms for a variety of reasons, some mechanical such as the puffer fish making itself harder to being swallowed [@brainerdPufferfishInflationFunctional1994] or toads inflating their bodies so they can roll and escape predators [@marchisinStrategiesEmployedFrogs1978], but some animals inflate in a strictly expressive manner, such as the hooded seal (see [@fig:hooded-seal]) that inflates its nasal cavity to display aggression [@bishopBodySlapInnovative2014]. Perhaps the mammal equivalent of fish and amphibian inflation would be piloerection, or "goose bumps" in humans. Darwin has researched the phenomenon, often witnessed in cats and dogs, and concluded that despite it being an involuntary action, it is likely that it gained advantage on the evolutionary continuum due to its ability to increase the "bulk of their bodies" [@darwin_expression_1998
+, p.109].
 
-Interestingly [as cited in @keating_challenges_2017], blah
+![Hooded seal inflating its nasal cavity. Retreived from the “OCEAN TREASURES” Memorial Library (https://otlibrary.com/hooded-seals/).](images/hooded-seal.jpg){#fig:hooded-seal}
 
-One area where body language and its affects on our psychology has been studied extensively is dance choreography, in particularly that of modern dance. Dance appears as an attempt to extract elements of bodily interaction from our daily social lives, and present them in an accentuated, distilled form. Sevdalis and Keller summarize a range of research papers articulating the connections between modern dance movements and our social cognition [-@sevdalis_captured_2011].
+While Darwin studied extensively about the reasons behind our various means of expression, the other part of the equation is the effect, or _affect_ as defined by Zajonc [-@zajoncFeelingThinkingPreferences1980]: our emotional reaction to a stimuli. Affects and their relation to movements of the body are studied extensively in dance choreography, and in particularly that of modern dance. Dance could be seen as an attempt to extract elements of bodily interaction from our daily social lives, and present them in an accentuated, distilled form. Sevdalis and Keller summarize a range of research papers articulating the connections between modern dance movements and our social cognition [-@sevdalis_captured_2011].
+
+A key figure in the study of expressive movements is Rudolf Laban, creator of LMA theory: Laban Movement Analysis. In what might seen as antithetical to the abstract and free-flowing nature of modern dance, Laban meticulously  dissected and categorized movement and space into key elements and then extrapolated the results into their emotional significance. The theory is mostly laid out in two influential books: _Choreutics_ [@vonlabanChoreutics1966] deals mostly with the concepts of _space_ and _shape_, how different arrangements of our body in space have different expressive qualities, and _The Mastery of Movement_ [@laban_mastery_1971] deals mostly with the concept of _effort_
 
 TODO: Darwin
-
 TODO: Keating face to face focus on the lower part, and more highlights about body/gaze
 
 ody/gaze.
 
 TODO: From the end of Dolezal
-TODO: Recap Meyer / Keating
-TODO: Dialogism?
 TODO: Laban style
 TODO: Hapticl sociality
 TODO: Ruth Feldman
@@ -755,6 +755,10 @@ The controller's web client then uses the Janus client library to obtain a refer
 ### Display
 A 5-inch LCD display by Waveshare is connected to the Raspberry Pi via the HDMI port and supports a resolution of up to 800x480. The display runs a full screen web browser (to be detailed in the next section).
 
+
+### Speech
+HITODAMA can receive text sentences and transform them into speech using cloud services. A Bluetooth speaker was used to output audio. The voice module attempts to portray gender neutrality by applying downward pitch modification on a female text-to-speech model.
+
 # Systems and software architecture
 
 ## Overview
@@ -1071,6 +1075,8 @@ The state automatically adds system and error messages to the transcript.
 ~~~~~
 
 If a flag icon does not exist in the standard database, it can be added as an svg files in the _images_ folder of the project.
+\
+
 
 ## API gateway server
 Some functions for HITODAMA, primarily those involving language and speech, are best implemented using cloud services. While it is possible to have HITODAMA's rust server directly access those cloud services, it was more convenient to manage the access through and external Node JS gateway server that can be accessed easily from the web clients. [@Tbl:api-gateway] describes the language services provided by the current server implementation^[https://github.com/Avnerus/softbot/tree/master/server]. Application specific functionalities could be added to the same gateway.
@@ -1095,6 +1101,11 @@ Some functions for HITODAMA, primarily those involving language and speech, are 
 +---------------------------+--------------------------------+---------------------------------------+
 
 : API Gateway server: language functions {#tbl:api-gateway}
+
+Two components are active on the client interfaces outside of the web-component framework and make use of the API gateway service:
+
+1. **Speech client** : Uses the ms-speak route to utter a sentence. The speech client attempts to speak in a gender neutral voice by selecting a female-based text-to-speech model and then decreasing the pitch of the result using the Tone.js library^[https://tonejs.github.io/].
+2. **Speech recorder** : Records audio from the Janus stream using the MediaRecorder interface^[https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder] and sends the buffer to the transcribe route.
 
 # Admin web client
 An admin web client was developed for testing and management of HITODAMA's functions. At the time of development, web components were not at the front of the research and therefore it was created only with simple Javascript objects and JQuery UI manipulation. [@Tbl:admin-client] describers the admin client's features, numbered and shown on [@fig:admin-client].  
