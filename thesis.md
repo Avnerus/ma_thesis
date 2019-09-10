@@ -1,6 +1,6 @@
 ---
 title: Soft Robotic Incarnation
-subtitle: Investigations into mediating intercorporeality
+subtitle: Interrogations of mediated intercorporeality
 author: Avner Peled.
 date: 08/2019
 abstract: This thesis is a post-phenomenological investigation into the use of soft robots as mediating bodies between humans that could unfetishise their imaginative figure of the stranger, in an event I call incarnation. Through my own encounters with Palestinians for the purpose of conflict resoluton and through readings of phenomenological and sociological studies, I determine the importance of the physical body, its fleshiness, nonlinearity and organic qualities for the construction of a meaningful and transformative dialog that can free us from stranger fetishism. Furthermore, I investigate the potential of nonhumanoid robotic avatars to liberate the interlocutors from prejudice and identity constraints. I propose the use of soft robots as a medium of re-embodidemnt that could factilitate massive scale physical incarnations, creating physical encounters between people who are unable to otherwise meet in person. As a proof-of-concet, a novel method for the production of soft robotic avatars is introduced, capable of bodily haptics, language translation and animalistic emotional expression, accompanied by a web based software platform for an easy development of applications. Using this method, _Hitodama_, a first prototype for a soft robotic avatar is produced. I perform an intial evaluation of the robot in an encounter between people of different cultures, using an example app in which they examine their bias and prejudice of one another. I analyze the results by conducting interviews with the participans, following the principles of interperative phenomenological analysis. Finally the broad potential of artistic craftsmanship to assist in political transformation is debated, reaching the conclusion that a scientific perspective could be applied not only to the creation of the piece, but also to the estimation of its societal effect.
@@ -772,31 +772,31 @@ The connection between a valve and its control voltage goes through three boards
 
 : Pneumatic components BOM {#tbl:pneumatic-components}
 
-![Pneumatic components asscociated with table entries.](images/pneumatic-components.png){#fig:pneumatic-components width=100%}
+![Pneumatic components asscociated with table entries.](images/pneumatic-components.png){#fig:pneumatic-components width=80%}
 
 
 ### Valve / motor board
 The valve / motor board was designed with KiCad software (see [@fig:valve-board-kicad]) after the setup was tested on a breadboard. It includes two main features: 1) Motor driver control over two valves / motors. 2) Amplified pressure sensor circuit. 
 
-![Valve / motor boad: KiCad drawing.](images/valve-board-kicad.png){#fig:valve-board-kicad width=70%}
+![Valve / motor boad: KiCad drawing.](images/valve-board-kicad.png){#fig:valve-board-kicad width=50%}
 
 The motor driver circuit uses the **Pololu 713 TB6612FNG dual motor driver carrier**. It provides standard back EMF protection using **1N4001 diodes** and **bypass capacitors of 100u** in parallel to the voltage supply lines. The valves chosen for the pneumatic system are 
 
 For pressure sensing, the **MPS20N0040D Pressure Sensor** was selected for its low cost and high availability. The pressure sensor requires amplification and normalization to the produced analog values. A standard **LM358N Op-Amp** was used; different resistor configurations were tested using an oscilloscope until the desired output was reached. [@Fig:pressure-sensor-circuit] describes the configuration used in the final prototype.  
 
-![MPS20N0040D: Op-Amp circuit. The sensor orientation is determined by the small hole at one side.](images/pressure-sensor-circuit.png){#fig:pressure-sensor-circuit width=100%}
+![MPS20N0040D: Op-Amp circuit. The sensor orientation is determined by the small hole at one side.](images/pressure-sensor-circuit.png){#fig:pressure-sensor-circuit width=70%}
 
 ### Valve board to intermediate board
 
 A modular slot-like arrangement was chosen for the connection between the valve boards and the intermediate boards. Three **TE Connectivity 5-5530843-3** edge connectors are soldered on the intermediate board, allowing the valve boards to be slotted in and out easily (see [@fig:slot-mechanism]).
 
-![Valve board to intermediate board slot mechanism](images/slot-mechanism.jpg){#fig:slot-mechnism width=80%}
+![Valve board to intermediate board slot mechanism](images/slot-mechanism.jpg){#fig:slot-mechnism width=70%}
 
 ### Intemediate board to controller breakout
 
 A 20-pin ribbon cable connects the intermediate board to the controller breakout board (see [@fig:boards-ribbon-cable]). The intermediate board forwards all of the necessary pins to the micro-controller, allowing PWM control over three air chambers (six valves) and reading three pressure values.
 
-![Intemediate board to controller breakout ribbon cable](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=80%}
+![Intemediate board to controller breakout ribbon cable](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=70%}
 
 ### Microcontroller breakout
 Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It provides an Arduino compatible interface with an exceptionally high performance and a large number of analog, digital and PWM enabled pins. Nevertheless, due to the high number of pneumatic components, several concessions had to be made to save pins:
@@ -1610,9 +1610,21 @@ I5b: I do like the fact that...you know you don't have biases...whenever we meet
 In all of the sessions, noticeable flaws and setbacks in the interaction were recognized by the participants. On top of the issues already mentioned in previous sections, the turn-taking process was rather slow, the translation was often erroneous and the participants had to tone down their language to the type of language used with translation and assistant bots such as Siri and Alexa; this is what Sherry Turkle defined as the _ELIZA effect_ [@turkle_alone_2011, p.24]: the human complicity with the machine that embraces its limits in order to fulfill a digital fantasy. Yet, despite of all the defects, the participants wished for more interaction time and seemed to be enthusiastic to talk about the potential of the encounter, with all its weirdness, to create meaningful connections. If my instinctive, rather pleased, reaction to their feedback could be of any significance, just as I instinctively smile when the inflated look on HITODAMA's face appears to be smiling, the experiment proved its potential.
 
 # Conclusion
+When I started working on HITODAMA 2.5 years before writing this conclusion section, I had imagined that in two years the project would be fully completed, HITODAMA would be enclosed in a clean uniform body and would be put to strict field testing in the lands of Israel-Palestine. While there were plenty of hurdles and complications along the way that prevented this goal from being fulfilled, the biggest obstacle was my own transition from the world of digital software development to the world of physical hardware. In great irony and blessing, I had discovered part of what my thesis was seeking to explore just by producing the experiment apparatus.
 
-## 
-# Orthogonal Aesthetics
+The first lesson I've learned was how the experiences of success and failure in the physical world of hardware measure against those experiences in the virtual world of software. There is no denying that during software development one experiences a range of emotions: from extreme frustration over a mysterious bug, to pure bliss when things just work the way they should. But there is a difference, at least from my own experience, between that and the range of emotions one gets in the physical world: A failure to produce a physical object, or a physical object that breaks, strikes at the core of your being. It makes you feel useless when facing the world; it makes you question the relation between your body and the environment that surrounds it. Accordingly, a successful physical production feels like self-validation, even more so, it feels like hacking and taming the invisible flesh of the universe; like creating order in chaos.
+
+The second lesson is in regards to the meaning of _difference and restoration_ in physical objects viz a viz virtual ones. In the world of software, one could imagine a scenario in which a mischievous character enters into the software's code, breaks the logical flow and perhaps causes a feature to stop functioning completely. To fix the underlying issue, one simply has to go into the code and delete the malignant character. Ontologically, after re-compilation, the software is now at the exact same state as it was before the problem occurred -  this is not the case in physical objects. The most common fault in silicone actuators was the puncturing of the inner artificial muscle layer, resulting in air leakage and loss of actuation capabilities. When such a problem occurs, one literally has to take the damaged part into surgery, cutting through the skin in order to reach the muscle and then applying silicone glue on the punctured surface. However, even after the actuator is fixed, it will never be the same as it was. Its performance will now suffer due to the change in surface balance and it will be liable to rapture again under extreme pressure. This is not only with silicone actuators, in fact, macro-scale physical objects never return to their previous state; this is the ontological nature of the physical world, as Heraclitus said: ""You cannot step into the same river twice, for other waters are continually flowing on" (quoted in Plato’s Cratylus, Section 402a).
+
+This Master's thesis makes a case for mediated, re-embodied intercorporeality, when current market forces seem to be pushing toward a virtualisation of social encounters. Admittedly, it does not perform quantitative comparisons between virtual and physical and mediation; it relies simply on practice-based phenomenological interrogations and qualitative intuitions. In 1909 E.M Forster wrote a dystopian science fiction short story title _The Machine Stops_ [@forsterMachineStops2015] about a futuristic world in which people lived in underground hexagonal cellsx because the surface of the earth was too polluted to be on without a respirator. The world was governed by an autonomous entity known as "The Machine", which people used to perform all tasks of their daily lives, including social encounters. Human touch was considered an encroachment of boundaries and the only token of value was "ideas". When one man attempts to escape that world, the first thing he has to do is regain his perception of distance as a relation to the human body, and not to the time it takes the machine to travel from one cell to another. The story makes one whether a society that loses its corporeality is bound to destroy the soil that gave it life.
+
+The solution proposed in this thesis is not a retreat to a pre-internet society where encounters are strictly face-to-face, but it is a middle-ground. A solution that leverages internet connectivity but attempts to maintain intercorporeality. By doing so, it hopes to mitigate illnesses of virtualisation such as stranger fetishism.
+
+
+# Acknowledgements
+
+# Appendix?
+
 
 # References
 
