@@ -594,14 +594,14 @@ Once the mixture was uniform, we poured it into a metal pan and left it to cool 
 
 ![Molds for HITODAMA's arm made from machineable wax.](images/wax-molds.jpeg){#fig:wax-molds width=60%}
 
-While the machineable wax didn't exhibit top-grade surface finish levels like those of expensive polyurethane compounds, it was certainly smoother than 3d printed parts and was very easy to mill. Machineable wax is more environmentally friendly than polyurethane since it is not only produced from recycled plastics, it can also be recycled on its own: Once the molds are no longer of use, the wax can be melted back and cast into the pan for re-use. If the CNC machine is equipped with a vacuum that sucks off the scrap while cutting the part, close to zero-waste manufacturing can be achieved. 
+While the machineable wax did not exhibit top-grade surface finish levels like those of expensive polyurethane compounds, it was certainly smoother than 3d printed parts and was very easy to mill. Machineable wax is more environmentally friendly than polyurethane since it is not only produced from recycled plastics, it can also be recycled: Once the molds are no longer of use, the wax can be melted back and cast into the pan for re-use. If the CNC machine is equipped with a vacuum that sucks off the scrap while cutting the part, close to zero-waste manufacturing can be achieved. 
 
-For making the arm, the first set of molds was milled from machineable wax. After a round of testing and fixes, the final molds were milled from polyurethane to ensure the highest quality product.
+For making the arms, we milled the first set of molds from machineable wax. After a round of testing and fixes, we milled the final set of molds from polyurethane to ensure the highest quality product.
 
 ### Step 1 mold: Artificial muscle actuator
 The casting of the muscle actuator is the first step of the casting process. The mold for the muscle (see [@fig:arm-steps]) is composed of the following parts:
 
-1. Main mold for producing the muscle tube (CNC milled).
+1. Central mold for producing the muscle tube (CNC milled).
 2. Half-cylindrical metal piece for producing the air compartment (made using lathe).
 3. Modular base piece for securing the metal part (CNC milled).
 4. Bottom piece space filler (3d printed).
@@ -609,33 +609,33 @@ The casting of the muscle actuator is the first step of the casting process. The
 
 ![Arm steps 1 & 2: Left: Artificial muscle actuator mold, Right: Arm skin mold.](images/arm-steps.png){#fig:arm-steps width=100%}
 
-The CNC parts were milled from machineable wax while prototyping, and from polyurethane after achieving the final form. The mold is put together by inserting the metal piece into the bottom piece along with a small 3d printed filler and attaching the bottom piece to the main piece. A filler is required insofar as the same base pieces are used in both in step 1 and 2 , with the second step requiring extra space on the bottom piece for securing the sensor cable. 
+We milled the CNC parts from machineable wax while prototyping, and from polyurethane after achieving the final form. The mold is put together by inserting the metal piece into the bottom piece along with a small 3d printed filler and attaching the bottom piece to the main piece. A filler is required insofar as the same base pieces are used in both in step 1 and 2, with the second step requiring extra space on the bottom piece for securing the sensor cable. 
 
-Dragon Skin 30 is injected to the molds using a syringe from bottom the top while the mold are clamped in an upright position and fastened with gaffer tape (see [fig:step1-casting]). By virtue of the transparent acrylic cover, it is possible to see any air bubbles forming during the injection process and follow their path as they departure from the top of the mold into the open air. The mold is designed in such way that a small reservoir pool of silicone remains at the top after injection; this pool maintains that if a small amount of silicone leaks out after injection, it is replaced from the reservoir pool and no material is lost in the final form.
+Dragon Skin 30 is injected to the molds using a syringe from bottom to top while the molds are clamped in an upright position and fastened with gaffer tape (see [fig:step1-casting]). Through the transparent acrylic cover, it is possible to see any air bubbles forming during the injection process and follow their path as they depart from the top of the mold into the open air. We designed the mold in such way that a small reservoir pool of silicone remains at the top after injection; this pool maintains that if a small amount of silicone leaks out after injection, it is replaced from the reservoir pool and no material is lost in the final form.
 
 ![Arm step 1 : Casting apparatus.](images/step1-casting.jpg){#fig:step1-casting width=100%}
 
 ### Step 2 mold: Artificial arm 
 
-Once the first step is cured, the result is released from the mold. Before wrapping the kevlar fiber in a double helical form, a restricting layer should be added on one side to induce a bending motion instead of axial expansion. Usually this is done by gluing non stretchable fabric to the flat side of the half cylinder. Fabric bends very easily but does not stretch axially, causing the actuator to bend instead of elongating when inflated. In our case, however, a six-end flat ribbon cable is used as the restrictive layer. The ribbon cable is glued to flat side of the half-cylinder using Sil-Poxy glue; it conducts the sensing signal from the palm of the hand to the other end, while at the same time restricting the axial expansion of the silicone. The kevlar fiber is then wrapped around the actuator, laying on top of the ribbon cable (see [@fig:wrapped-fiber;fig:step2-casting]).Once the mold is ready and situated, Ecoflex 30 silicone is injected, covering the muscle tube and creating the shape of the arm, while the ends of the ribbon cable are protected by the mold so that the sensor and micro controller could be connected later. Overall the second step mold contains the following parts (see [@fig:arm-steps]):
+Once the first step was cured, we released the result from the mold. Before wrapping the Kevlar fiber in a double-helical form, a restricting layer should be added on one side to induce a bending motion instead of axial expansion. Usually, this is done by gluing non-stretchable fabric to the flat side of the half-cylinder. Fabric bends very easily but does not stretch axially, causing the actuator to bend instead of elongating when inflated. In our case, however, we used a six-end flat ribbon cable as the restrictive layer. We glued the ribbon cable to the flat side of the half-cylinder using Sil-Poxy glue; it conducts the sensing signal from the palm the other end of the arm, while at the same time restricting the axial expansion of the silicone. We then wrapped the Kevlar fiber around the actuator, laying on top of the ribbon cable (see [@fig:wrapped-fiber;fig:step2-casting]). Once the mold was ready and situated, we injected Ecoflex 30 silicone, covering the muscle tube and creating the shape of the arm. The ends of the ribbon cable are protected by the mold so that the sensor and microcontroller could be connected later. Overall, the second step mold contains the following parts (see [@fig:arm-steps]):
 
-1. Main mold for producing the arm shaped skin (CNC milled).
+1. Central mold for producing the arm shaped skin (CNC milled).
 2. A sensor box, reserving space for the sensor and protecting one end of the ribbon cable.
 3. Modular base piece for securing the muscle tube and for protecting the other end of the ribbon cable(CNC milled).
 4. Transparent acrylic cover (laser-cut).
 
-As with the first step, the mold is taped and clamped upright and the silicone is injected from bottom to top as the bubbles are monitored through the acrylic glass (see [@fig:step2-casting]). Likewise with the first step mold, the second step also contains a reservoir pool to protect from small leakages.
+As with the first step, the mold is taped and clamped upright, and the silicone is injected from bottom to top as the bubbles are monitored through the acrylic glass (see [@fig:step2-casting]). As with the first step mold, the second step also contains a reservoir pool to protect from small leakages.
 
 ![Double helical kevlar fiber wrapping. The fiber is wrapped from one end to the other, and then back.](images/wrapped-fiber.jpeg){#fig:wrapped-fiber width=70%}
 
 ![Arm step 2 : Casting apparatus. The restricting layer formed by the ribbon cable is shown on the flat side of the actuator.](images/step2-casting.jpeg){#fig:step2-casting width=80%}
 
 ### Barometric pressure sensor
-The sensing approach in the arm follows the research done by Tenzer, Jentoft & Howe [-@tenzer_feel_2014]. In their search for tactile sensors that could easily be embedded in robotic arms, and specifically organs made out of soft polymers, they found that low cost MEMS based barometric pressure sensors have the highest value. Those kind of sensors are cheap, easy to install and provide much better readings than other low-cost solutions such as Flexi-Force sensors that "often provide limited accuracy and significant hysteresis" [-@tenzer_feel_2014, p.89]. Barometic MEMS sensors also work digitally via SPI or I2C and do not require analog to digital conversions and amplifications. The sensor chosen for the arms was BME280 by Bosch Sensortec [@bosch_bme280_2019]. 
+The sensing approach in the arm follows the research done by Tenzer, Jentoft & Howe [-@tenzer_feel_2014]. In their search for tactile sensors that could easily be embedded in robotic arms, specifically organs made out of soft polymers, they found that low-cost MEMS-based barometric pressure sensors have the highest value. Those sensors are cheap, easy to install and provide much better readings than other low-cost solutions such as Flexi-Force sensors that "often provide limited accuracy and significant hysteresis" [-@tenzer_feel_2014, p.89]. Barometric MEMS sensors also work digitally via SPI or I2C and do not require analog to digital conversions and amplifications. The sensor chosen for the arms was BME280 by Bosch Sensortec [@bosch_bme280_2019]. 
+    
+Once the product of the second step was cured, we installed the sensor into the gap in the palm, created by the designated box that protected the area from silicone in the previous step. We then soldered the sensor into the ribbon cable and the other end of the cable into an extension cable that would be connected to a microcontroller. It is important to note that the SPI protocol works over limited distances and may introduce noise when more than one device is connected over more than one meter.
 
-Once the product of the second step is cured, the sensor is installed into the gap in the palm that was left due to the designated box protecting the area from silicone. The sensor is then soldered into the ribbon cable while the other end of the cable is soldered into an extension cable that would be connected to a microcontroller. It is important to note that the SPI protocol works over limited distances and may introduce noise when more than one device is connected over more than one meter.
-
-The arm is then capped with Dragon Skin 30 on both ends, having one end dipped into a cup with 20g of silicone and the other end resting flat while Dragon Skin 30 is poured on top of the sensor (see [@fig:arm-capping]).
+We then capped the arm with Dragon Skin 30 on both ends, having one end dipped into a cup with 20g of silicone and the other end resting flat while Dragon Skin 30 is poured on top of the sensor (see [@fig:arm-capping]).
 
 ![Capping the arm and sensor area.](images/arm-capping.jpeg){#fig:arm-capping width=80%}
 
