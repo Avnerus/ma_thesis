@@ -635,41 +635,41 @@ The sensing approach in the arm follows the research done by Tenzer, Jentoft & H
     
 Once the product of the second step was cured, we installed the sensor into the gap in the palm, created by the designated box that protected the area from silicone in the previous step. We then soldered the sensor into the ribbon cable and the other end of the cable into an extension cable that would be connected to a microcontroller. It is important to note that the SPI protocol works over limited distances and may introduce noise when more than one device is connected over more than one meter.
 
-We then capped the arm with Dragon Skin 30 on both ends, having one end dipped into a cup with 20g of silicone and the other end resting flat while Dragon Skin 30 is poured on top of the sensor (see [@fig:arm-capping]).
+We then capped the arm with Dragon Skin 30 on both ends, having one end dipped into a cup with 20g of silicone and the other end resting flat while we pour Dragon Skin 30 on top of the sensor (see [@fig:arm-capping]).
 
 ![Capping the arm and sensor area.](images/arm-capping.jpeg){#fig:arm-capping width=80%}
 
 ## Actuation and sensing
-Once attached to the control board and mounted on HITODAMA's body backbone, the arms could be individually actuated with separate inlets for a wide range of arm expressions. However, for the final HITODAMA prototype the arms shared a single inlet since they were always operating in sync. An inflation to the arms causes them bend upwards in what appears to be a curling bicep motion.
+Once attached to the control board and mounted on HITODAMA's body backbone, the arms could be individually actuated with separate inlets for a wide range of arm expressions. However, for the final HITODAMA prototype, the arms shared a single inlet since they were always operating in sync. Inflating the arms causes them to bend upwards in what appears to be a curling bicep motion.
 
-The ribbon cable that comes out of the arm connects to the control board and sends a numeric signal for the amount of pressure being exerted on the palm. These figures are later manually processed by the software and function as pressure sensitive buttons.
+The ribbon cable that comes out of the arm connects to the control board and sends a numeric signal of pressure exerted on the palm. These figures are later manually processed by the software and function as pressure-sensitive buttons.
 
 # Body
 
 ## Design
-The body backbone of HITODAMA was designed rapidly with the help of Joaquin Aldunate in order to make the tight deadlines required by the prototyping and testing process of this Master's thesis. The backbone is entirely rigid and its sole purpose is to provide structural support for other elements, primarily the head, arms and electronic components (see [@fig:hitodama-body] ). Due to time constraints and a handful of failed attempts, the plan to produce a soft tail as part of HITODAMA's body had to be abandoned, as well as any plan for soft skin that would envelop the rigid body.
+The body backbone of HITODAMA was designed rapidly with the help of colleague Joaquin Aldunate in order to make the tight deadlines required by the prototyping and testing process of this Master's thesis. The backbone is entirely rigid, and its sole purpose is to provide structural support for other elements, primarily the head, arms, and electronic components (see [@fig:hitodama-body] ). Due to time constraints and a handful of failed attempts, the plan to produce a soft tail as part of HITODAMA's body had to be abandoned, as well as any plan for soft skin that would envelop the rigid body.
 
 ![HITODAMA: Body structure design. Visible on the left: a sliding arc that adjusts the angle of the neck connection](images/hitodama-body.png){#fig:hitodama-body width=100%}
 
-The main features of the body include:
+The primary features of the body include:
 
 1. A slit in which the neck is attached and adjusted into the right angle.
 2. Two ports holding the arms in place.
-3. A window where a 5 inch display is inserted, allocating enough space at the back for a Raspberry Pi and connection cables.
+3. A window where a 5-inch display is inserted, allocating enough space at the back for a Raspberry Pi and connection cables.
 
 ## Method
-The body structure is composed both of laser-cut and 3d printed parts. The parts consisting the primary frame are laser-cut, while the connector pieces are 3d printed. Metal screws are used for fastening the connections. The connection to the neck is supported by a plastic arc that can be moved in order to adjust the angle of the neck (see [@fig:hitodama-body]). Once the desired angle is found, the screws are tightened.
+The body structure is composed both of laser-cut and 3d-printed parts. The parts consisting the primary frame are laser-cut, while the connector pieces are 3d printed. We used metal screws for fastening the connections. The connection to the neck is supported by a plastic arc that can be moved in order to adjust the angle of the neck (see [@fig:hitodama-body]). Once the desired angle is found, the screws are tightened.
 
-The arms are inserted into the ports, allowing the cables to flow through the back and are then secured by the top frame which is also screwed into place. The 5-inch display screws into the designated window. The plastic frame contains enough holes to be able to pass all of the pneumatic and electronic cables through it; therefore it consolidates all of the that go in and out of the robot (see [@fig:body-assembled]).
+The arms are inserted into the ports, allowing the cables to flow through the back. They are then secured by the top frame, which is also screwed into place and the 5-inch display screws into the designated window. The plastic frame contains enough holes to be able to pass all of the pneumatic and electronic cables through it; therefore it consolidates all of the that go in and out of the robot (see [@fig:body-assembled]).
 
 ![HITODAMA: Assembled body with pneumatic and electronic connections.](images/body-assembled.jpeg){#fig:body-assembled  width=100%}
 
 # Pneumatic control board
 
 ## Design
-The pneumatic control board drives HITODAMA's motor subsystem and was designed with the help of Joaquin Aldunate. As described in [@tbl:actuators], a total of seven air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, only one pump motor is used. Using the inlet and outlet valves, the air is routed from the single pump into the desired actuators.
+The pneumatic control board drives HITODAMA's motor subsystem and was designed with the help of colleague Joaquin Aldunate. As described in [@tbl:actuators], a total of seven air chambers are individually controlled, driving a total of ten silicone actuators (the arms, eyes, and cheeks all have two actuators that are fed by one inlet). For the entirety of the pneumatic system, we used only one pump motor. Air is routed from the single pump through the inlet and outlet valves, reaching the desired actuators.
 
-The pneumatic system is situated entirely outside of the robot, i.e only air tubes are connected to the robotic parts while full set of valves, the pumps and the connection hub components are externally located (see [@fig:boards-complete]).
+The pneumatic system is situated entirely outside of the robot, i.e., only air tubes are connected to the robotic parts while full set of valves, the pumps and the connection hub components are externally located (see [@fig:boards-complete]).
 
 ![HITODAMA: Pneumatic control board.](images/boards-complete.jpg){#fig:boards-complete width=100%}
 
