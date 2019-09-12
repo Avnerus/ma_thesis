@@ -688,9 +688,9 @@ A custom modular PCB array was designed for controlling the actuators, consistin
 
 : PCB boards in the pneumatic control board {#tbl:pcbs}
 
-The main unit that controls an actuator is the valve board, which provisions two main functions: 1) PWM control of two 12V motors / solenoids. 2) Reading air pressure values. Essentially it used to control an inlet valve and an outlet valve for every air chamber that needs to be individually inflated or deflated, while providing pressure sensor readings for that air chamber to enable automatic regulation. Additionally, since the board is able to control any 12v motor, it is also used to control to the single pump that drives the pneumatic system.
+The unit handling individual actuators is the valve board, which provisions two main functions: (1) PWM control of two 12V motors/solenoids. (2) Reading air pressure values. Essentially it is used to control an inlet valve and an outlet valve for every air chamber that needs to be individually inflated or deflated. At the same time, it provides pressure sensor readings for that air chamber to enable automatic regulation. Since the board is able to control any 12v motor, it is also used to control the single pump that drives the pneumatic system.
 
-The operating principle for using the valve board is described in [@fig:valve-board-diagram] and [@tbl:actuator-states]. As mentioned, two valves are controlled using the board: An inlet valve and an outlet valve. The valves could be open, closed or partially open using low PWM values; this controls the state of the actuator. [@Tbl:actuator-states] lists the different states of the actuator in relation to the state of the valve.
+The operating principle for using the valve board is described in [@fig:valve-board-diagram] and [@tbl:actuator-states]. As mentioned, two valves are controlled using the board: An inlet valve and an outlet valve. The valves could be open, closed, or partially open using low PWM values; this controls the state of the actuator. [@Tbl:actuator-states] lists the different states of the actuator in relation to the state of the valve.
 
 +-----------------+---------------------+-------------------------------------------------------+
 |Inlet valve      | Outlet valve        | Actuator state                                        |
@@ -708,9 +708,7 @@ The operating principle for using the valve board is described in [@fig:valve-bo
 
 : Actuator states in relation to valve states {#tbl:actuator-states}
 
-Each valve is a two way linear solenoid, meaning it has an in-port and out-port and it controls the flow of air between them. The in-port of the inlet valve is connected to the pump in a hub like manner, along with all of the other inlet valves of the system. The out-port of the inlet valve is connected to a 4-way splitter leading to: 1) The actuator itself. 2) The outlet valve, 3) the pressure sensor which is housed back at the valve board. The outlet valve is not connected to anything on its out-port, meaning that the air escapes completely when the valve is open.
-
-
+Each valve is a two-way linear solenoid, meaning it has an in-port and out-port and it controls the flow of air between them. The in-port of the inlet valve connects to the pump in a hub like fashion; all of the inlet valves in the system connect to the same hub. The out-port of the inlet valve is connected to a 4-way splitter leading to: (1) The actuator itself, (2) The outlet valve, and (3) the pressure sensor which is housed back at the valve board. The outlet valve is not connected to anything on its out-port, meaning that the air escapes completely when the valve is open.
 
 \* Was not used in the final prototype.
 
@@ -718,12 +716,12 @@ Each valve is a two way linear solenoid, meaning it has an in-port and out-port 
 
 ![Board connection diagram. Three valve board connect to an intermediate board that connects to the controller breakout board.](images/board-connection-diagram.jpg){#fig:board-connection-diagram width=100%}
 
-The connection between a valve and its control voltage goes through three boards: 1) The valve board. 2) The intermediate board. 3) The controller breakout board. There are several advantages for this separation of concerns: Firstly, having a modular approach allows us to theoretically add as many actuators as needed without changing most of the design. Currently, every intermediate board can host three valve boards and the main controller board hosts three intermediate board, i.e the controller board supports up to nine valve boards. If in the future we would like to support nine more, only the controller board needs to accommodate to the increased amount; the valve boards naturally remain the same and the intermediates have no logic other than forwarding the valve boards to the main controller. Secondly, having intermediate boards allows to easily distribute the physical space between the valve boards without having an overly sized controller board. Insofar as air tubes are going into each valve board, they require some space around them to accommodate the tubes. In this design, the intermediate connects to the controller breakout board by a ribbon cable, while the valve boards ease into the intermediate board using an edge connector mechanism. 
+The connection between a valve and its control voltage goes through three boards: (1) The valve board, (2) The intermediate board and (3) The controller breakout board. There are several advantages for this separation of concerns: Firstly, having a modular approach allows us to theoretically add as many actuators as needed without changing most of the design. Currently, every intermediate board can host up to three valve boards, and the main controller board hosts three intermediate board, i.e., the controller board supports up to nine valve boards. If in the future we would like to support nine more, only the controller board needs to accommodate to the increased amount; the valve boards naturally remain the same, and the intermediates have no logic other than forwarding the valve boards to the main controller. Secondly, having intermediate boards allows us to easily distribute the physical space between the valve boards without having an overly sized controller board. Insofar as air tubes are going into each valve board, they require some space around them to accommodate the tubes. In this design, the intermediate connects to the controller breakout board by a ribbon cable, while the valve boards ease into the intermediate board using an edge connector mechanism. 
 
 ## Method
 
 ### Pneumatic components
-[@tbl:pneumatic-components] describes the pneumatic components used on the system, their connection type, quantity and function. Every table entry is associated with an image on [@fig:pneumatic-components].
+[@tbl:pneumatic-components] describes the pneumatic components used on the system, their connection type, quantity, and function. Every table entry is associated with an image on [@fig:pneumatic-components].
 
 +------+--------------------------------------+----------------+---------------+---------------------------------------+
 | No.  | Component                            | Quantity       | Connection    | Function                              |
@@ -781,27 +779,27 @@ For pressure sensing, the **MPS20N0040D Pressure Sensor** was selected for its l
 
 ### Valve board to intermediate board
 
-A modular slot-like arrangement was chosen for the connection between the valve boards and the intermediate boards. Three **TE Connectivity 5-5530843-3** edge connectors are soldered on the intermediate board, allowing the valve boards to be slotted in and out easily (see [@fig:slot-mechanism]).
+We chose a modular slot-like arrangement for the connection between the valve boards and the intermediate boards. Three **TE Connectivity 5-5530843-3** edge connectors are soldered on the intermediate board, allowing the valve boards to be slotted in and out easily (see [@fig:slot-mechanism]).
 
 ![Valve board to intermediate board slot mechanism](images/slot-mechanism.jpg){#fig:slot-mechanism width=70%}
 
 ### Intemediate board to controller breakout
 
-A 20-pin ribbon cable connects the intermediate board to the controller breakout board (see [@fig:boards-ribbon-cable]). The intermediate board forwards all of the necessary pins to the micro-controller, allowing PWM control over three air chambers (six valves) and reading three pressure values.
+A 20-pin ribbon cable connects the intermediate board to the controller breakout board (see [@fig:boards-ribbon-cable]). The intermediate board forwards all of the necessary pins to the microcontroller, allowing PWM control over three air chambers (six valves) and reading three pressure values.
 
 ![Intemediate board to controller breakout ribbon cable](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=70%}
 
 ### Microcontroller breakout
-Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It provides an Arduino compatible interface with an exceptionally high performance and a large number of analog, digital and PWM enabled pins. Nevertheless, due to the high number of pneumatic components, several concessions had to be made to save pins:
+Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It provides an Arduino compatible interface with exceptionally high performance and a large number of analog, digital and PWM enabled pins. Nevertheless, due to the high number of pneumatic components, several concessions had to be made to save pins:
 
-1. All motor drivers share one "standby" pin which is indefinitely set to HIGH, i.e keeping the motors always connected to power. Instead, the IN1 and IN2 pins are used to turn off the pump or valves (when both IN1 and IN2 are set to HIGH, the motor does not power).
-2. Within each air chamber, the IN2 pin is shared between the inlet valve and outlet valve, reason being that for every chamber either the inlet valve or outlet valve is open, never both at the same time.
+1. All motor drivers share one "standby" pin which is indefinitely set to HIGH, i.e., keeping the motors always connected to power. Instead, the IN1 and IN2 pins are used to turn off the pump or valves (when both IN1 and IN2 are set to HIGH, the motor does not power).
+2. Within each air chamber, the IN2 pin is shared between the inlet valve and outlet valve, the reason being that for every chamber either the inlet valve or outlet valve is open, never both at the same time.
 3. For the same reason, the PWM pin within each air chamber is also shared between the inlet valve and outlet valve.
 
 # Software to hardware interface
 
 ## Design
-HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot's hardware. The input and output signals travel through several stops before finally being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
+HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot's hardware. The input and output signals travel through several stops before being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
 
 ![Programmable interface: singal flow](images/programmable-interface.jpg){#fig:programmable-interface width=100%}
 
@@ -817,12 +815,12 @@ HITODAMA's digital I/O subsystem (see [@fig:hitodama-io]) provides audio-visual 
 
 ![Digital I/O: connection diagram](images/digital-io.jpg){#fig:digital-io width=100%}
 
-An open web based design enables developers to easily build interaction apps for HITODAMA and ensures that anyone with a web browser on a phone or desktop could connect and control the robot. In its most minimal and inclusive form, no other special hardware is required by a controller to interact through the robot; a web capable device with typing ability and a speaker is sufficient, allowing the controller to type utterances while viewing and hearing the robot's surrounding environment. Nonetheless, an application may request additional input from the controller, such as webcam and microphone, location and so forth.
+An open web-based design enables developers to easily build interaction apps for HITODAMA, and ensures that anyone with a web browser on a phone or desktop could connect and control the robot. In its most minimal and inclusive form, no other special hardware is required by a controller to interact through the robot; a web-capable device with typing ability and a speaker is sufficient, allowing the controller to type utterances while viewing and hearing the robot's surrounding environment. Nonetheless, an application may request additional input from the controller, such as webcam and microphone, location and so forth.
 
 ## Method
 
 ### Audio/Video streaming
-The subsystem makes use of a WebRTC gateway to stream audio and video from the robot to the controller. There are numerous advantages to using a gateway rather than streaming directly from the robot: 1) This makes is possible to offload the network processing to a stronger server in case multiple clients are consuming the stream. 2) It enables easy recording and storing of videos on a separate server without consuming resources on the robot's Raspberry Pi. The free and open-source Janus gateway was used for this purpose [@janus_janus_2019], along with the open-source GStreamer client library. A standard **Raspberry Pi camera** was used for video streaming, while a **Rusee Lapel  Omnidirectional Microphone** connected to a  **UGREEN External USB Sound Card** was used for audio. The following GStreamer command streams VP8 video with Opus audio at 640x480 resolution to a designated server denounced by the bash argument (All modern browsers are supported): 
+The subsystem makes use of a WebRTC gateway to stream audio and video from the robot to the controller. There are numerous advantages to using a gateway rather than streaming directly from the robot: (1) This makes it possible to offload the network processing to a stronger server in case multiple clients are consuming the stream. (2) It enables easy recording and storing of videos on a separate server without consuming resources on the robot's Raspberry Pi. The free and open-source Janus gateway was chosen for this purpose [@janus_janus_2019], along with the open-source GStreamer client library. A standard **Raspberry Pi camera** was used for video streaming, while a **Rusee Lapel  Omnidirectional Microphone** connected to a  **UGREEN External USB Sound Card** was used for audio. The following GStreamer command streams VP8 video with Opus audio at 640x480 resolution to a designated server denounced by the bash argument (All modern browsers are supported): 
 
 ~~~~~~~ 
 gst-launch-1.0 alsasrc ! queue ! opusenc ! rtpopuspay ! udpsink
@@ -835,24 +833,24 @@ deadline=1 ! rtpvp8pay ! udpsink host=$1 port=8004 sync=false
 The controller's web client then uses the Janus client library to obtain a reference to a standard WebRTC video resource containing the stream.
 
 ### Display
-A 5-inch LCD display by Waveshare is connected to the Raspberry Pi via the HDMI port and supports a resolution of up to 800x480. The display runs a full screen web browser (to be detailed in the next section).
+A 5-inch LCD display by Waveshare is connected to the Raspberry Pi via the HDMI port and supports a resolution of up to 800x480. The display runs a full screen web browser (web software is detailed in the next sections).
 
 
 ### Speech
-HITODAMA can receive text sentences and transform them into speech using cloud services. A Bluetooth speaker was used to output audio. The voice module attempts to portray gender neutrality by applying downward pitch modification on a female text-to-speech model.
+HITODAMA can receive text sentences and transform them into speech using cloud services. A Bluetooth speaker was used to output audio. The voice module attempts to portray gender neutrality by applying downward pitch modification on a female text-to-speech model using the Tone.js library^[https://tonejs.github.io/].
 
 # Systems and software architecture
 
 ## Overview
 
-[@Fig:architecture] describes the overall systems architecture offered by HITODAMA, separated across three different physical locations: 1) The controller's whereabouts. 2) The robot's location. 3) An external gateway server operating online. At the front, two web applications are operating the experience: One control application running on the controller's device (phone or desktop) and one web application running on the robot and displayed on the HDMI screen. At the backend, several different components are integrated. The following sections describe each of them in detail.
+[@Fig:architecture] describes the overall systems architecture offered by HITODAMA, separated across three different physical locations: (1) The controller's whereabouts, (2) The robot's location, and (3) An external gateway server operating online. At the front, two web applications are operating the experience: One control application running on the controller's device (phone or desktop) and one web application running on the robot and displayed on the HDMI screen. At the backend, several different components are integrated. The following sections describe each of them in detail.
 
 ![Architecture overview, divided by physical hardware and main software components](images/architecture.jpg){#fig:architecture width=80%}
 
 ## Buildroot & WPE
-A web infrastructure is suited for interaction app development due to its openness and accessibility. However, there are still many challenges in running web applications on small and cheap embedded hardware such as the Raspberry Pi. Several projects are tackling those challenges with web platforms that are designed with embedded devices in mind, such as the Chromium project ^[https://www.chromium.org/Home] and Mozilla Servo ^[https://servo.org/]. One project that stands out above the rest is WPE: Webkit for embedded ^[https://webkit.org/wpe/]. WPE is built on the foundation of WebKit: an open source web framework started by Apple that serves as the basis for a variety of web browsers and frameworks, including Google's Blink engine; particularly, WPE is based on WebKitGTK, a web framework for the Linux-Gnome ecosystem. According to its stated mission, the WPE project is "designed from the ground-up with performance, small footprint, accelerated content rendering, and simplicity of deployment in mind" [@wpe_wpe_2019].
+Web infrastructure is suited for interaction app development due to its openness and accessibility. However, there are still many challenges in running web applications on small and cheap embedded hardware such as the Raspberry Pi. Several projects are tackling those challenges with web platforms that are designed with embedded devices in mind, such as the Chromium project ^[https://www.chromium.org/Home] and Mozilla Servo ^[https://servo.org/]. One project that stands out above the rest is WPE: Webkit for embedded ^[https://webkit.org/wpe/]. WPE is built on the foundation of WebKit: an open source web framework started by Apple that serves as the basis for a variety of web browsers and frameworks, including Google's Blink engine; particularly, WPE is based on WebKitGTK, a web framework for the Linux-Gnome ecosystem. According to its stated mission, the WPE project is "designed from the ground-up with performance, small footprint, accelerated content rendering, and simplicity of deployment in mind" [@wpe_wpe_2019].
 
-The Raspberry Pi is indeed one of WPE's target reference boards and in order to run it natively one must cross-compile the release to the Pi's architecture. This is most easily achieved by using a custom modular linux OS platform that is cross-complied from any desktop machine. The two most common platforms for embedded hardware are the Yocto project ^[https://www.yoctoproject.org/] and Buildroot ^[https://buildroot.org/]. While Yocto shines in its ability to install and remove packages after image generation, Buildroot is more lightweight and simple to use and was recommended by one of the WPE developers on the #webkit IRC channel; therefore the chosen solution for running web applications on the Raspberry Pi is WPE on Buildroot. The configuration used for generating the Buildroot image is published on Github ^[https://github.com/Avnerus/softbot-buildroot/blob/softbot/configs/raspberrypi3_softbot_defconfig]. In addition to WPE, Buildroot was compiled with support for the Rust language, GStreamer multimedia and Nginx server. Several scripts were added for quick activation of the robot's facilities; the main WPE browser is started with the following code, enabling media extensions, mouse support and a remote debugging facility. The chosen web page is then loaded and displayed in full screen on the robot's display:
+The Raspberry Pi is indeed one of WPE's target reference boards, and in order to run it natively, one must cross-compile the release to the Pi's architecture. Cross-compilation is usually done on a custom modular Linux OS platform that can be managed on desktop machines. The two most common platforms for embedded hardware are the Yocto project ^[https://www.yoctoproject.org/] and Buildroot ^[https://buildroot.org/]. While Yocto shines in its ability to install and remove packages after image generation, Buildroot is more lightweight and simple to use and was recommended by one of the WPE developers on the #webkit IRC channel; therefore the chosen solution for running web applications on the Raspberry Pi is WPE on Buildroot. The configuration used for generating the Buildroot image is published on Github ^[https://github.com/Avnerus/softbot-buildroot/blob/softbot/configs/raspberrypi3_softbot_defconfig]. In addition to WPE, Buildroot was compiled with support for the Rust language, GStreamer multimedia, and Nginx server. Several scripts were added for quick activation of the robot's facilities; the main WPE browser is started with the following code, enabling media extensions, mouse support, and a remote debugging facility. The chosen web page is then loaded and displayed in full screen on the robot's display:
 
 ~~~~~~~ {.bash}
 #!/bin/sh
@@ -864,16 +862,16 @@ cog --set-permissions=all --enable-webaudio=true --enable-mediasource=true
 ~~~~~~~
 
 ## Rust web socket server
-Rust is a relatively new yet highly mature programming language with a rapidly growing community. It was started at Mozilla research ^[https://www.rust-lang.org/] as part of an effort to build faster and safer internet browser foundations and has since then been adopted by the community with at least 9 dedicated conferences in 2019 ^[https://blog.rust-lang.org/2019/05/20/The-2019-Rust-Event-Lineup.html]. Rust focuses on memory safety and concurrency without a performance overhead as well as on interoperability and portability, making it a prefect candidate for embedded hardware applications ^[https://www.rust-lang.org/what/embedded]. 
+Rust is a relatively new yet highly mature programming language with a rapidly growing community. It was started at Mozilla research ^[https://www.rust-lang.org/] as part of an effort to build faster and safer internet browser foundations and has since then been adopted by the community with at least nine dedicated conferences in 2019 ^[https://blog.rust-lang.org/2019/05/20/The-2019-Rust-Event-Lineup.html]. Rust focuses on memory safety and concurrency without a performance overhead as well as on interoperability and portability, making it a perfect candidate for embedded hardware applications ^[https://www.rust-lang.org/what/embedded]. 
 
 ### Thread overview
 
-In HITODAMA, the Rust web server is at the center, mediating between the hardware, software and the network. [@Fig:rust-threads] displays an overview of the simultaneous threads running on the server core. In rust, the threads communicate safely and asynchronously through _channels_, passing data messages from one thread to another rather than sharing a piece of memory which could pose issues such as race conditions and dereferenced variables. However, data of the web socket client state is still shared between threads, using Rust's builtin mutex locks that force the developer to work safely with shared data. In the future, the shared state could be removed and replaced by an immutable state that passes between threads.
+In HITODAMA, the Rust web server is at the center, mediating between the hardware, software and the network. [@Fig:rust-threads] displays an overview of the simultaneous threads running on the server core. In Rust, the threads communicate safely and asynchronously through _channels_, passing data messages from one thread to another rather than sharing a piece of memory which could pose issues such as race conditions and dereferenced variables. However, data of the web socket client state is still shared between threads, using Rust's builtin mutex locks that force the developer to work safely with shared data. In the future, the shared state could be removed and replaced by an immutable state that passes between threads.
 
 ![Rust server: thread overview. The rust server simultaneously listens to connections through web socket and to data coming from the serial port that is the bridge to the hardware interface.](images/rust-threads.jpg){#fig:rust-threads width=100%}
 
 ### Binary protocol
-A simple binary protocol was implemented for passing messages between the controller, robot and hardware. [@Tbl:rust-protocol] describes the message types, formats and functionality. When communicating through the serial port, the special characters '>' and '<' are used to signal the start and end of transmissions, this is due to the serial protocol's lacking reliability in comparison to web socket messages. It is worth noting that authentication and authorization security has not yet been implemented on the protocol, and would be required feature for further development. Nevertheless the web socket server supports end to end encryption by making sure all messages are channeled through NGINX^[https://www.nginx.com/] proxy's SSL module. In addition to message passing, the server also sends a JSON formatted state object to all clients when changes in the server state occur, such as client registration and disconnection.
+We implemented a simple binary protocol for passing messages between the controller, robot, and hardware. [@Tbl:rust-protocol] describes the message types, formats, and functionality. When communicating through the serial port, the special characters '>' and '<' are used to signal the start and end of transmissions; this is due to the serial protocol's lacking reliability in comparison to web socket messages. It is worth noting that authentication and authorization security has not yet been implemented on the protocol, and would be required feature for further development. Nevertheless, the web socket server supports end-to-end encryption by making sure all messages are channeled through NGINX^[https://www.nginx.com/] proxy's SSL module. In addition to message passing, the server also sends a JSON formatted state object to all clients when changes in the server state occur, such as client registration and disconnection.
 
 +---------------------------+--------------------------------+---------------------------------------+
 | Source                    | Format                         | Function                              |
@@ -916,7 +914,7 @@ A simple binary protocol was implemented for passing messages between the contro
 
 ### Class diagram
 
-The microcontroller platform controls the pneumatic components and sensors; it runs on the Teensy microcontroller and connected through the custom made PCB boards. The code is available on Github ^[https://github.com/Avnerus/softbot/tree/master/softcontrol/circuit] and free for use under the MIT license. An object oriented approach was chosen for the development of platform. [@Fig:arduino-classes] describes the classes developed, their functionalities and connections.
+The microcontroller platform controls the pneumatic components and sensors; it runs on the Teensy microcontroller and connected through the custom made PCB boards. The code is available on Github ^[https://github.com/Avnerus/softbot/tree/master/softcontrol/circuit] and free for use under the MIT license. An object-oriented approach was chosen for the development of the platform. [@Fig:arduino-classes] describes the classes developed, their functionalities, and connections.
 
 ![Microcontroller platform: class diagram](images/arduino-classes.jpg){#fig:arduino-classes width=100%}
 
@@ -930,14 +928,14 @@ The _Chamber_ class represents one of the seven air chambers that are connected 
 * Dedicated pressure sensor.
 * Minimum and maximum pressure value.
 
-A Chamber is calibrated using minimum and maximum absolute pressure values. Once calibrated, a chamber would always maintain the minimum pressure by inflating itself and avoid surpassing the maximum pressure. It is then possible to direct the chamber to reach a certain pressure by providing a figure between 0.0 and 1.0, having 0.0 represent the minimum pressure and 1.0 represent the maximum pressure. One could control the deflation speed of the chamber by passing a speed argument between 0.0 and 1.0, which would then be translated to PWM values. Additionally, it is possible to have the chamber oscillate between a certain minimum and maximum pressure level to create a variety of expressive movements.
+A Chamber object is calibrated using minimum and maximum absolute pressure values. Once calibrated, a chamber would always maintain the minimum pressure by inflating itself and avoid surpassing the maximum pressure. It is then possible to direct the chamber to reach a certain pressure by providing a figure between 0.0 and 1.0, having 0.0 represent the minimum pressure and 1.0 represent the maximum pressure. One could control the deflation speed of the chamber by passing a speed argument between 0.0 and 1.0, which are then translated to PWM values. Additionally, it is possible to have the chamber oscillate between a certain minimum and maximum pressure level to create a variety of expressive movements.
 
-Although a typical pneumatic circuit contains only one pump, it is still advised to inform a chamber about the pump it is using; the chambers would then use the pump's _grab()_ method when they're being inflated and _release()_ when they're done. This, in fact, allows the pump to turn itself off when it is not being used by any chamber and start again only when it is needed.
+Although a typical pneumatic circuit contains only one pump, it is still advised to inform a chamber about the pump it is using; the chambers would then use the pump's _grab()_ method when they are being inflated and _release()_ when they are done inflating. This mechanism allows the pump to turn itself off when none of the chambers are using it, and start again only when it is needed.
 
-An _Arm_ is calibrated using threshold values for pressure readings to determine when the arm is being pushed and when it is being released. These values, however, are relative to a running average that is continuously updated by the Arm during the main loop. This is due to the fact that barometric pressure measurements are liable to change with external fluctuations of the surrounding environment. Typically the push threshold would be around 20, while the release threshold around -10, assuming that the mean average is updated again when the arm is being pushed.
+An Arm object is calibrated using threshold values for pressure readings to determine when the arm is being pushed and when it is being released. These values, however, are relative to a running average that is continuously updated by the Arm object during the main loop. This is required due to the fact that barometric pressure measurements are liable to change with external fluctuations of the surrounding environment. Typically the push threshold would be around 20, while the release threshold around -10, assuming that the mean average is updated again when the arm is being pushed.
 
 ### Binary protocol
-[@Tbl:teensy-protocol] describes the other side of the communication between the microcontroller and the rust server. Messages that were passed from the web clients to the rust server and then forwarded to the motor thread to be sent on the serial port are received on the microcontroller side and activate the appropriate module function. Accordingly, information messages that originate from the hardware modules are sent on the serial port to be picked up by the rust server and then sent to the web clients.
+[@Tbl:teensy-protocol] describes the other side of the communication between the microcontroller and the Rust server. Messages that are passed from the web clients to the Rust server are forwarded to the motor thread which delivers them through the serial port; the microcontroller then receives them and activates the appropriate module function. Accordingly, information messages that originate from the hardware modules are sent on the serial port; they are then picked up by the Rust server and forwarded to the web clients.
 
 +---------------------------+--------------------------------+---------------------------------------+
 | Source                    | Format                         | Function                              |
@@ -970,7 +968,7 @@ An _Arm_ is calibrated using threshold values for pressure readings to determine
 
 ## Web client platform
 
-To ease the development of apps for HITODAMA, utility libraries and components were developed and can be used both on the controller side and the robot side. The web platform is available on Github ^[https://github.com/Avnerus/softbot/tree/master/client] and the usage of the most pertinent components is listed below.
+To ease the development of apps for HITODAMA, we developed utility libraries and components that can be used both on the controller side and the robot side. The web platform is available on Github ^[https://github.com/Avnerus/softbot/tree/master/client], and the usage of the most pertinent components is listed below.
 
 ### Socket controller
 The socket controller manages the connection and interaction with the rust server. It is initialized by providing the address of the robot with the following code :
@@ -1007,7 +1005,7 @@ socketController.init();
 
 : Socket controler Javascript API {#tbl:socket-controller}
 
-The JSON commands are used by various application components for specific functionalities to be described in the web components section. One base JSON message is sent by the server with the command _softbot-state_ every time the state of the interaction has changed. For example the following JSON states that both the controller and avatar are now connected, and the controller whose name is Avner is currently typing:
+The JSON commands are used by various application components for specific functionalities that will be described in the web components section. One base JSON message is sent by the server with the command _softbot-state_ every time the state of the interaction has changed. For example, the following JSON states that both the controller and avatar are now connected, and the controller whose name is Avner is currently typing:
 
 ~~~~~ {.json}
 {
@@ -1058,15 +1056,15 @@ Hitodama.inflateTo(
 ~~~~~
 
 ### Web components
-Web components ^[https://www.webcomponents.org/introduction] are an emerging standard for creating reusable, encapsulated components that anyone could embed in their web application without worrying about conflicting code and styling. Granted, creating reusable web components has been an emblem of modern web development in the last couple of years, but components tend to be framework specific, such as Vue.js^[https://vuejs.org/] components or React^[https://reactjs.org/] components. Web components, on the contrary, are framework agnostic and rely on open standards of the W3C^[https://www.w3.org/] and WHATWG^[https://whatwg.org/] organisations. Specifically, web components build upon the following specifications: 
+Web components ^[https://www.webcomponents.org/introduction] are an emerging standard for creating reusable, encapsulated components that anyone could embed in their web application without worrying about conflicting code and styling. Granted, creating reusable web components has been an emblem of modern web development in the last couple of years, but components tend to be framework-specific, such as Vue.js^[https://vuejs.org/] components or React^[https://reactjs.org/] components. Web components, on the contrary, are framework-agnostic and rely on open standards of the W3C^[https://www.w3.org/] and WHATWG^[https://whatwg.org/] organizations. Specifically, web components build upon the following specifications: 
 
-1. **Custom Elements** : enabling the use of custom HTML tags such as <hitodama-vision> rather than just using the standard ones such as <div> and <table>.
-2. **Shadow DOM** : allowing he styling and naming of elements independently of the enclosing document, as if they were on their on page.
-3. **HTML Templates**: allowing a developer to define a fragment of HTML than can be moved from place to place.
+1. **Custom Elements**: enabling the use of custom HTML tags such as <hitodama-vision> rather than just using the standard ones such as <div> and <table>.
+2. **Shadow DOM**: allowing the styling and naming of elements independently of the enclosing document, as if they were on their own page.
+3. **HTML Templates**: allowing a developer to define a fragment of HTML that can be moved from place to place.
 
-Web components are now supported by all modern browsers, including mobile browsers for iOS and Android, with only some bugs remaining in Apple's Safari as of summer 2019^[https://caniuse.com/#search=web%20components]. In most cases, the lack of support could also be compensated by the use polyfills: external libraries that patch the browser in places where functionalities are missing.
+Web components are now supported by all modern browsers, including mobile browsers for iOS and Android, with only some bugs remaining in Apple's Safari as of summer 2019^[https://caniuse.com/#search=web%20components]. In most cases, the lack of support could also be compensated by the use of polyfills: external libraries that patch the browser in places where functionalities are missing.
 
-As much as web components simplify the world of reusable components, their direct use is not entirely simple and introduces some development overhead for rather mundane tasks. For this reason, several helper libraries have emerged, simplifying the use of web components. The library Hybrids JS^[https://hybrids.js.org/] stands out as an extraordinarily simple, functional and elegant companion for creating web components. It is nominated for a Javascript open source award as "Breakthrough project" for 2019^[https://osawards.com/javascript/] and has been steadily growing in popularity without an increasing bloat. Therefore, it was chosen for the development of HITODAMA's web platform. Most of the web components were used in the controller client rather than the avatar, but in the future the avatar (the robot's display), but in the future the avatar would be migrated to only use web components as well. [@Tbl:web-components] lists available components and their function:
+As much as web components simplify the world of reusable components, their direct use is not entirely straightforward and introduces some development overhead for rather mundane tasks. For this reason, several helper libraries have emerged, simplifying the use of web components. The library Hybrids JS^[https://hybrids.js.org/] stands out as an extraordinarily simple, functional, and elegant companion for creating web components. It is nominated for a Javascript open source award as "Breakthrough project" for 2019^[https://osawards.com/javascript/] and has been steadily growing in popularity without increasing bloat. Therefore, it was chosen for the development of HITODAMA's web platform. Most of the web components were used in the controller client rather than the avatar, but in the future, the avatar (the robot's display) would be migrated to pure web components as well. [@Tbl:web-components] lists available components and their function:
 
 +---------------------------+--------------------------------+---------------------------------------+
 | Component                 | Target client                  | Function                              |
@@ -1107,7 +1105,7 @@ As much as web components simplify the world of reusable components, their direc
 
 : List of web components supported by HITODAMA {#tbl:web-components}
 
-All of the components make use of the Redux state and socket controller. They are sized normally using CSS properties. Some of the components require special parameters to be used, below are example for usage:
+All of the components make use of the Redux state and socket controller. They are sized normally using CSS properties. Some of the components require special parameters to be used, below are examples for usage:
 
 \noindent
 \
@@ -1160,7 +1158,7 @@ If a flag icon does not exist in the standard database, it can be added as an sv
 \
 
 
-## API gateway server
+## API gateway serverza
 Some functions for HITODAMA, primarily those involving language and speech, are best implemented using cloud services. While it is possible to have HITODAMA's rust server directly access those cloud services, it was more convenient to manage the access through and external Node JS gateway server that can be accessed easily from the web clients. [@Tbl:api-gateway] describes the language services provided by the current server implementation^[https://github.com/Avnerus/softbot/tree/master/server]. Application specific functionalities could be added to the same gateway.
 
 +---------------------------+--------------------------------+---------------------------------------+
@@ -1186,11 +1184,11 @@ Some functions for HITODAMA, primarily those involving language and speech, are 
 
 Two components are active on the client interfaces outside of the web-component framework and make use of the API gateway service:
 
-1. **Speech client** : Uses the ms-speak route to utter a sentence. The speech client attempts to speak in a gender neutral voice by selecting a female-based text-to-speech model and then decreasing the pitch of the result using the Tone.js library^[https://tonejs.github.io/].
-2. **Speech recorder** : Records audio from the Janus stream using the MediaRecorder interface^[https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder] and sends the buffer to the transcribe route.
+1. **Speech client**: Uses the ms-speak route to utter a sentence. The speech client attempts to speak in a gender-neutral voice by selecting a female-based text-to-speech model and then decreasing the pitch of the result using the Tone.js library^[https://tonejs.github.io/].
+2. **Speech recorder**: Records audio from the Janus stream using the MediaRecorder interface^[https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder] and sends the buffer to the transcribe route.
 
 ## Admin web client
-An admin web client was developed for testing and management of HITODAMA's functions. At the time of development, web components were not at the front of the research and therefore it was created only with simple Javascript objects and JQuery UI manipulation. [@Tbl:admin-client] describers the admin client's features, numbered and shown on [@fig:admin-client].  
+An admin web client was developed for testing and management of HITODAMA's functions. At the time of development, web components were not at the front of the research, and therefore it was created only with simple Javascript objects and JQuery UI manipulation. [@Tbl:admin-client] describers the admin client's features, numbered and shown on [@fig:admin-client].  
 
 ![Admin web client panels.](images/admin-client.png){#fig:admin-client width=100%}
 
