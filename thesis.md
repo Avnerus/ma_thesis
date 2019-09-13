@@ -1610,7 +1610,7 @@ I would like to thank the following individuals and institutions who helped this
  * **Key collaborators in the production of HITODAMA:** _Joaquin Aldunate, Anderson Sudario_. 
  * **Academic advisors**: _Merja Bauters, Mia Muurimäki_.
  * **Academic supervisors**: _Teemu Leinonen, Markku Reunanen, Kiyoshi Tomimatsau_.
- * **Production supervisors:** _Solomon Embafrash, Manuel Fonseca, Kari KariKääriäinen, Janne Ojala, Hannu Paajane, Krisjanis Rijnieks_.
+ * **Production supervisors:** _Solomon Embafrash, Manuel Fonseca, Kari Kääriäinen, Janne Ojala, Hannu Paajanen, Krisjanis Rijnieks_.
  * **Financial support**: _HUMEX Project, Aalto University, Kyushu University_, AYY TTER fund. 
  * **Special thanks to**: _Shirin Anlen, Roee Cohen, Eva Durall, Bilge Hasdemir, Marika Hellman, Riikka Theresa Innanen, Jonas Jørgensen, Kilian Kottmeier, Antti Luoto, Olli Ohls, Hanna-Sisko Onnela, Nitza Peled, Niklas Pöllönen, Katri Saarikivi, Jason Selvarajan, Noa Simhoni, Valtteri Wikström, Dorothy Zablah_.
 
@@ -1635,11 +1635,18 @@ EXPERIENCES
 How did the feel during the session?
 
 Controller: how did it  feel to be “inside” the robot? Did you feel in control?
-Could you communicate freely? x Did you feel you could say/express whatever you want? Were there any limits/constraints that bothered you?
+Could you communicate freely? x Did you feel you could say/express whatever you want?
+Were there any limits/constraints that bothered you?
 
-interlocutors: how did it feel talking to a robots? Did you feel you were talking to a robot vs person  (name of the controller). If so (meaning that they felt they were interacting with a person) how do they imagine that person was like?
+interlocutors: how did it feel talking to a robots? 
+Did you feel you were talking to a robot vs person (name of the controller).
+If so (meaning that they felt they were interacting with a person)
+how do they imagine that person was like?
 
-Tangibility/ physical properties (how did they experience the  robot: humanoid, animal, gendered…? Did the robot aspect/qualities help them to be more willing to interact, how was touching the robot?
+Tangibility/ physical properties how did they experience the 
+robot: humanoid, animal, gendered…?
+Did the robot aspect/qualities help them to be more 
+willing to interact, how was touching the robot?
 
 exchanges/learnings from each other (what did you learn about the other by doing XX?)
 Surprises/breaking expectations (how did you imagine the person)
