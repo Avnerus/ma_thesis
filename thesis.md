@@ -421,7 +421,7 @@ HITODAMA is a pneumatics-based soft robot that operates on inflating silicone ac
 
 Terminology wise, the term _Chamber_ is used to described a pneumatic cell guarded by one inlet valve and one outlet valve. Different _actuators_ could be joined using pneumatic splitters into one _chamber_.
 
-![HITODAMA: Motor subsystem](images/hitodama-motor.png){#fig:hitodama-motor width=30%}
+![HITODAMA: Motor subsystem.](images/hitodama-motor.png){#fig:hitodama-motor width=30%}
 
 ### Sensor subsystem
 HITODAMA uses pressure sensing embedded into the silicone body on three different locations (see [@fig:hitodama-sensor]): .
@@ -435,7 +435,7 @@ HITODAMA uses pressure sensing embedded into the silicone body on three differen
 
 The sensor are able to detect when the body is being squeezed, as well as the amount of pressure exerted.
 
-![HITODAMA: Sensor subsystem](images/hitodama-sensor.png){#fig:hitodama-sensor width=30%}
+![HITODAMA: Sensor subsystem.](images/hitodama-sensor.png){#fig:hitodama-sensor width=30%}
 
 ### Digital I/O subsystem
 HITODAMA employs web based digital I/O components that provide additional interaction functionality (see [@fig:hitodama-io]). They include:
@@ -448,7 +448,7 @@ HITODAMA employs web based digital I/O components that provide additional intera
 \* The touch functionally of the display was not used in the final prototype.
 \
 
-![HITODAMA: Digital I/O subsystem](images/hitodama-digital-io.png){#fig:hitodama-io width=30%}
+![HITODAMA: Digital I/O subsystem.](images/hitodama-digital-io.png){#fig:hitodama-io width=30%}
 
 
 # Face and head
@@ -544,7 +544,7 @@ The backbone is then attached to head using the built-in connection. The neck do
 ## Actuation
 All actuators have separate inlets and are operated individually (see [@fig:neck-test]). The rate and style of turn are controlled using control parameters to the release and inflation of air; this is detailed further in the section regarding the pneumatic system. A double spiral wrapping on the actuators with no restriction in the axial expansion direction ensures that the actuators only elongate, without changing their tubular form. 
 
-![HITODAMA: Neck test, with the help of Joaquin Aldunate](images/neck-test.png){#fig:neck-test width=70%}
+![HITODAMA: Neck test, with the help of Joaquin Aldunate.](images/neck-test.png){#fig:neck-test width=70%}
 
 # Arms - Standard method for sensing soft body parts.
 
@@ -769,13 +769,13 @@ For pressure sensing, the **MPS20N0040D Pressure Sensor** was selected for its l
 
 We chose a modular slot-like arrangement for the connection between the valve boards and the intermediate boards. Three **TE Connectivity 5-5530843-3** edge connectors are soldered on the intermediate board, allowing the valve boards to be slotted in and out easily (see [@fig:slot-mechanism]).
 
-![Valve board to intermediate board slot mechanism](images/slot-mechanism.jpg){#fig:slot-mechanism width=70%}
+![Valve board to intermediate board slot mechanism.](images/slot-mechanism.jpg){#fig:slot-mechanism width=70%}
 
 ### Intemediate board to controller breakout
 
 A 20-pin ribbon cable connects the intermediate board to the controller breakout board (see [@fig:boards-ribbon-cable]). The intermediate board forwards all of the necessary pins to the microcontroller, allowing PWM control over three air chambers (six valves) and reading three pressure values.
 
-![Intemediate board to controller breakout ribbon cable](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=70%}
+![Intemediate board to controller breakout ribbon cable.](images/boards-ribbon-cable.jpg){#fig:boards-ribbon-cable width=70%}
 
 ### Microcontroller breakout
 Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It provides an Arduino compatible interface with exceptionally high performance and a large number of analog, digital and PWM enabled pins. Nevertheless, due to the high number of pneumatic components, several concessions had to be made to save pins:
@@ -789,7 +789,7 @@ Teensy 3.6 was selected as the microcontroller for the pneumatic circuit. It pro
 ## Design
 HITODAMA provides a simple web based programmable interface for controlling and interacting with the robot's hardware. The input and output signals travel through several stops before being accessible via javascript through the API. [@Fig:programmable-interface] outlines the high-level flow of input and output signals in the system.
 
-![Programmable interface: singal flow](images/programmable-interface.jpg){#fig:programmable-interface width=100%}
+![Programmable interface: signal flow.](images/programmable-interface.jpg){#fig:programmable-interface width=100%}
 
 ## Method
 As described in the previous section, the pneumatic system sends and receives signals from the main Teensy controller breakout board. In addition to pneumatic control, the microcontroller can receive SPI input from up to 5 different sensors. In the final HITODAMA prototype, only two SPI connections are used to detect tactile pressure on the palms.
@@ -801,7 +801,7 @@ The web API for HITODAMA is powered by a Raspberry Pi 3, connected to the Teensy
 ## Design
 HITODAMA's digital I/O subsystem (see [@fig:hitodama-io]) provides audio-visual interaction functionalities that are all accessible through a web-based interface (see [@fig:digital-io]).
 
-![Digital I/O: connection diagram](images/digital-io.jpg){#fig:digital-io width=100%}
+![Digital I/O: connection diagram.](images/digital-io.jpg){#fig:digital-io width=100%}
 
 An open web-based design enables developers to easily build interaction apps for HITODAMA, and ensures that anyone with a web browser on a phone or desktop could connect and control the robot. In its most minimal and inclusive form, no other special hardware is required by a controller to interact through the robot; a web-capable device with typing ability and a speaker is sufficient, allowing the controller to type utterances while viewing and hearing the robot's surrounding environment. Nonetheless, an application may request additional input from the controller, such as webcam and microphone, location and so forth.
 
@@ -1246,7 +1246,7 @@ Through pictures, we hope to generate meaningful exchanges between the participa
 ### Controller interface
 We developed a dedicated controller UI for the experiment, opting to simplify the experience, making it as language-independent as possible, and encouraging actions that we wished to evaluate. Due to time constraints and insofar as it was possible to sit privately with the participants and explain the interface, the development and design process was rapid and a number of UX gaps remained at the time of the launch. The controller interface is based on the newer web components architecture, and several new web components were developed for this experiment. [@Fig:control-client] outlines the basic view of the interface and [@tbl:control-client] describes the numbered sections by web component and their functionalities.
 
-![HITODAMA experiment: contorl client](images/control-client.png){#fig:control-client width=100%}
+![HITODAMA experiment: control client.](images/control-client.png){#fig:control-client width=100%}
 
 +--------+--------------------------------------+---------------------------------------------------------------------+
 | No.    | Web component                        | Function                                                            |
@@ -1278,12 +1278,12 @@ We developed a dedicated controller UI for the experiment, opting to simplify th
 
 The control interface also supports mobile devices, resizing, and re-organizing the layout to a mobile-friendly formation (see [@fig:control-mobile]).
 
-![HITODAMA experiment: contorl client on mobile devices](images/control-mobile.png){#fig:control-mobile width=30%}
+![HITODAMA experiment: control client on mobile devices.](images/control-mobile.png){#fig:control-mobile width=30%}
 
 ### Avatar interface
 The avatar interface is shown on HITODAMA's built-in 800x480 5-inch display; it is kept simple due to the low resolution and screen size. [@Fig:avatar-client] outlines the basic view of the interface and [@tbl:avatar-client] describes the numbered sections by web component and their functionalities.
 
-![HITODAMA experiment: built-in avatar client](images/avatar-client.png){#fig:avatar-client width=100%}
+![HITODAMA experiment: built-in avatar client.](images/avatar-client.png){#fig:avatar-client width=100%}
 
 +--------+--------------------------------------+---------------------------------------------------------------------+
 | No.    | Web component                        | Function                                                            |
@@ -1319,7 +1319,7 @@ Once the controller is logged in, the interface opens up, and HITODAMA's display
 
 The controller already has full control over HITODAMA's functions, including speech, expressions, and body movement; to start playing the picture game, the controller must press the checkmark button which will open HITODAMA's arms. When that happens, the interlocutors must also signal that they are ready to play by squeezing HITODAMA's right arm (see [@fig:ex3-control;@fig:ex3-hitodama])
 
-![HITODAMA experiment: The controller has pressed the check mark button and is waiting for the interlocutors to start.](images/ex3-control.png){#fig:ex3-control width=90%}
+![HITODAMA experiment: The controller has pressed the checkmark button and is waiting for the interlocutors to start.](images/ex3-control.png){#fig:ex3-control width=90%}
 
 ![HITODAMA experiment: The interlocutors squeeze HITODAMA's right palm to start the picture game.](images/ex3-hitodama.jpg){#fig:ex3-hitodama width=100%}
 
