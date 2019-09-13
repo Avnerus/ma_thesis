@@ -257,7 +257,7 @@ Another notable example is the **Games for Peace** initiative^[http://gamesforpe
 
 Finally, **The Enemy**^[http://theenemyishere.org/] is a VR and AR-based installation by Karim Ben Khelifa that confronts the user with combatants on both sides of three different conflict zones: the Maras in Salvador, the Democratic Republic of the Congo, and Israel and Palestine. The combatants were pre-recorded in interviews, and the users got to hear their side in a virtual face-to-face experiences (see [@fig:the-enemy]). One of primary motivations for _The Enemy_ was to tackle prejudice through direct encounters and indeed, the experience profoundly impacted the participants despite of its virtual and indirect nature.
 
-![The Enemy by Karim Ben Khelifa: Israeli and Palestinian combatants in a VR. Retreived from http://theenemyishere.org/](images/the-enemy.png){#fig:the-enemy width=100%}
+![The Enemy by Karim Ben Khelifa: Israeli and Palestinian combatants in VR. Retreived from http://theenemyishere.org/](images/the-enemy.png){#fig:the-enemy width=100%}
 
 ## Technology mediating conflict in the public space
 The company **_Shared Studios_** started off as a one time project named **_Portals_**. Gold painted shipping containers were placed in public squares, museums, and campuses and invited people to connect through video conferencing upon entering the enclosed container (see [@fig:portals]). The project was started by American artist Amar Bakshi who wanted "to connect people who wouldn't otherwise meet." [@kravarikThisGoldBox2017]. The first connection was between a gallery in New York and a contemporary art center in Tehran, Iran. Nowadays, the company runs portals in dozens of locations around the world, including inflatable portals, bus portals, and screen-based installations. Some of the installations also contain VR headsets for a more immersive experience.
@@ -301,7 +301,7 @@ In an exhibition titled **_Avatars_, by the Yamaguchi Center of Art and Media** 
 ## Technology assiszted human avatar experiences
 A unique genre of mediated experiences are ones that use telepresence technology to control a volunteering human subject, i.e. using another human for re-embodiment. Such experiences are relieved of the need to sacrifice some modalities of human interaction but introduce new challenges of balancing the agency between the controller and human vessel. Two notable examples are: (1) **Monitor Man by Yassine Khaled**^[http://prix2018.aec.at/prixwinner/30118/]: The human avatar wears a customized helmet that covers the lower part of their face and instead displays a video-conferencing stream of the controller (see [@fig:monitor-man]) and (2) **Omnipresenz AVATAR** ^[http://www.omnipresenz.com/homeavatar/]: Using a regular bike helmet with a camera attached, taking directions from a specialized control app (see [@fig:omnipresenz]).
  
-![Monitor Man: Photo by Tani_Simberg. Retreived from http://prix2018.aec.at/prixwinner/30118/](images/monitor-man.jpg){#fig:monitor-man width=100%}
+![Monitor Man: Photo by Tani Simberg. Retreived from http://prix2018.aec.at/prixwinner/30118/](images/monitor-man.jpg){#fig:monitor-man width=100%}
 
 ![Omniprezen AVATAR video snapshot: Control app. Retreived from http://www.omnipresenz.com/homeavatar/](images/omnipresenz.jpg){#fig:omnipresenz width=100%}
 
