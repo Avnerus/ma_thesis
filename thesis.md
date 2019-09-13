@@ -609,7 +609,7 @@ Once the first step was cured, we released the result from the mold. Before wrap
 
 1. Central mold for producing the arm shaped skin (CNC milled).
 2. A sensor box, reserving space for the sensor and protecting one end of the ribbon cable.
-3. Modular base piece for securing the muscle tube and for protecting the other end of the ribbon cable(CNC milled).
+3. Modular base piece for securing the muscle tube and for protecting the other end of the ribbon cable (CNC milled).
 4. Transparent acrylic cover (laser-cut).
 
 As with the first step, the mold is taped and clamped upright, and the silicone is injected from bottom to top as the bubbles are monitored through the acrylic glass (see [@fig:step2-casting]). As with the first step mold, the second step also contains a reservoir pool to protect from small leakages.
