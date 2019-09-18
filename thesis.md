@@ -1,7 +1,7 @@
 ---
 title: Soft Robotic Incarnation
 subtitle: Interrogations of mediated intercorporeality
-author: Avner Peled.
+author: Avner Peled
 date: 09/2019
 abstract: This thesis is a postphenomenological interrogation into the use of soft robots as mediating bodies between humans, attempting to unfetishize their imaginative figure of the stranger through an event I call incarnation. Based on my own encounters with Palestinians for conflict resolution and through readings of phenomenological and sociological studies, I determine the importance of the physical body, its fleshiness, nonlinearity and organic qualities for the constitution of intercorporeality - a meaningful and transformative dialog. I investigate the potential of non-human robotic avatars to achieve intercorpreality and liberate the interlocutors from prejudice and identity constraints, proposing the use of soft robots as a medium of re-embodiment that could facilitate massive scale physical incarnations and create physical encounters between people who are unable to otherwise meet in person. As a proof-of-concept, a novel method for the production of soft robotic avatars is introduced, capable of bodily haptics, language translation, and animalistic emotional expression. The avatar is operated using a web-based software platform that enables easy development of third party applications. Using this method, HITODAMA, a first prototype for a soft robotic avatar, is produced. I perform an initial evaluation of the robot in an encounter between people of different cultures, using an example app in which they get to know one another using pictures. I analyze the results by conducting interviews with the participants, following the principles of interpretative phenomenological analysis.
 indent: true
@@ -1612,7 +1612,7 @@ I would like to thank the following individuals and institutions who helped this
  * **Academic supervisors**: _Teemu Leinonen, Markku Reunanen, Kiyoshi Tomimatsu_.
  * **Production supervisors:** _Solomon Embafrash, Manuel Fonseca, Kari Kääriäinen, Janne Ojala, Hannu Paajanen, Krisjanis Rijnieks_.
  * **Financial support**: _HUMEX Project, Aalto University, Kyushu University_, AYY TTER fund. 
- * **Special thanks to**: _Shirin Anlen, Roee Cohen, Eva Durall, Bilge Hasdemir, Marika Hellman, Riikka Theresa Innanen, Jonas Jørgensen, Kilian Kottmeier, Antti Luoto, Olli Ohls, Hanna-Sisko Onnela, Nitza Peled, Niklas Pöllönen, Katri Saarikivi, Jason Selvarajan, Noa Simhoni, Valtteri Wikström, Dorothy Zablah_.
+ * **Special thanks to**: _Shirin Anlen, Roee Cohen, Eva Durall, Bilge Hasdemir, Marika Hellman, Riikka Theresa Innanen, Jonas Jørgensen, Kilian Kottmeier, Signe-Anita Lindgren, Antti Luoto, Olli Ohls, Hanna-Sisko Onnela, Nitza Peled, Niklas Pöllönen, Katri Saarikivi, Jason Selvarajan, Noa Simhoni, Valtteri Wikström, Dorothy Zablah_.
 
  \newpage
 
