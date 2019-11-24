@@ -24,18 +24,18 @@ header-includes: |
 \pagebreak
 
 # Statement
-With great determination and humility I am applying for the position of Doctoral Candidate in Digital Learning in the Learning Environments research group at the Aalto Media Lab. Following the completion of my Master's thesis at the media lab: _Soft Robotic Incarnation_ [@peledSoftRoboticIncarnation2019], I wish to carry on the same research path that brought me to my current state, but to expand on it, and induce bifurcations that would lead me to unexplored territories of soft robot mediation. I intend to persist with an active and exploratory approach that adjoins scientific research with philosophy, and philosophy with design and artistic practices; not forgetting the initial motivation that brought me to the media lab, the dire need for creative and technological solutions in the Israeli-Palestinian conflict. 
+With great determination and humility, I am applying for the position of Doctoral Candidate in Digital Learning in the Learning Environments research group at the Aalto Media Lab. Following the completion of my Master's thesis at the media lab: _Soft Robotic Incarnation_ [@peledSoftRoboticIncarnation2019], I wish to carry on the same research path that brought me to my current state, but to expand on it, and induce bifurcations that would lead me to unexplored territories of soft robot mediation. I intend to persist with an active and exploratory approach that adjoins scientific research with philosophy and philosophy with design and artistic practices; not forgetting the initial motivation that brought me to the media lab, the dire need for creative and technological solutions in the Israeli-Palestinian conflict. 
 
-During my doctoral studies, I aim to design and produce the next generation of my soft robotic telepresence: HITODAMA, as well as deploy it in public spaces both in Israel and in Palestine. At the same time, I will perform local case in Finland to asses various UX strategies, targeting public spaces and educational systems. I hope to initiate international research collaborations, not only in Japan as I have already done in my Master's thesis, but also in Israel, where cutting edge research in the psychology of conflict and in expressive robotics is taking place, and in Palestine, where emerging artists and technologists are dealing with the conflict from personal and knowledgable perspectives. The work on HITODAMA in my Master's thesis has taught me a great deal of valuable lessons which will serve my greatly as I proceed toward the next steps. I have devised the following draft for a research plan based on the conclusions and evaluations of my Master's thesis, as well as my future aspirations for the field.
+During my doctoral studies, I aim to design and produce the next generation of my soft robotic telepresence: HITODAMA, as well as deploy it in public spaces both in Israel and in Palestine. At the same time, I will perform local case studies in Finland to asses UX and technological strategies, targeting public spaces and educational systems. I hope to initiate international research collaborations, not only in Japan as I have already done in my Master's thesis, but also in Israel, where cutting edge research in the psychology of conflict and expressive robotics is taking place, and in Palestine, where emerging artists and technologists are dealing with the conflict from personal and informed perspectives. The work on HITODAMA in my Master's thesis had taught me valuable lessons that will serve me as I proceed toward the next steps. I have devised the following draft for a research plan based on the conclusions and evaluations of my Master's thesis, as well as my future aspirations for the field.
 
 # Research overview
  
 ## From reification to incarnation through user experience
-In my Master's thesis, I investigated and categorized various ways in which the robotic telepresence, or remote re-embodiment, is experienced both by the local interlocutor who is interacting with the mediating robot, and the remote individual taking control of the robot. I was primarily interested in the depth, authenticity and presence of the controller's inner, irreducible qualities, as they are expressed through the robot, and the ability to express those qualities through a remote web-based interface. I began to materialize these notions nominally through phenomenological terms such a flesh [@merleau-pontyVisibleInvisibleFollowed1968], logos [@ranciereDisagreementPoliticsPhilosophy1999;@edgarThingsSeenUnseen2012] and intercorporeality [@merleau-pontyVisibleInvisibleFollowed1968;@meyerIntercorporealityEmergingSocialities2017]. A spectrum could be thought-of (see @fig:incarnation), describing the range of of phenomena within individuals in both sides of the conversation in relation to the depth and corporeality of the interaction. As the local interlocutor incorporates the embodied figure of the stranger into their mind as it is represented by a robot, the experience ranges between two phenomenological endpoints: When it is a shallow, flat, virtual, experience, I hypothesize that the interlocutor is liable to generate a biased and fetishized figure of the stranger; a reification of predispositions that stick to the body of the stranger. When the interaction, however, has corporeal depth, the veritable logos of the stranger is assimilated into the body of the interlocutor. At the same time, a spectrum of experience exists for the controller, in which I hypothesize that the sense of agency and ownership [@dolezalRemoteBodyPhenomenology2009] rises in relation to the depth of the interaction. This affects the controller's ability to express themselves; when they experience an increased sense of ownership, they are more accountable to their actions, but are then more cautions in expressing deeper and more controversial opinions.
+In my Master's thesis, I investigated and categorized various ways in which robotic telepresence is experienced both by the local interlocutor who is interacting with the mediating robot, and the remote individual taking control of the robot. I was primarily interested in the depth, authenticity, and presence of the controller's inner, irreducible qualities, as they are expressed through the robot and its web-based interface. I began to materialize these notions nominally through phenomenological terms such as _flesh_ [@merleau-pontyVisibleInvisibleFollowed1968], _logos_ [@ranciereDisagreementPoliticsPhilosophy1999;@edgarThingsSeenUnseen2012] and _intercorporeality_ [@merleau-pontyVisibleInvisibleFollowed1968;@meyerIntercorporealityEmergingSocialities2017]. A spectrum could be thought-of (see @fig:incarnation), describing the range of phenomena within individuals on both sides of the conversation in relation to the depth and corporeality of the interaction. As the local interlocutor incorporates the embodied figure of the stranger into their mind as it is represented by a robot, the experience ranges between two phenomenological endpoints: When it is a shallow, flat, virtual, experience, I hypothesize that the interlocutor is liable to generate a biased and fetishized figure of the stranger [@ahmedStrangeEncountersEmbodied2000]; a reification of predispositions that stick to the body of the stranger. When the interaction, however, has corporeal depth, the veritable logos of the stranger is assimilated into the body of the interlocutor. At the same time, a spectrum of experience exists for the controller, in which I hypothesize that the sense of agency and ownership [@dolezalRemoteBodyPhenomenology2009] rises in relation to the depth of the interaction. This affects the controller's ability to express themselves; when they experience an increased sense of ownership, they are more accountable to their actions but are then more cautions in expressing deeper and more controversial opinions.
 
-Within the scope of the Master's thesis, those hypotheses were mostly taken as axioms, validated by a reflective, or even prereflective, logic of experience. A web-based soft robotic telepresence solution was produced to ratify those intuitions, and the results and their qualitative analysis were in-line with the theory but nonetheless inconclusive. What was shown, is that design choices which may first appear as user interface nuances, carry a crucial role in determining the position of the experience on the aforementioned intercorporeal scale. The use and location of the digital display, the turn-taking dynamics, modalities of language, the fluidity and dynamic range of the controls and robotic motion, the field of view of the camera, feedback signals - these are all elements that vary the holistic user experience as a whole, shifting the perception of the interlocutors and their view of the medium and of each-other. Pursuing these questions under the scope of a doctoral dissertation would provide me with ample time not only to expand on the theoretical notions that derived them, but to delve into each and every UX element, placing them on the intercorporeal scale, designing variations and testing them in the field.
+Within the scope of the Master's thesis, those hypotheses were mostly taken as axioms, validated by the reflective, or even pre-reflective, logics of experience. A web-based soft robotic telepresence solution was produced to ratify those intuitions, and the results and their qualitative analysis were largely in-line with the theory yet inconclusive. What was shown, however, is that design choices carry a crucial role in determining the position of the experience on the intercorporeal scale. The use and location of the digital display, the turn-taking dynamics, modalities of language, the fluidity and dynamic range of the controls and robotic motion, the field of view of the camera, feedback signals - these are all elements that vary the user experience as a whole, shifting the perception of the interlocutors, their view of the medium, and of each-other. Pursuing these questions under the scope of a doctoral dissertation would provide me with ample time not only to expand on the theoretical notions that derived them but to delve into each UX element, placing them on the intercorporeal scale, designing variations and testing them in the field.
 
-```{#fig:incarnation .pyplot caption="Interaction through robot mediation"}
+```{#fig:incarnation .pyplot caption="Interaction through robot mediation" links=false}
 import matplotlib.pyplot as plt
 
 plt.figure()
@@ -56,18 +56,30 @@ frame1.axes.get_yaxis().set_ticks([])
 ```
 
 ## Post-humanoid, web-based soft robotics as an expressive medium
-Half of my Master's thesis was dedicated to technological research and development in the field of soft robotics and remote telepresence. Novel methods for the production of soft-moving body parts were presented, and a modern web platform was developed for easy operation and extensibility. Additionally, HITODAMA, a post-humanoid robot, was presented, inspired by Japanese spirit folklore and the regenerative salamander Axolotl. While the design showed promise, it also fell short in utilizing the full range of possibilities enabled by the soft medium, as noted in my evaluation: "The robot’s movements, for instance, are restricted to switching between discrete states rather than utilizing the full spectrum of fluid continuous movements possible with soft robotics." Fluid web-base remote control, one that does not rely on passive sensing, but encourages active expression using lowest-denominator devices such as low-tier smartphones and desktops, is a challenge worth pursing. As a ground plan, the complexity of the soft body parts used for HITODAMA could be drastically reduced, opting for smaller, more abstract shapes that still convey organic characteristics and enable fluid control. 
+Half of my Master's thesis was dedicated to technological research and development in the field of soft robotics and remote telepresence. Novel methods for the production of soft-moving body parts were presented, and a modern web platform was developed for easy operation and extensibility. Based on those platforms, HITODAMA, a post-humanoid robot, was presented, inspired by Japanese spirit folklore and the regenerative salamander Axolotl. While the design showed promise, it also fell short in utilizing the full range of possibilities enabled by the soft medium, as noted in my evaluation: "The robot’s movements, for instance, are restricted to switching between discrete states rather than utilizing the full spectrum of fluid continuous movements possible with soft robotics." Fluid web-based remote control, one that does not rely on passive sensing, but encourages active expression using lowest-denominator devices such as low-tier smartphones and desktops, is a challenge worth pursuing. As a ground plan, the complexity of the soft body parts used for HITODAMA could be drastically reduced, opting for smaller, more abstract shapes that still convey organic characteristics and enable fluid control. 
 
-Another aspect of the soft medium that was not explored during the thesis was the tethered nature of pneumatic solutions, requiring the robot to be connected by air tubes to an array of pneumatic circuits. This in fact limits the mobility of the experience, forcing the interaction to occur within the limited range of the tubes, but also frames the experience to a specific site and context. Untethered solutions for soft robots do exist, however, whether they are using enclosed pneumatic micro-circuits, or completely different actuation methods such as dielectric elastomers [@ahmedStrangeEncountersEmbodied2000]. The viability, cost and complexity of those solutions should be measured against the advantages of a more mobile experience.
+Another aspect of the soft medium that was not explored during the thesis was the tethered nature of pneumatic solutions, requiring the robot to be connected by air tubes to an array of pneumatic circuits. This, in fact, limits the mobility of the experience, forcing the interaction to occur within the limited range of the tubes, but also frames the experience to a specific site and context. Untethered solutions for soft robots do exist, however, whether they are using enclosed pneumatic micro-circuits, or completely different actuation methods such as dielectric elastomers [@richUntetheredSoftRobotics2018]. The viability, cost, and complexity of those solutions should be measured against the advantages of a more mobile experience.
 
 ## Robotic mediation for conflict resolution
-The primary goal as was stated for HITODAMA, was mediation in conflict resolution when a face-to-face meeting between the adversaries is not possible or highly unlikely. In my Master's thesis, however, the scope of the tests was limited to interactions between Finnish locales and foreign immigrants. Furthermore, I did not have time for a deep investigation of conflict resolution methodologies and their juxtaposition with telerobotic mediation. One vantage point comes from the research of Professor Ruth Feldman, who formulates connections between the haptic sociality, neuroscience, and approaches to conflict resolution in the Israeli-Palestinian conflict [@influsSocialNeuroscienceApproach2018A]. I have contacted Professor Feldman regarding my project and was invited to visit her lab. I asked her whether she collaborated with the MILab ^[http://milab.idc.ac.il/], a human-computer interaction lab under the same academic institution as Feldman that specializes in innovation in the field of robotic movement [@hoffmanDesigningRobotsMovement2014]. Feldman has responded that they were in fact planning a collaboration, but were so far not able to realize it yet due to time constraints. It is my hope that I would be able to act as a bridge between those two disciplines, perhaps with the help of IDC's 
-Global Affairs and Conflict Resolution Cluster^[https://www.idc.ac.il/en/schools/rris/undergraduate/pages/global-conflict.aspx]. Naturally scholars specializing in conflict resolution are abundant in Israel and there are multiple pathways for collaboration. One point of interface could occur with Dr Yael Berda, who specializes in freedom of movement and the bureaucracy that manages it [@berdaBureaucracyOccupationPermit2012]. In an aspiring interview in _Haaretz_ newspaper ^[https://www.haaretz.co.il/magazine/.premium-MAGAZINE-1.5975041], Berda discussed the embodied cognitive effects of the occupation, and the bodily experience of crossing the separation barrier. In addition to Israeli connections, it is imperative to involve the Palestinian art and science scene in the process. Before starting my Master's thesis, I had a chance to meet an artist and maker from Ramallah with whom I shared my vision for this project. He was very excited to participate, but because HITODAMA never made it to the final goal, we never carried through with our plans for collaboration. This time, however, I will commit to realizing the project in Israel and Palestine and will pursue the involvement of Palestinian partners as early as possible.
+The primary goal that was stated for HITODAMA is mediation in conflict resolution when a face-to-face meeting between the adversaries is not possible or highly unlikely. In my Master's thesis, however, the scope of the tests was limited to interactions between Finnish locales and foreign immigrants. Furthermore, I did not have time for a deep investigation of conflict resolution methodologies and their juxtaposition with telerobotic mediation. One vantage point comes from the research of Professor Ruth Feldman, who formulates connections between haptic sociality, neuroscience, and approaches to conflict resolution in the Israeli-Palestinian conflict [@influsSocialNeuroscienceApproach2018]. I have contacted Professor Feldman regarding my project and was invited to visit her lab. I asked her whether she collaborated with the MILab ^[http://milab.idc.ac.il/], a human-computer interaction lab under the same academic institution as Feldman that specializes in innovation in the field of robotic movement [@hoffmanDesigningRobotsMovement2014]. Feldman has responded that they were, in fact, planning a collaboration, but were so far not able to realize it due to time constraints. It is my hope that I would be able to act as a bridge between those two disciplines, perhaps with the help of IDC's 
+Global Affairs and Conflict Resolution Cluster^[https://www.idc.ac.il/en/schools/rris/undergraduate/pages/global-conflict.aspx]. Naturally, scholars specializing in conflict resolution are abundant in Israel and there are multiple pathways for collaboration. One point of interface could occur with Dr. Yael Berda, who specializes in freedom of movement and the bureaucracy that manages it. In an interview in _Haaretz_ newspaper ^[https://www.haaretz.co.il/magazine/.premium-MAGAZINE-1.5975041 (In Hebrew and for subscribers only)], Berda discussed the embodied cognitive effects of the occupation and the bodily experience of crossing the separation barrier. In addition to Israeli connections, it is imperative to involve the Palestinian art and science scene in the process. Before starting my Master's thesis, I had a chance to meet an artist and maker from Ramallah with whom I shared my vision for this project. He was very excited to participate, but because HITODAMA never made it to the final goal, we never carried through with our plans for collaboration. This time, however, I will commit to realizing the project in Israel and Palestine and will pursue the involvement of Palestinian partners as early as possible.
 
 
 # Time-line
 
-```{#fig:timeline .pyplot caption="Research timeline draft"}
+I propose to divide my studies into four milestones in four years. Three milestones will produce a publication, and the final production is the dissertation, aggregating and concluding the research. The milestones suggested are as follows:
+
+1. **Fluid web-based control for soft robotics**: The biggest technical challenge lies in the control methods for soft robotics. How do we allow a fluid and authentic transference of the controller's _flesh_ through web-based soft robotics control? The goal is to optimize the soft robotics medium for fluid remote control while still maintaining an accessible web-based interface. The technological research would be accompanied by phenomenological research, to match the right technology to the right experience, and budget planning for the required technological resources.
+
+2. **Designing an avatar for incarnation**: Based on the results from the previous stage and the conclusions from the Master's thesis, design an avatar that maintains agency and presence, while still providing ample interaction features. The goal is to provide a flexible interaction platform but without losing the perception of the medium as an incarnation of the controller, reducing it to a simple communication device. The research would incorporate design methodologies backed by phenomenological investigations. 
+
+3. **Designing a telerobot for conflict resolution**: After the fundamental components that make up a meaningful and fluid telerobotic interaction are decided, the implementation would focus on the scenario of conflict resolution and tackling prejudice and bias. Preliminary research for this task would begin early on, to make sure that the chosen solutions for interaction are able to afford the necessary modalities for conflict resolution (for example, might it be necessary to allow presenting internet media and resources during the conversation?).
+
+4. **Final experiment: Israel & Palestine**: The final implementation would be tested and documented on the field in Israel and Palestine, followed by an exhibition of the results and the release of the final dissertation.
+
+Parallel to the above-mentioned milestones, collaboration, and residency opportunities would be sought after. According to the availability and research-focus of partners in Israel and Palestine, the right time for a residency would be chosen. The following graph outlines the planned schedule for the studies on a month-by-month basis:
+
+```{#fig:timeline .pyplot caption="Research timeline draft" links=false}
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -75,32 +87,59 @@ x_arr = np.zeros(48)
 y_arr = np.arange(48)
 
 x_arr[0] = -24
-x_arr[47] = 24
-x_arr[2] = 24
-x_arr[4] = -24
-x_arr[6] = 24
+x_arr[1] = 24
+x_arr[2] = -24
+x_arr[5] = 24
+x_arr[6] = -24
 x_arr[10] = -24
 x_arr[12] = 24
-
+x_arr[14] = -24
+x_arr[15] = 24
+x_arr[18] = -24
+x_arr[22] = 24
+x_arr[24] = -24
+x_arr[26] = 24
+x_arr[28] = -24
+x_arr[30] = 24
+x_arr[32] = 24
+x_arr[34] = -24
+x_arr[38] = 24
+x_arr[41] = -24
+x_arr[42] = 24
+x_arr[47] = 24
 
 plt.hlines(y_arr, 0, x_arr, color='red')  # Stems
 plt.plot(x_arr, y_arr, 'D')  # Stem ends
 plt.plot([0, 0], [y_arr.min(), y_arr.max()], '--')  # Middle bar
+plt.ylabel("Month")
 ax = plt.gca()
 ax.invert_yaxis()
-ax.annotate("Beginning of studies", xy=(-24, 0), xytext=(0,-20), textcoords="offset points", fontsize='large')
-ax.annotate("Mapping out critical UX\nelements and design choices", xy=(24, 2), xytext=(-180,-35), textcoords="offset points", fontsize='large')
-ax.annotate("Determine soft robotics\napproaches for the improved\ndesign", xy=(-24, 4), xytext=(0,-50), textcoords="offset points", fontsize='large')
-ax.annotate("Design of prototype experiment", xy=(24, 6), xytext=(-180,-20), textcoords="offset points", fontsize='large')
-ax.annotate("Experiment results", xy=(-24, 10), xytext=(0,-20), textcoords="offset points", fontsize='large')
-ax.annotate("Publish paper", xy=(24, 12), xytext=(-180,-20), textcoords="offset points", fontsize='large')
-ax.annotate("End of studies", xy=(24, 47), xytext=(-80,15), textcoords="offset points", fontsize='large')
+ax.annotate("Beginning of studies", xy=(-24, 0), xytext=(0,10), textcoords="offset points", fontsize='large')
+ax.annotate("Fluid control:\nphenomenological research", xy=(24, 1), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Fluid control:\ntechnological research+\nbudget planning", xy=(-24, 2), xytext=(0,-43), textcoords="offset points", fontsize='large')
+ax.annotate("Planning Israel-Palestine\nresidencies", xy=(-24, 6), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Fluid control:\nbeginning of implementaiton", xy=(24, 5), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Fluid control:\nimplementation experiment", xy=(-24, 10), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Fluid control:\npublish paper+exhibition", xy=(24, 12), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Incarnation avatar:\ndesign research", xy=(-24, 14), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Incarnation avatar:\nphenomenlogical investigations", xy=(24, 15), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Incarnation avatar:\nbeginning implementation", xy=(-24, 18), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Incarnation avatar:\nimplementation experiment", xy=(24, 22), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Incarnation avatar:\npublish paper+exhibition", xy=(-24, 24), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Conflict resolution:\nresearch", xy=(24, 26), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Conflict resolution:\nfinal implementation design +\nbudget planning", xy=(-24, 28), xytext=(0,-43), textcoords="offset points", fontsize='large')
+ax.annotate("Initiating Palestine collboration", xy=(24, 30), xytext=(-180,-17), textcoords="offset points", fontsize='large')
+ax.annotate("Conflict resolution:\nbeginning implementation", xy=(24, 32), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Conflict resolution:\ndocumentation planning", xy=(-24, 34), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Conflict resolution:\nexperiment", xy=(24, 38), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Conflict resolution:\npublish paper+exhibition", xy=(-24, 41), xytext=(0,-30), textcoords="offset points", fontsize='large')
+ax.annotate("Finalizing dissertation\nmanuscript", xy=(24, 42), xytext=(-180,-30), textcoords="offset points", fontsize='large')
+ax.annotate("End of studies", xy=(24, 47), xytext=(-80, -17), textcoords="offset points", fontsize='large')
+
+ax.axes.get_xaxis().set_ticks([])
+
 fig = plt.gcf()
 fig.set_size_inches(8, 12)
 ```
-
-
-# Summary
-
 
 # References
